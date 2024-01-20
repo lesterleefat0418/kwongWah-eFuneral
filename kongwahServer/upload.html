@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Image to Window</title>
+    <style>
+        #imagePreview {
+            max-width: 300px;
+            max-height: 300px;
+        }
+    </style>
+    <script>
+        function handleImageUpload(event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var image = new Image();
+                image.src = e.target.result;
+                image.onload = function () {
+                    var imagePreview = document.getElementById('imagePreview');
+                    imagePreview.src = image.src;
+                };
+            };
+            reader.readAsDataURL(file);
+        }
+    </script>
+</head>
+<body>
+    <h1>Upload Image to PC</h1>
+    <input type="file" accept="image/*" onchange="handleImageUpload(event)">
+    <br>
+    <img id="imagePreview" alt="Image Preview">
+	<br/>
+	<br/>
+	<h1>Upload Image to Localhost</h1>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+        <input type="file" accept="image/*" name="image" id="imageInput">
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
