@@ -1,14 +1,14 @@
 <?php
-$latestImageFile = getLatestImageFile();
+$latestImageFile = getLatestImageFile(date('Ymd'));
 if ($latestImageFile !== null) {
-    $imageUrl = 'http://localhost/kongwahServer/uploads/people/' . $latestImageFile;
+    $imageUrl = 'http://localhost/kongwahServer/uploads/people/' . date('Ymd') . '/' . $latestImageFile;
     echo $imageUrl;
 } else {
     echo ""; // Return an empty string if no new image is available
 }
 
-function getLatestImageFile() {
-    $uploadFolder = 'uploads/people/';
+function getLatestImageFile($dateFolder) {
+    $uploadFolder = 'uploads/people/' . $dateFolder . '/';
     $latestFile = null;
     $latestTime = 0;
 

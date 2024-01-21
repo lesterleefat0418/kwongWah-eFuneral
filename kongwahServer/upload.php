@@ -3,8 +3,11 @@ if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
     $file = $_FILES['image']['tmp_name'];
     $filename = $_FILES['image']['name'];
 
+    // Get the current date in the format 'yyyymmdd'
+    $dateFolder = date('Ymd');
+
     // Destination path for the uploaded file
-    $destination = 'uploads/people/' . urlencode($filename);
+    $destination = 'uploads/people/' . $dateFolder . '/' . urlencode($filename);
 
     // Set the desired maximum width and height for the resized image
     $maxWidth = 1920;
@@ -39,6 +42,11 @@ if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
     $newWidth = $originalWidth * $ratio;
     $newHeight = $originalHeight * $ratio;
 
+    // Create the date folder if it doesn't exist
+    if (!is_dir('uploads/people/' . $dateFolder)) {
+        mkdir('uploads/people/' . $dateFolder, 0777, true);
+    }
+
     // Create a new blank image with the desired dimensions
     $resizedImage = imagecreatetruecolor($newWidth, $newHeight);
 
@@ -54,4 +62,3 @@ if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
 } else {
     echo 'Error: ' . $_FILES['image']['error'];
 }
-?>
