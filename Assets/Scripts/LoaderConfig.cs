@@ -31,6 +31,8 @@ public class LoaderConfig : MonoBehaviour
             Debug.Log("config file is empty and get data from inspector!");
             this.SaveRecords();
         }
+
+        this.changeScene(1);
     }
 
     public void SaveRecords()

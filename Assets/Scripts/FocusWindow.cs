@@ -67,8 +67,8 @@ public class FocusWindow : Singleton<FocusWindow>
         yield return new WaitForSeconds(waitSeconds);
     }
 #endif
-        // Start is called before the first frame update
-        void Start()
+    // Start is called before the first frame update
+    protected virtual void Start()
     {
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
         unityWindow = GetActiveWindow();

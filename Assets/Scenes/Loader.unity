@@ -383,10 +383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 558532249}
   - component: {fileID: 558532248}
-  - component: {fileID: 558532247}
   - component: {fileID: 558532250}
-  - component: {fileID: 558532251}
-  - component: {fileID: 558532252}
   m_Layer: 0
   m_Name: Loader
   m_TagString: Untagged
@@ -394,18 +391,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &558532247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558532246}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15e4e7e8c8a8c9149b4dd60876c98082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &558532248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,7 +406,6 @@ MonoBehaviour:
   resolution: {x: 1920, y: 1080}
   mouseStatus: 1
   enableFocusWindow: 0
-  focusWindow: {fileID: 558532247}
 --- !u!4 &558532249
 Transform:
   m_ObjectHideFlags: 0
@@ -450,41 +434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81525055f063f984a901e016f2399a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &558532251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558532246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c255fa29fb53c57438d786684868b5f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  getImageUrl: http://localhost/kongwahServer/getPhoto.php
-  image: {fileID: 1777057354}
---- !u!114 &558532252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558532246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcbcbc3ffee2a5e40962a78c72f29fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uploadUrl: http://localhost/kongwahServer/uploadResult.php
-  uploadQRUrl: http://localhost/kongwahServer/uploadResultQR.php
-  resultPath: http://localhost/kongwahServer/uploads/results
-  captureCamera: {fileID: 330585545}
-  targetScaler: {fileID: 1706965076}
-  outputFormat: 0
-  renderTexture: {fileID: 0}
-  qrImage: {fileID: 965156019}
-  disableUploadPhoto: 0
 --- !u!1 &965156017
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &965156018
 RectTransform:
   m_ObjectHideFlags: 0
@@ -745,7 +694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &1777057352
 CanvasRenderer:
   m_ObjectHideFlags: 0

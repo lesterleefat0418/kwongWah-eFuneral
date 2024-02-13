@@ -1,25 +1,25 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(FocusWindow))]
-public class ScreenController : MonoBehaviour
+public class ScreenController : FocusWindow
 {
     public Vector2Int resolution;
     public bool mouseStatus = true;
     public bool enableFocusWindow = true;
-    public FocusWindow focusWindow;
     // Start is called before the first frame update
 
     private void Awake()
     {
         QualitySettings.vSyncCount = 0;  // VSync must be disabled
         Application.targetFrameRate = 60;
+        Application.runInBackground = true;
     }
 
-    private void Start()
+    protected override void Start()
     {
         Screen.SetResolution(this.resolution.x, this.resolution.y, true);
         Cursor.visible = this.mouseStatus;
+        base.Start();
     }
 
     public void Update()
@@ -32,12 +32,22 @@ public class ScreenController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.F2))
         {
             this.enableFocusWindow = !this.enableFocusWindow;
-            focusWindow.isOn = this.enableFocusWindow;
+            this.isOn = this.enableFocusWindow;
         }
         else if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("Refresh Scene");
             SceneManager.LoadScene(1);
         }
+
+        /*foreach (KeyCode keyCode in System.Enum.GetValues(typeof(KeyCode)))
+        {
+            if (Input.GetKeyDown(keyCode))
+            {
+                Debug.Log("Key pressed: " + keyCode);
+            }
+        }*/
+
+        this.isOn = this.enableFocusWindow;
     }
 }

@@ -57,12 +57,15 @@ public class PeoplePhotoLoader : MonoBehaviour
                 // Get the downloaded texture
                 Texture2D originalTexture = DownloadHandlerTexture.GetContent(imageRequest);
 
-                //Texture2D tex = rotateTexture(originalTexture);
-
                 // Apply the texture to the image renderer
-                if (image != null)
+                if (this.image != null && originalTexture != null)
                 {
-                    image.texture = originalTexture;
+                    Debug.Log(originalTexture.width + ";" + originalTexture.height);
+                    float ratio = (float)originalTexture.width / (float)originalTexture.height;
+                    Debug.Log("ratio: " + ratio);
+                    AspectRatioFitter ratioFitter = this.image.GetComponent<AspectRatioFitter>();
+                    ratioFitter.aspectRatio = ratio;
+                    this.image.texture = originalTexture;
                 }
             }
         }
