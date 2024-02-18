@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using SFB;
 
 public class PeoplePhotoLoader : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class PeoplePhotoLoader : MonoBehaviour
                     if (!string.IsNullOrEmpty(imageUrl) && imageUrl != currentImageUrl)
                     {
                         currentImageUrl = imageUrl;
-                        yield return LoadImageFromURL(imageUrl);
+                        yield return LoadImage(imageUrl);
                     }
                 }
             }
@@ -39,38 +40,6 @@ public class PeoplePhotoLoader : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
     }
-
-    IEnumerator LoadImageFromURL(string imageUrl)
-    {
-        // Load the image using the received URL
-        using (UnityWebRequest imageRequest = UnityWebRequestTexture.GetTexture(imageUrl))
-        {
-            yield return imageRequest.SendWebRequest();
-
-            if (imageRequest.result != UnityWebRequest.Result.Success)
-            {
-                Debug.Log("Failed to download image: " + imageRequest.error);
-            }
-            else
-            {
-                Debug.Log("downloaded image");
-                // Get the downloaded texture
-                Texture2D originalTexture = DownloadHandlerTexture.GetContent(imageRequest);
-
-                // Apply the texture to the image renderer
-                if (this.image != null && originalTexture != null)
-                {
-                    Debug.Log(originalTexture.width + ";" + originalTexture.height);
-                    float ratio = (float)originalTexture.width / (float)originalTexture.height;
-                    Debug.Log("ratio: " + ratio);
-                    AspectRatioFitter ratioFitter = this.image.GetComponent<AspectRatioFitter>();
-                    ratioFitter.aspectRatio = ratio;
-                    this.image.texture = originalTexture;
-                }
-            }
-        }
-    }
-
 
     public Texture2D rotateTexture(Texture2D image)
     {
@@ -103,5 +72,63 @@ public class PeoplePhotoLoader : MonoBehaviour
         }
 
         return ret;
+    }
+
+
+    public void LoadImageFromDesktop()
+    {
+        var extensions = new[] {
+                new ExtensionFilter("Image Files", "png", "jpg", "jpeg" )
+            };
+
+        string[] paths = StandaloneFileBrowser.OpenFilePanel("Select Image", "", extensions, false);
+
+        if (paths.Length > 0)
+        {
+            string path = paths[0];
+
+            // Load and display the image
+            StartCoroutine(LoadImage(path));
+        }
+    }
+
+    public void ResetPhoto()
+    {
+        if (this.image != null)
+        {
+            this.image.texture = null;
+            AspectRatioFitter ratioFitter = this.image.GetComponent<AspectRatioFitter>();
+            ratioFitter.aspectRatio = 1f;
+        }
+    }
+
+    private IEnumerator LoadImage(string path)
+    {
+        using (UnityWebRequest imageRequest = UnityWebRequestTexture.GetTexture(path))
+        {
+            yield return imageRequest.SendWebRequest();
+
+            if (imageRequest.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log("Failed to download image: " + imageRequest.error);
+            }
+            else
+            {
+                Debug.Log("downloaded image");
+                // Get the downloaded texture
+                Texture2D originalTexture = DownloadHandlerTexture.GetContent(imageRequest);
+
+                // Apply the texture to the image renderer
+                if (this.image != null && originalTexture != null)
+                {
+                    Debug.Log(originalTexture.width + ";" + originalTexture.height);
+                    float ratio = (float)originalTexture.width / (float)originalTexture.height;
+                    Debug.Log("ratio: " + ratio);
+                    AspectRatioFitter ratioFitter = this.image.GetComponent<AspectRatioFitter>();
+                    ratioFitter.aspectRatio = ratio;
+                    this.image.texture = originalTexture;
+                }
+            }
+        }
     }
 }
