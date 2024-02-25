@@ -72,7 +72,7 @@ public class FocusWindow : Singleton<FocusWindow>
     {
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
         unityWindow = GetActiveWindow();
-        StartCoroutine(RefocusWindow(2f));
+        StartCoroutine(RefocusWindow(0.1f));
 #endif
     }
 }
