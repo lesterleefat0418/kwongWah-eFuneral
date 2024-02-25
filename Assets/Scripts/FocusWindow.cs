@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FocusWindow : Singleton<FocusWindow>
 {
+    public float reFocusTime = 0.1f;
     private Coroutine m_task;
 
     private bool m_isOn = true;
@@ -35,6 +36,9 @@ public class FocusWindow : Singleton<FocusWindow>
     static extern IntPtr GetActiveWindow();
 
     [DllImport("user32.dll")]
+    private static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+
+    [DllImport("user32.dll")]
     static extern bool SetForegroundWindow(IntPtr hWnd);
 
     [DllImport("user32.dll")]
@@ -43,6 +47,17 @@ public class FocusWindow : Singleton<FocusWindow>
     const int ALT = 0xA4;
     const int EXTENDEDKEY = 0x1;
     const int KEYUP = 0x2;
+
+    private const uint SWP_NOMOVE = 0x0002;
+    private const uint SWP_NOSIZE = 0x0001;
+    private static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
+    public bool isTopMostEnabled = true;
+
+    private void SetTopMost()
+    {
+        if(isTopMostEnabled)
+            SetWindowPos(unityWindow, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
+    }
 
     private IEnumerator RefocusWindow(float waitSeconds)
     {
@@ -72,7 +87,13 @@ public class FocusWindow : Singleton<FocusWindow>
     {
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
         unityWindow = GetActiveWindow();
-        StartCoroutine(RefocusWindow(0.1f));
+        SetTopMost();
+        StartCoroutine(RefocusWindow(this.reFocusTime));
 #endif
+    }
+
+    private void OnApplicationQuit()
+    {
+        this.isTopMostEnabled = false;
     }
 }

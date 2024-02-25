@@ -18,6 +18,8 @@ public class VirtualKeyboard: MonoBehaviour
     //Show the touch keyboard (tabtip.exe).
     public void ShowTouchKeyboard()
     {
+        HideTouchKeyboard();
+
         ExternalCall("C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\Tabtip.exe", null, false);
         //ExternalCall("TABTIP", null, false);
     }
@@ -83,4 +85,9 @@ public class VirtualKeyboard: MonoBehaviour
         return process;
     }
 
+
+    private void OnApplicationQuit()
+    {
+        this.HideTouchKeyboard();
+    }
 }
