@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class PageController : MonoBehaviour
 {
+    public static PageController Instance = null;
     public Page pageController;
     public int languageId;
+
+    private void Awake()
+    {
+        if(Instance == null)
+            Instance = this;
+    }
 
     public int SelectedLanguageId
     {

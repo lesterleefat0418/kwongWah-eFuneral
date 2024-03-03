@@ -8,14 +8,14 @@ using UnityEngine.Events;
 public class Page
 {
     public Group[] pages;
-    public int currentPageId;
+    public int currentId;
     public bool isAnimated = false;
     public Idling[] pageIdling;
 
     public void init(float[] _pageTotalTime = null)
     {
-        this.currentPageId = 0;
-        this.setPage(this.currentPageId);
+        this.currentId = 0;
+        this.setPage(this.currentId);
         this.isAnimated = false;
 
         for(int i=0; i < this.pageIdling.Length; i++)
@@ -52,7 +52,7 @@ public class Page
         if (!this.isAnimated)
         {
             this.isAnimated = true;
-            this.currentPageId = toPageId;
+            this.currentId = toPageId;
             for (int i = 0; i < pages.Length; i++)
             {
                 if (this.pages[i] != null)
@@ -63,10 +63,29 @@ public class Page
                     }
                     else
                     {
-                        this.pages[i].showAnimation(false, 0f, () => reset(toPageId));
+                        this.pages[i].showAnimation(false, 0f);
                         if(this.pageIdling.Length > 0) if(this.pageIdling[i] != null)this.pageIdling[i].triggered = false;
                     }
                 }
+            }
+        }
+    }
+
+    public void toNextPage(Action stepEvent = null, Action completedEvent = null)
+    {
+        if(this.isAnimated)
+            return;
+        else
+        {
+            if (this.currentId < this.pages.Length - 1)
+            {
+                this.currentId += 1;
+                this.setPage(this.currentId);
+                stepEvent.Invoke();
+            }
+            else
+            {
+                completedEvent.Invoke();
             }
         }
     }
@@ -119,8 +138,8 @@ public class Page
 
     public void resetIdling()
     {
-        this.pageIdling[currentPageId].init();
-        this.reset(currentPageId);
+        this.pageIdling[this.currentId].init();
+        this.reset(this.currentId);
     }
 
 }

@@ -48,9 +48,10 @@ public class FocusWindow : Singleton<FocusWindow>
     const int EXTENDEDKEY = 0x1;
     const int KEYUP = 0x2;
 
-    private const uint SWP_NOMOVE = 0x0002;
-    private const uint SWP_NOSIZE = 0x0001;
+    public const uint SWP_NOMOVE = 0x2;
+    public const uint SWP_NOSIZE = 0x1;
     private static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
+    private static readonly IntPtr HWND_NOTTOPMOST = new IntPtr(-2);
     public bool isTopMostEnabled = true;
 
     private void SetTopMost()
