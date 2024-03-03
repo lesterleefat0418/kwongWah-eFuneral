@@ -8,6 +8,7 @@ public class PageController : MonoBehaviour
     public static PageController Instance = null;
     public Page pageController;
     public int languageId;
+    public CanvasGroup captureBg;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class PageController : MonoBehaviour
     void Start()
     {
         this.pageController.init();
+        if(this.captureBg != null) this.captureBg.alpha = 0;
     }
 
     // Update is called once per frame
@@ -56,6 +58,7 @@ public class PageController : MonoBehaviour
     public void ChangePage(int toPageId)
     {
         this.pageController.setPage(toPageId);
+        if(toPageId >= 4) if (this.captureBg != null) this.captureBg.alpha = 1;
     }
 
     public void BackToHome()

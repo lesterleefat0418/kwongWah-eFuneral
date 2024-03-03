@@ -8,7 +8,7 @@ public class SettingHall : MonoBehaviour
 {
     public Page steps;
     public Image[] stepsHintFrame;
-    public Select selectFlower, selectFlowerStand, selectFlowerBasket, selectSpeakText;
+    public Select selectFlower, selectFlowerStand, selectFlowerBasket, selectSpeakText, selectOfferFood, selectFoodToBuddle;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +18,8 @@ public class SettingHall : MonoBehaviour
         this.selectFlowerStand.init();
         this.selectFlowerBasket.init();
         this.selectSpeakText.init();
+        this.selectOfferFood.init();
+        this.selectFoodToBuddle.init();
     }
 
     // Update is called once per frame
@@ -51,7 +53,13 @@ public class SettingHall : MonoBehaviour
             case 4:
                 this.SelectSpeakText(-1);// not select
                 break;
-                
+            case 5:
+                this.SelectOfferFood(-1);// not select
+                break;
+            case 6:
+                this.SelectFoodToBuddle(-1);// not select
+                break;
+
         }
     }
 
@@ -74,6 +82,17 @@ public class SettingHall : MonoBehaviour
     {
         this.selectSpeakText.set(id);
     }
+
+    public void SelectOfferFood(int id)
+    {
+        this.selectOfferFood.set(id);
+    }
+
+    public void SelectFoodToBuddle(int id)
+    {
+        this.selectFoodToBuddle.set(id);
+    }
+
 
     public void SelectSpeakTextSwitchPage(bool right)
     {

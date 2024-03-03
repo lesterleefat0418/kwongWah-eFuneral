@@ -37,18 +37,17 @@ public class Select
 
     public void changePage(bool right)
     {
-        int toPageId = 0;
         if (right)
         {
             if(this.page.currentId < this.page.pages.Length - 1)
-                toPageId = this.page.currentId + 1;
+                this.page.currentId += 1;
         }
         else
         {
             if(this.page.currentId > 0)
-                toPageId = this.page.currentId - 1;
+                this.page.currentId -= 1;
         }
 
-        this.page.setPage(toPageId);
+        this.page.setPage(this.page.currentId);
     }
 }
