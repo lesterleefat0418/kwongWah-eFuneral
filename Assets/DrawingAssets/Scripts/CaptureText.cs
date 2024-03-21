@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class CaptureText : MonoBehaviour
 {
     public Image image;
-    public Transform parent;
     public DrawViewController drawView;
 
     private void Start()
@@ -42,6 +41,18 @@ public class CaptureText : MonoBehaviour
         capturedTexture.ReadPixels(new Rect(0, 0, renderTexture.width, renderTexture.height), 0, 0);
         capturedTexture.Apply();
 
+        // Change black pixels to white
+        Color[] pixels = capturedTexture.GetPixels();
+        for (int i = 0; i < pixels.Length; i++)
+        {
+            if (pixels[i].r == 0 && pixels[i].g == 0 && pixels[i].b == 0)
+            {
+                pixels[i] = new Color(1f, 1f, 1f, pixels[i].a);
+            }
+        }
+        capturedTexture.SetPixels(pixels);
+        capturedTexture.Apply();
+
         // Create a new Sprite with the captured texture
         Sprite capturedSprite = Sprite.Create(capturedTexture, new Rect(0, 0, width, height), new Vector2(0.5f, 0.5f));
 
@@ -59,7 +70,8 @@ public class CaptureText : MonoBehaviour
         capturedImage.sprite = capturedSprite;
 
         // Set the captured image's parent to the parent object
-        capturedImageGO.transform.SetParent(parent, false);
+        if(SendFeelings.Instance != null) 
+            SendFeelings.Instance.feedbackView.AddComponent(capturedImageGO);
 
         // Clean up
         RenderTexture.active = null;
