@@ -7,19 +7,32 @@ using System.Runtime.InteropServices;
 
 public class VirtualKeyboard: MonoBehaviour
 {
+    public static VirtualKeyboard Instance = null;
+
     [DllImport("user32")]
     static extern IntPtr FindWindow(String sClassName, String sAppName);
 
+    [DllImport("user32.dll", SetLastError = true)]
+    static extern bool SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+        private const int SWP_NOSIZE = 0x0001;
+    private const int SWP_NOZORDER = 0x0004;
     [DllImport("user32")]
     static extern bool PostMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
 
     private static Process _onScreenKeyboardProcess = null;
 
+    public void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     //Show the touch keyboard (tabtip.exe).
     public void ShowTouchKeyboard()
     {
         HideTouchKeyboard();
-
         ExternalCall("C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\Tabtip.exe", null, false);
         //ExternalCall("TABTIP", null, false);
     }
