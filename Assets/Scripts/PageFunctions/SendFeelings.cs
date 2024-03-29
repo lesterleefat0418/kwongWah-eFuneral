@@ -12,8 +12,8 @@ public class SendFeelings : MonoBehaviour
     public bool showFeelingBox = false;
     private float originalY;
     public FeedbackView feedbackView;
-    public CanvasGroup inputField, drawingPanel;
-    public GameObject message;
+    public CanvasGroup inputField, drawingPanel, audioPanel;
+    public GameObject message, recordResult;
 
 
     private void Awake()
@@ -61,17 +61,20 @@ public class SendFeelings : MonoBehaviour
                 Debug.Log("Inputfield");
                 SetUI.Run(this.inputField, true);
                 SetUI.Run(this.drawingPanel, false);
+                SetUI.Run(this.audioPanel, false);
                 break;
             case 1:
                 Debug.Log("DrawingPanel");
                 SetUI.Run(this.inputField, false);
                 SetUI.Run(this.drawingPanel, true);
-                if(VirtualKeyboard.Instance != null) VirtualKeyboard.Instance.HideTouchKeyboard();
+                SetUI.Run(this.audioPanel, false);
+                if (VirtualKeyboard.Instance != null) VirtualKeyboard.Instance.HideTouchKeyboard();
                 break;
             case 2:
                 Debug.Log("Audio Record");
                 SetUI.Run(this.inputField, false);
                 SetUI.Run(this.drawingPanel, false);
+                SetUI.Run(this.audioPanel, true);
                 VirtualKeyboard.Instance.HideTouchKeyboard();
                 if (VirtualKeyboard.Instance != null) VirtualKeyboard.Instance.HideTouchKeyboard();
                 break;
@@ -90,6 +93,16 @@ public class SendFeelings : MonoBehaviour
         newMessage.GetComponent<Text>().color = Color.white;
         this.inputField.GetComponent<InputField>().text = "";
         this.feedbackView.AddComponent(newMessage);
+    }
+
+    public void sendAudioRecord()
+    {
+        if (this.recordResult == null)
+            return;
+
+        var newAR = Instantiate(this.recordResult);
+        newAR.name = "audio";
+        this.feedbackView.AddComponent(newAR);
     }
 }
 

@@ -96,6 +96,7 @@ namespace Recorder
         [Tooltip("Press and Hold Record button to Record")]
         public bool holdToRecord = false;
 
+        float recordBtnOriginalScale;
         #endregion
 
         #region MonoBehaviour Callbacks
@@ -125,6 +126,9 @@ namespace Recorder
             {
                 return;
             }
+
+
+            this.recordBtnOriginalScale = RecordButton.GetComponent<RectTransform>().localScale.x;
         }
 
         private void Update()
@@ -242,7 +246,7 @@ namespace Recorder
             recordingTime = 0f;
             isRecording = true;
 
-            StartCoroutine(ScaleOverTime(RecordButton.gameObject, 1.2f));
+            StartCoroutine(ScaleOverTime(RecordButton.gameObject, (this.recordBtnOriginalScale + 0.1f)));
 
             Microphone.End(Microphone.devices[0]);
             audioSource.clip = Microphone.Start(Microphone.devices[0], false, timeToRecord, 44100);
@@ -252,7 +256,7 @@ namespace Recorder
         {
             if (isRecording)
             {
-                StartCoroutine(ScaleOverTime(RecordButton.gameObject, 1f));
+                StartCoroutine(ScaleOverTime(RecordButton.gameObject, this.recordBtnOriginalScale));
 
                 while (!(Microphone.GetPosition(null) > 0)) { }
                 samplesData = new float[audioSource.clip.samples * audioSource.clip.channels];
@@ -286,7 +290,6 @@ namespace Recorder
                 try
                 {
                     WriteWAVFile(audioClip, filePath);
-                    StartCoroutine(UploadFile(filePath));
                     ConsoleText.text = "Audio Saved at: " + filePath;
                     Debug.Log("File Saved Successfully at " + filePath);
                 }
@@ -300,31 +303,6 @@ namespace Recorder
             }
         }
 
-
-        string speechApi = "https://dev-yeung.mgv.hk/api/speech";
-        IEnumerator UploadFile(string filePath)
-        {
-            yield return new WaitForSeconds(0.5f);
-            byte[] postData = File.ReadAllBytes(filePath);
-            WWWForm form = new WWWForm();
-            form.AddBinaryData("upload", postData, "Audio.wav", Path.GetFileName(filePath));
-            form.AddField("sample_rate_hertz", "44100");
-            form.AddField("language_code", "cmn-Hant-TW");
-
-            UnityWebRequest www = UnityWebRequest.Post(speechApi, form);
-            yield return www.SendWebRequest();
-
-            //Debug.Log(www.downloadHandler.text);
-            if (www.result != UnityWebRequest.Result.Success)
-            {
-                Debug.Log(www.result.ToString());
-            }
-            else
-            {
-                Debug.Log(www.downloadHandler.text);
-                Debug.Log("AudioClip posted successfully");
-            }
-        }
 
         public static byte[] ConvertWAVtoByteArray(string filePath)
         {

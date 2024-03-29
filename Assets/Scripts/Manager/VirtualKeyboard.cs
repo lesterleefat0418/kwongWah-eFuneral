@@ -32,9 +32,34 @@ public class VirtualKeyboard: MonoBehaviour
     //Show the touch keyboard (tabtip.exe).
     public void ShowTouchKeyboard()
     {
-        HideTouchKeyboard();
-        ExternalCall("C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\Tabtip.exe", null, false);
-        //ExternalCall("TABTIP", null, false);
+        try
+        {
+            var isWin7 = Environment.OSVersion.Version.Major == 6 && Environment.OSVersion.Version.Minor == 1;
+            var isWin8OrWin10 =
+                Environment.OSVersion.Version.Major == 6 && Environment.OSVersion.Version.Minor == 2;
+            var isWin10 = Environment.OSVersion.Version.Major == 10 && Environment.OSVersion.Version.Minor == 0;
+
+
+            if (isWin7)
+            {
+                //win7
+                UnityEngine.Debug.Log("Window 7");
+                ShowOnScreenKeyboard();
+            }
+            else if (isWin8OrWin10 || isWin10)
+            {
+                //win10 
+                UnityEngine.Debug.Log("Window 10");
+                HideTouchKeyboard();
+                ExternalCall("C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\Tabtip.exe", null, false);
+                //ExternalCall("TABTIP", null, false);
+            }
+        }
+        catch (Exception e)
+        {
+            UnityEngine.Debug.Log(e.Message);
+            // ignored
+        }
     }
 
     //Hide the touch keyboard (tabtip.exe).
