@@ -109,11 +109,24 @@ public class CaptureManager : MonoBehaviour
             screenShot.filterMode = FilterMode.Point;
             screenShot.ReadPixels(rect, 0, 0);
             screenShot.Apply();
+            ApplyGammaCorrection(screenShot);
             captureCamera.targetTexture = null;
             RenderTexture.active = null;
             SendPhotoToWeb(screenShot);
         }
     }
+
+    private void ApplyGammaCorrection(Texture2D texture)
+    {
+        Color[] pixels = texture.GetPixels();
+        for (int i = 0; i < pixels.Length; i++)
+        {
+            pixels[i] = pixels[i].gamma;
+        }
+        texture.SetPixels(pixels);
+        texture.Apply();
+    }
+
 
     private byte[] CaptureOutPutBytes(Texture2D texture)
     {
