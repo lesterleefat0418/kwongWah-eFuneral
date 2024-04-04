@@ -1,4 +1,7 @@
 <?php
+
+include 'success.php';
+
 if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
     $file = $_FILES['image']['tmp_name'];
     $filename = $_FILES['image']['name'];
@@ -58,7 +61,7 @@ if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
     imagedestroy($image);
     imagedestroy($resizedImage);
 
-    echo 'Image uploaded successfully';
+
 } else {
     echo 'Error: ' . $_FILES['image']['error'];
 }
