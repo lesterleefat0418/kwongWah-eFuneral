@@ -7,7 +7,7 @@ using SFB;
 public class PeoplePhotoLoader : MonoBehaviour
 {
     public string getImageUrl = "http://localhost/kongwahServer/getPhoto.php";
-    public RawImage image, hallPeopleImage;
+    public RawImage image, hallPeopleImage, resultPeopleImage;
     private string currentImageUrl;
 
     IEnumerator Start()
@@ -94,14 +94,17 @@ public class PeoplePhotoLoader : MonoBehaviour
 
     public void ResetPhoto()
     {
-        if (this.image != null && this.hallPeopleImage != null)
+        if (this.image != null && this.hallPeopleImage != null && this.resultPeopleImage != null)
         {
             this.image.texture = null;
             AspectRatioFitter ratioFitter = this.image.GetComponent<AspectRatioFitter>();
             ratioFitter.aspectRatio = 1f;
             AspectRatioFitter hallPeopleFitter = this.hallPeopleImage.GetComponent<AspectRatioFitter>();
-            this.hallPeopleImage = null;
+            this.hallPeopleImage.texture = null;
             hallPeopleFitter.aspectRatio = 1f;
+            AspectRatioFitter resultPeopleFitter = this.resultPeopleImage.GetComponent<AspectRatioFitter>();
+            this.resultPeopleImage.texture = null;
+            resultPeopleFitter.aspectRatio = 1f;
         }
     }
 
@@ -122,7 +125,7 @@ public class PeoplePhotoLoader : MonoBehaviour
                 Texture2D originalTexture = DownloadHandlerTexture.GetContent(imageRequest);
 
                 // Apply the texture to the image renderer
-                if (this.image != null && originalTexture != null && this.hallPeopleImage != null)
+                if (this.image != null && originalTexture != null && this.hallPeopleImage != null && this.resultPeopleImage != null)
                 {
                     Debug.Log(originalTexture.width + ";" + originalTexture.height);
                     float ratio = (float)originalTexture.width / (float)originalTexture.height;
@@ -134,6 +137,10 @@ public class PeoplePhotoLoader : MonoBehaviour
                     AspectRatioFitter hallPeopleFitter = this.hallPeopleImage.GetComponent<AspectRatioFitter>();
                     hallPeopleFitter.aspectRatio = ratio;
                     this.hallPeopleImage.texture = originalTexture;
+
+                    AspectRatioFitter resultPeopleFitter = this.resultPeopleImage.GetComponent<AspectRatioFitter>();
+                    resultPeopleFitter.aspectRatio = ratio;
+                    this.resultPeopleImage.texture = originalTexture;
                 }
             }
         }
