@@ -7,12 +7,14 @@ public class SelectHall : MonoBehaviour
     void Start()
     {
         this.selectHall.init();
+        this.selectHall.page.init(null, 1);
     }
 
 
     public void select(int id)
     {
         this.selectHall.set(id);
+        this.selectHall.page.setPage(id);
     }
 
 }

@@ -9,6 +9,7 @@ public class PageController : MonoBehaviour
     public Page pageController;
     public int languageId;
     public CanvasGroup captureBg;
+    public CountDownTimer countDownTimer;
 
     private void Awake()
     {
@@ -59,6 +60,7 @@ public class PageController : MonoBehaviour
     {
         this.pageController.setPage(toPageId);
         if(toPageId >= 4) if (this.captureBg != null) this.captureBg.alpha = 1;
+        if(toPageId >= 5) if (this.countDownTimer != null) this.countDownTimer.showTimer();
     }
 
     public void BackToHome()

@@ -12,9 +12,9 @@ public class Page
     public bool isAnimated = false;
     public Idling[] pageIdling;
 
-    public void init(float[] _pageTotalTime = null)
+    public void init(float[] _pageTotalTime = null, int defaultId = 0)
     {
-        this.currentId = 0;
+        this.currentId = defaultId;
         this.setPage(this.currentId);
         this.isAnimated = false;
 
