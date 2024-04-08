@@ -1,5 +1,3 @@
-using System;
-using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +6,9 @@ public class PageController : MonoBehaviour
     public static PageController Instance = null;
     public Page pageController;
     public int languageId;
-    public CanvasGroup captureBg;
+    public CanvasGroup captureBg, adminLogin;
     public CountDownTimer countDownTimer;
+    public bool showAdminLogin = false;
 
     private void Awake()
     {
@@ -27,13 +26,21 @@ public class PageController : MonoBehaviour
     void Start()
     {
         this.pageController.init();
-        if(this.captureBg != null) this.captureBg.alpha = 0;
+        SetUI.Run(this.captureBg, false, 0f);
+        SetUI.Run(this.adminLogin, false, 0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(this.pageController.currentId == 0)
+        {
+            if (Input.GetKeyDown("a") && !this.showAdminLogin)
+            {
+                this.showAdminLogin = !this.showAdminLogin;
+                SetUI.Run(this.adminLogin, this.showAdminLogin, 0f);
+            }
+        }
     }
 
     public void SetLang(int langId)
@@ -59,13 +66,29 @@ public class PageController : MonoBehaviour
     public void ChangePage(int toPageId)
     {
         this.pageController.setPage(toPageId);
-        if(toPageId >= 4) if (this.captureBg != null) this.captureBg.alpha = 1;
+        if(toPageId >= 4) SetUI.Run(this.captureBg, true, 0f);
         if(toPageId >= 5) if (this.countDownTimer != null) this.countDownTimer.showTimer();
+    }
+
+    public void closeAdminLogin()
+    {
+        this.showAdminLogin = false;
+        SetUI.Run(this.adminLogin, false, 0f);
     }
 
     public void BackToHome()
     {
         Debug.Log("reload scene");
         SceneManager.LoadScene(1);
+    }
+
+
+    private void OnApplicationQuit()
+    {
+        if(VirtualKeyboard.Instance != null)
+        {
+            VirtualKeyboard.Instance.HideOnScreenKeyboard();
+            VirtualKeyboard.Instance.HideTouchKeyboard();
+        }
     }
 }
