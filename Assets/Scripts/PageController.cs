@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PageController : MonoBehaviour
@@ -7,8 +8,11 @@ public class PageController : MonoBehaviour
     public Page pageController;
     public int languageId;
     public CanvasGroup captureBg, adminLogin;
+    public InputField adminPasswordField;
     public CountDownTimer countDownTimer;
+    [HideInInspector]
     public bool showAdminLogin = false;
+    public GameObject adminBtn, logoutBtn;
 
     private void Awake()
     {
@@ -27,20 +31,14 @@ public class PageController : MonoBehaviour
     {
         this.pageController.init();
         SetUI.Run(this.captureBg, false, 0f);
-        SetUI.Run(this.adminLogin, false, 0f);
+        if (this.adminBtn != null) this.adminBtn.SetActive(!LoaderConfig.Instance.configData.isLogined);
+        if (this.logoutBtn != null) this.logoutBtn.SetActive(LoaderConfig.Instance.configData.isLogined);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(this.pageController.currentId == 0)
-        {
-            if (Input.GetKeyDown("a") && !this.showAdminLogin)
-            {
-                this.showAdminLogin = !this.showAdminLogin;
-                SetUI.Run(this.adminLogin, this.showAdminLogin, 0f);
-            }
-        }
+
     }
 
     public void SetLang(int langId)
@@ -70,10 +68,46 @@ public class PageController : MonoBehaviour
         if(toPageId >= 5) if (this.countDownTimer != null) this.countDownTimer.showTimer();
     }
 
-    public void closeAdminLogin()
+    public void controlAdminLogin(bool isLogined)
     {
-        this.showAdminLogin = false;
-        SetUI.Run(this.adminLogin, false, 0f);
+        this.showAdminLogin = isLogined;
+        SetUI.Run(this.adminLogin, isLogined, 0f);
+    }
+
+    public void loginBtn()
+    {
+        if(this.adminPasswordField != null && LoaderConfig.Instance != null)
+        {
+            if (!string.IsNullOrEmpty(this.adminPasswordField.text))
+            {
+                if(this.adminPasswordField.text == LoaderConfig.Instance.configData.adminPassword)
+                {
+                    LoaderConfig.Instance.configData.isLogined = true;
+                    Debug.Log("Admin logined");
+                    this.controlAdminLogin(false);
+                    this.adminPasswordField.text = "";
+                    VirtualKeyboard.Instance.HideOnScreenKeyboard();
+                    if (this.adminBtn != null) this.adminBtn.SetActive(false);
+                    if (this.logoutBtn != null) this.logoutBtn.SetActive(true);
+                }
+                else
+                {
+                    LoaderConfig.Instance.configData.isLogined = false;
+                    Debug.Log("Wrong Password");
+                    this.adminPasswordField.text = "";
+                }
+            }
+        }
+    }
+
+    public void logout()
+    {
+        if(LoaderConfig.Instance != null)
+        {
+            LoaderConfig.Instance.configData.isLogined = false;
+            if (this.adminBtn != null) this.adminBtn.SetActive(true);
+            if (this.logoutBtn != null) this.logoutBtn.SetActive(false);
+        }
     }
 
     public void BackToHome()
@@ -83,12 +117,4 @@ public class PageController : MonoBehaviour
     }
 
 
-    private void OnApplicationQuit()
-    {
-        if(VirtualKeyboard.Instance != null)
-        {
-            VirtualKeyboard.Instance.HideOnScreenKeyboard();
-            VirtualKeyboard.Instance.HideTouchKeyboard();
-        }
-    }
 }

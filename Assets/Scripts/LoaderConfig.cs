@@ -60,5 +60,6 @@ public class LoaderConfig : MonoBehaviour
 [System.Serializable]
 public class ConfigData
 {
-
+    public string adminPassword="000000";
+    public bool isLogined = false;
 }

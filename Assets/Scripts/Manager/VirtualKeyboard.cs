@@ -126,6 +126,7 @@ public class VirtualKeyboard: MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        this.HideOnScreenKeyboard();
         this.HideTouchKeyboard();
     }
 }
