@@ -109,6 +109,16 @@ public class SendFeelings : MonoBehaviour
 
 public static class SetUI
 {
+    public static void Set(CanvasGroup cg = null, bool status = false, float targetValue=1f, float duration = 0f)
+    {
+        if (cg != null)
+        {
+            cg.DOFade(targetValue, duration);
+            cg.blocksRaycasts = status;
+            cg.interactable = status;
+        }
+    }
+
     public static void Run(CanvasGroup cg= null, bool status=false, float duration = 0f)
     {
         if(cg != null)

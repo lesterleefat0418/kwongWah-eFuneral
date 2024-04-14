@@ -7,11 +7,31 @@ using SFB;
 public class PeoplePhotoLoader : MonoBehaviour
 {
     public string getImageUrl = "http://localhost/kongwahServer/getPhoto.php";
+    public Texture originalImage, originalHallPeopleImage, originalResultPeopleImage;
     public RawImage image, hallPeopleImage, resultPeopleImage;
     private string currentImageUrl;
+    public CanvasGroup resetBtn;
+
+
+    private void Awake()
+    {
+        if(this.image != null && this.image.texture != null)
+            this.originalImage = this.image.texture;
+
+        if (this.hallPeopleImage != null && this.hallPeopleImage.texture != null)
+            this.originalHallPeopleImage = this.hallPeopleImage.texture;
+
+        if (this.resultPeopleImage != null && this.resultPeopleImage.texture != null)
+            this.originalResultPeopleImage = this.resultPeopleImage.texture;
+
+        if(this.resetBtn != null)
+        {
+            SetUI.Set(this.resetBtn, false, 0.75f, 0f);
+        }
+    }
 
     IEnumerator Start()
-    {
+    {       
         while (true)
         {
             // Create a UnityWebRequest to get the image URL
@@ -96,15 +116,20 @@ public class PeoplePhotoLoader : MonoBehaviour
     {
         if (this.image != null && this.hallPeopleImage != null && this.resultPeopleImage != null)
         {
-            this.image.texture = null;
+            this.image.texture = this.originalImage;
             AspectRatioFitter ratioFitter = this.image.GetComponent<AspectRatioFitter>();
             ratioFitter.aspectRatio = 1f;
             AspectRatioFitter hallPeopleFitter = this.hallPeopleImage.GetComponent<AspectRatioFitter>();
-            this.hallPeopleImage.texture = null;
+            this.hallPeopleImage.texture = this.originalHallPeopleImage;
             hallPeopleFitter.aspectRatio = 1f;
             AspectRatioFitter resultPeopleFitter = this.resultPeopleImage.GetComponent<AspectRatioFitter>();
-            this.resultPeopleImage.texture = null;
+            this.resultPeopleImage.texture = this.originalResultPeopleImage;
             resultPeopleFitter.aspectRatio = 1f;
+
+            if (this.resetBtn != null)
+            {
+                SetUI.Set(this.resetBtn, false, 0.75f, 0f);
+            }
         }
     }
 
@@ -141,6 +166,11 @@ public class PeoplePhotoLoader : MonoBehaviour
                     AspectRatioFitter resultPeopleFitter = this.resultPeopleImage.GetComponent<AspectRatioFitter>();
                     resultPeopleFitter.aspectRatio = ratio;
                     this.resultPeopleImage.texture = originalTexture;
+
+                    if (this.resetBtn != null)
+                    {
+                        SetUI.Set(this.resetBtn, true, 1f, 0f);
+                    }
                 }
             }
         }

@@ -31,8 +31,8 @@ public class PageController : MonoBehaviour
     {
         this.pageController.init();
         SetUI.Run(this.captureBg, false, 0f);
-        if (this.adminBtn != null) this.adminBtn.SetActive(!LoaderConfig.Instance.configData.isLogined);
-        if (this.logoutBtn != null) this.logoutBtn.SetActive(LoaderConfig.Instance.configData.isLogined);
+        if (this.adminBtn != null) this.adminBtn.SetActive(LoaderConfig.Instance != null ? !LoaderConfig.Instance.configData.isLogined : false);
+        if (this.logoutBtn != null) this.logoutBtn.SetActive(LoaderConfig.Instance != null ? LoaderConfig.Instance.configData.isLogined : false);
     }
 
     // Update is called once per frame
