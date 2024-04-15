@@ -50,7 +50,7 @@ public class SendFeelings : MonoBehaviour
     public void showFeelingTag()
     {
         this.showFeelingBox = !this.showFeelingBox;
-        if (this.feelingTag != null) this.feelingTag.transform.DOLocalMove(new Vector3(0f, this.showFeelingBox ? -450f : this.originalY, 0f), 0.5f).SetEase(Ease.OutBack);
+        if (this.feelingTag != null) this.feelingTag.transform.DOLocalMove(new Vector3(0f, this.showFeelingBox ? -475f : this.originalY, 0f), 0.5f).SetEase(Ease.OutBack);
     }
 
     public void showInputType(int type)

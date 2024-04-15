@@ -9,7 +9,7 @@ public class SettingHall : MonoBehaviour
     public Page steps;
     public Color stepColor;
     public Image[] stepsHintFrame;
-    public Select selectFlower, selectFlowerStand, selectFlowerBasket, selectSpeakText, selectOfferFood, selectFoodToBuddle;
+    public Select selectFlower, selectFlowerStand, selectFlowerBasket, selectSpeakText, selectOfferFood;
     public Decoration flowers, flowerStands, flowerBaskets, offerFoods;
     public HallSpeakText hallSpeakText;
     // Start is called before the first frame update
@@ -22,7 +22,6 @@ public class SettingHall : MonoBehaviour
         this.selectFlowerBasket.init();
         this.selectSpeakText.init();
         this.selectOfferFood.init();
-        this.selectFoodToBuddle.init();
         this.hallSpeakText.reset();
         this.flowers.init();
         this.flowerStands.init();
@@ -65,7 +64,7 @@ public class SettingHall : MonoBehaviour
                 this.SelectOfferFood(-1);// not select
                 break;
             case 6:
-                this.SelectFoodToBuddle(-1);// not select
+                //this.SelectFoodToBuddle(-1);// not select
                 break;
 
         }
@@ -123,11 +122,6 @@ public class SettingHall : MonoBehaviour
     {
         this.selectOfferFood.set(id);
         this.offerFoods.set(id);
-    }
-
-    public void SelectFoodToBuddle(int id)
-    {
-        this.selectFoodToBuddle.set(id);
     }
 
 
