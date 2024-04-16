@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reFocusTime: 0
-  isTopMostEnabled: 1
+  isTopMostEnabled: 0
   resolution: {x: 1920, y: 1080}
   mouseStatus: 1
   enableFocusWindow: 1
@@ -398,6 +398,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81525055f063f984a901e016f2399a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  configData:
+    adminPassword: 000000
+    isLogined: 0
 --- !u!1 &965156017
 GameObject:
   m_ObjectHideFlags: 0

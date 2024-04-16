@@ -67,8 +67,9 @@ public class PageController : MonoBehaviour
         this.pageController.setPage(toPageId);
         if (toPageId >= 4) SetUI.Run(this.captureBg, true, 0f);
         if (toPageId >= 5) if (this.countDownTimer != null) this.countDownTimer.showTimer();
+        if (toPageId == 5) if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
         if (toPageId == 6) if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(-532f, 0f);
-        if (toPageId == 7) if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(692f, 0f);
+        if (toPageId == 7) if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
     }
 
     public void controlAdminLogin(bool isLogined)

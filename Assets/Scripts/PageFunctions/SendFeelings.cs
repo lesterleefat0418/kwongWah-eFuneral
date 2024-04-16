@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 public class SendFeelings : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class SendFeelings : MonoBehaviour
     public FeedbackView feedbackView;
     public CanvasGroup inputField, drawingPanel, audioPanel;
     public GameObject message, recordResult;
+    public Font tc, sc;
 
 
     private void Awake()
@@ -82,6 +84,8 @@ public class SendFeelings : MonoBehaviour
     }
 
 
+    
+
     public void sendInputField()
     {
         if(this.inputField.GetComponent<InputField>() == null || this.message == null)
@@ -89,9 +93,28 @@ public class SendFeelings : MonoBehaviour
 
         var newMessage = Instantiate(this.message);
         newMessage.name = "message";
-        newMessage.GetComponent<Text>().text = this.inputField.GetComponent<InputField>().text;
-        newMessage.GetComponent<Text>().color = Color.white;
-        this.inputField.GetComponent<InputField>().text = "";
+        var txt = newMessage.GetComponent<Text>();
+        var inputTxt = this.inputField.GetComponent<InputField>();
+
+        Font ft = null;
+        switch (PageController.Instance.languageId)
+        {
+            case 0:
+                ft = this.tc;
+                break;
+            case 1:
+                ft = this.sc;
+                break;
+            case 2:
+                ft = this.tc;
+                break;
+        }
+
+        txt.font = ft;
+        //txt.text = ChineseConvertTool.ToSimplified(inputTxt.text);
+        txt.text = inputTxt.text;
+        txt.color = Color.white;
+        inputTxt.text = "";
         this.feedbackView.AddComponent(newMessage);
     }
 

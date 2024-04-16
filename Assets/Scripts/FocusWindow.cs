@@ -62,7 +62,7 @@ public class FocusWindow : Singleton<FocusWindow>
 
     private IEnumerator RefocusWindow(float waitSeconds)
     {
-        while(m_isOn) { 
+        while(m_isOn && isTopMostEnabled) { 
             // wait for new window to appear
             yield return new WaitWhile(() => unityWindow == GetActiveWindow());
 
