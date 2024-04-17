@@ -7,6 +7,7 @@ public class PageController : MonoBehaviour
 {
     public static PageController Instance = null;
     public Page pageController;
+    public Language language;
     public int languageId;
     public CanvasGroup captureBg, adminLogin;
     public InputField adminPasswordField;
@@ -50,12 +51,15 @@ public class PageController : MonoBehaviour
         {
             case 0:
                 lang = "TC";
+                this.language.setTC();
                 break;
             case 1:
                 lang = "CN";
+                this.language.setCN();
                 break;
             case 2:
                 lang = "Eng";
+                this.language.setENG();
                 break;
 
         }

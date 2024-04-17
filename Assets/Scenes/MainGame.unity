@@ -14262,6 +14262,29 @@ MonoBehaviour:
     currentId: 0
     isAnimated: 0
     pageIdling: []
+  language:
+    TC:
+    - {fileID: 3432444}
+    - {fileID: 274293686}
+    - {fileID: 572317512}
+    - {fileID: 649565371}
+    - {fileID: 1466799374}
+    - {fileID: 1794564076}
+    - {fileID: 1976124824}
+    CN:
+    - {fileID: 2025224842}
+    - {fileID: 1008092544}
+    - {fileID: 935858494}
+    - {fileID: 2034053393}
+    - {fileID: 338280910}
+    - {fileID: 1976124824}
+    ENG:
+    - {fileID: 1746103072}
+    - {fileID: 818247413}
+    - {fileID: 932061160}
+    - {fileID: 1861375637}
+    - {fileID: 1091283940}
+    - {fileID: 1290127185}
   languageId: 0
   captureBg: {fileID: 62408786}
   adminLogin: {fileID: 1382774170}
