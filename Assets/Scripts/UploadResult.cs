@@ -6,6 +6,8 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using ZXing;
 using ZXing.QrCode;
+using System.Net;
+using System.Net.Sockets;
 
 public class UploadResult : CaptureManager
 {
@@ -27,6 +29,7 @@ public class UploadResult : CaptureManager
 
 public class CaptureManager : MonoBehaviour
 {
+    public string uploadPeopleUrl;
     public string uploadUrl = "http://localhost/kongwahServer/uploadResult.php";
     public string uploadQRUrl = "http://localhost/kongwahServer/uploadResultQR.php";
     public string resultPath = "http://localhost/kongwahServer/uploads/results";
@@ -39,10 +42,42 @@ public class CaptureManager : MonoBehaviour
     public RawImage qrImage;
     public bool disableUploadPhoto = false;
 
+    public string Ipaddress()
+    {
+        string ipAddress = "";
+        try
+        {
+            using (Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, 0))
+            {
+                socket.Connect("8.8.8.8", 65530);
+                IPEndPoint endPoint = (IPEndPoint)socket.LocalEndPoint;
+                ipAddress = endPoint.Address.ToString();
+            }
+            Debug.Log("Current PC Ip Address: " + ipAddress);
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Error getting IP address: " + ex.Message);
+        }
+        return ipAddress;
+    }
+
+
     public void init()
     {
         this.screenShot = new Texture2D((int)targetScaler.referenceResolution.x, (int)targetScaler.referenceResolution.y, TextureFormat.RGB24, false, false);
         this.resetTargetTexture();
+
+        this.uploadPeopleUrl = "http://" + Ipaddress() + "/kongwahServer/";
+        this.uploadUrl = "http://" + Ipaddress() + "/kongwahServer/uploadResult.php";
+        this.uploadQRUrl = "http://" + Ipaddress() + "/kongwahServer/uploadResultQR.php";
+        this.resultPath = "http://" + Ipaddress() + "/kongwahServer/uploads/results";
+
+        Texture2D qrCodeTexture = GenerateQRCode(this.uploadPeopleUrl);
+        if(this.qrImage != null)
+        {
+            this.qrImage.texture = qrCodeTexture;
+        }
     }
 
     public void resetTargetTexture()
@@ -254,10 +289,10 @@ public class CaptureManager : MonoBehaviour
                 Debug.Log("Modified URL: " + url);
                 Texture2D qrCodeTexture = GenerateQRCode(url);
 
-                if(this.qrImage != null)
+                /*if(this.qrImage != null)
                 {
                     this.qrImage.texture = qrCodeTexture;
-                }
+                }*/
             }
             else
             {

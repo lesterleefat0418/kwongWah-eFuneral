@@ -12659,9 +12659,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492959618}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &492959621
 MonoBehaviour:
@@ -14219,6 +14219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcbcbc3ffee2a5e40962a78c72f29fe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uploadPeopleUrl: 
   uploadUrl: http://localhost/kongwahServer/uploadResult.php
   uploadQRUrl: http://localhost/kongwahServer/uploadResultQR.php
   resultPath: http://localhost/kongwahServer/uploads/results
@@ -25286,7 +25287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 157.47998, y: 0}
+  m_AnchoredPosition: {x: 157.48004, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &933729103
@@ -50407,7 +50408,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 760806579}
   m_HandleRect: {fileID: 760806578}
   m_Direction: 0
-  m_Value: 0.000000096893494
+  m_Value: -0.000000096893494
   m_Size: 0.7353277
   m_NumberOfSteps: 0
   m_OnValueChanged:
