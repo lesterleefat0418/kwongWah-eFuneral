@@ -15,6 +15,7 @@ public class PageController : MonoBehaviour
     [HideInInspector]
     public bool showAdminLogin = false;
     public GameObject adminBtn, logoutBtn;
+    public CanvasGroup[] HuabaoStage;
 
     private void Awake()
     {
@@ -35,8 +36,32 @@ public class PageController : MonoBehaviour
         SetUI.Run(this.captureBg, false, 0f);
         if (this.adminBtn != null) this.adminBtn.SetActive(LoaderConfig.Instance != null ? !LoaderConfig.Instance.configData.isLogined : false);
         if (this.logoutBtn != null) this.logoutBtn.SetActive(LoaderConfig.Instance != null ? LoaderConfig.Instance.configData.isLogined : false);
+        if (SettingHall.Instance != null) SettingHall.Instance.setGameMode();
+        this.showHuabaoStage(false);
     }
 
+    public void showHuabaoStage(bool skip)
+    {
+        if(skip) { 
+            this.HuabaoStage[0].DOFade(1f, 0f);
+            this.HuabaoStage[0].interactable = true;
+            this.HuabaoStage[0].blocksRaycasts = true;
+            this.HuabaoStage[1].DOFade(0f, 0f);
+            this.HuabaoStage[1].interactable = false;
+            this.HuabaoStage[1].blocksRaycasts = false;
+            if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
+        }
+        else
+        {
+            this.HuabaoStage[0].DOFade(0f, 0f);
+            this.HuabaoStage[0].interactable = false;
+            this.HuabaoStage[0].blocksRaycasts = false;
+            this.HuabaoStage[1].DOFade(1f, 0f);
+            this.HuabaoStage[1].interactable = true;
+            this.HuabaoStage[1].blocksRaycasts = true;
+        }
+
+    }
     // Update is called once per frame
     void Update()
     {
@@ -97,6 +122,7 @@ public class PageController : MonoBehaviour
                     VirtualKeyboard.Instance.HideOnScreenKeyboard();
                     if (this.adminBtn != null) this.adminBtn.SetActive(false);
                     if (this.logoutBtn != null) this.logoutBtn.SetActive(true);
+                    SettingHall.Instance.setGameMode();
                 }
                 else
                 {
@@ -115,6 +141,7 @@ public class PageController : MonoBehaviour
             LoaderConfig.Instance.configData.isLogined = false;
             if (this.adminBtn != null) this.adminBtn.SetActive(true);
             if (this.logoutBtn != null) this.logoutBtn.SetActive(false);
+            SettingHall.Instance.setGameMode();
         }
     }
 

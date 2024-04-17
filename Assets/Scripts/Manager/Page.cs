@@ -90,6 +90,8 @@ public class Page
         }
     }
 
+
+
     void reset(int id)
     {
         this.isAnimated = false;

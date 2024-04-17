@@ -40,6 +40,12 @@ public class SendFeelings : MonoBehaviour
         
     }
 
+
+    public void MoveTag(bool up)
+    {
+        if(this.feedbackTag != null) this.feedbackTag.transform.localPosition = new Vector2(-732.39f, up ? 220f : 150f);
+    }
+
     public void showFeedbackBoxTag()
     {
         this.showFeedbackBox = !this.showFeedbackBox;
@@ -47,6 +53,7 @@ public class SendFeelings : MonoBehaviour
         bool reviseStatus = !this.showFeedbackBox;
         SetUI.Run(this.feedbackBtn, reviseStatus);
         if (VirtualKeyboard.Instance != null) VirtualKeyboard.Instance.HideTouchKeyboard();
+        this.MoveTag(false);
     }
 
     public void showFeelingTag()
@@ -116,6 +123,15 @@ public class SendFeelings : MonoBehaviour
         txt.color = Color.white;
         inputTxt.text = "";
         this.feedbackView.AddComponent(newMessage);
+    }
+
+    public void inputFieldToSimple()
+    {
+        if(this.inputField.GetComponent<InputField>() == null)
+            return;
+
+        var input = this.inputField.GetComponent<InputField>();
+        input.text = ChineseConvertTool.ToSimplified(input.text);
     }
 
     public void sendAudioRecord()

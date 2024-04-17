@@ -1,32 +1,98 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
+[System.Serializable]
+public class ProcessSteps
+{
+    public List<int> simpleStepIds = new List<int>();
+    public GameObject[] processSteps;
+    public Image[] stepsHintFrame;
+}
+
+
 public class SettingHall : MonoBehaviour
 {
+    public static SettingHall Instance = null;
     public Page steps;
     public Color stepColor;
-    public Image[] stepsHintFrame;
+    public ProcessSteps processSteps;
     public Select selectFlower, selectFlowerStand, selectFlowerBasket, selectSpeakText, selectOfferFood;
     public Decoration flowers, flowerStands, flowerBaskets, offerFoods;
     public HallSpeakText hallSpeakText;
+
+    private void Awake()
+    {
+        if(Instance == null)
+            Instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
         this.setStepFrame(0);
-        this.steps.init();
         this.selectFlower.init();
         this.selectFlowerStand.init();
         this.selectFlowerBasket.init();
         this.selectSpeakText.init();
         this.selectOfferFood.init();
-        this.hallSpeakText.reset();
-        this.flowers.init();
-        this.flowerStands.init();
-        this.flowerBaskets.init();
         this.offerFoods.init();
+    }
+
+
+    public void setGameMode()
+    {
+        if (!LoaderConfig.Instance.configData.isLogined)
+        {
+            Debug.Log("Public Mode");
+            for (int i = 0; i < this.processSteps.processSteps.Length; i++)
+            {
+                if (this.processSteps.simpleStepIds.Contains(i))
+                {
+                    this.processSteps.processSteps[i].SetActive(true);
+                    this.setStepFrame(i);
+                    this.steps.init(null, i);
+                    this.flowers.init(2);
+                    this.flowerStands.init(0);
+                    this.flowerBaskets.init(2);
+
+                    switch (PageController.Instance.languageId)
+                    {
+                        case 0:
+                            this.hallSpeakText.setTC(new char[4]{'永', '遠', '懷', '念' });
+                            break;
+                        case 1:
+                            this.hallSpeakText.setSC(new char[4] { '永', '远', '怀', '念' });
+                            break;
+                        case 2:
+                            //this.hallSpeakText.setTC(wordsArray);
+                            break;
+                    }
+
+                    this.steps.currentId = this.steps.pages.Length-1;
+                }
+                else
+                {
+                    this.processSteps.processSteps[i].SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Detail Mode");
+            for (int i = 0; i < this.processSteps.processSteps.Length; i++)
+            {
+                this.processSteps.processSteps[i].SetActive(true);
+            }
+
+            this.setStepFrame(0);
+            this.steps.init();
+            this.hallSpeakText.reset();
+            this.flowers.init();
+            this.flowerStands.init();
+            this.flowerBaskets.init();
+        }
     }
 
     // Update is called once per frame
@@ -90,6 +156,9 @@ public class SettingHall : MonoBehaviour
 
     public void SelectSpeakText(int id)
     {
+        if(id == -1)
+            return;
+
         this.selectSpeakText.set(id);
 
         Text[] wordtexts = this.selectSpeakText.options[id].GetComponentsInChildren<Text>();
@@ -132,14 +201,14 @@ public class SettingHall : MonoBehaviour
 
     void setStepFrame(int id)
     {
-        for(int i = 0; i < this.stepsHintFrame.Length; i++)
+        for(int i = 0; i < this.processSteps.stepsHintFrame.Length; i++)
         {
-            if (this.stepsHintFrame[i] != null)
+            if (this.processSteps.stepsHintFrame[i] != null)
             {
                 if (i == id)
                 {
-                    this.stepsHintFrame[id].DOFade(1f, 0f);
-                    var childTexts = this.stepsHintFrame[id].GetComponentsInChildren<Text>();
+                    this.processSteps.stepsHintFrame[id].DOFade(1f, 0f);
+                    var childTexts = this.processSteps.stepsHintFrame[id].GetComponentsInChildren<Text>();
                     for (int k=0; k< childTexts.Length; k++)
                     {
                         childTexts[k].color = stepColor;
@@ -147,8 +216,8 @@ public class SettingHall : MonoBehaviour
                 }
                 else
                 {
-                    this.stepsHintFrame[i].DOFade(0f, 0f);
-                    var childTexts = this.stepsHintFrame[i].GetComponentsInChildren<Text>();
+                    this.processSteps.stepsHintFrame[i].DOFade(0f, 0f);
+                    var childTexts = this.processSteps.stepsHintFrame[i].GetComponentsInChildren<Text>();
                     for (int k = 0; k < childTexts.Length; k++)
                     {
                         childTexts[k].color = Color.white;
@@ -167,9 +236,9 @@ public class Decoration
     public CanvasGroup[] choice;
     public int selected = -1;
 
-    public void init()
+    public void init(int defaultId = -1)
     {
-        this.set(this.selected);
+        this.set(defaultId);
     }
 
 
