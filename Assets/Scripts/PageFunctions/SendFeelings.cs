@@ -4,6 +4,8 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class SendFeelings : MonoBehaviour
 {
@@ -32,6 +34,28 @@ public class SendFeelings : MonoBehaviour
         if(this.feedbackBtn != null) this.feedbackBtn.alpha = 1f;
         SetUI.Run(this.feedbackTag, false);
         this.showInputType(0);
+
+        if (this.inputField != null) { 
+            var input = this.inputField.GetComponent<InputField>();
+            if (input != null)
+            {
+                EventTrigger eventTrigger = input.GetComponent<EventTrigger>();
+                EventTrigger.Entry clickEntry = new EventTrigger.Entry();
+                clickEntry.eventID = EventTriggerType.PointerClick;
+                UnityAction<BaseEventData> clickAction = new UnityAction<BaseEventData>(ShowTibpad);
+                clickEntry.callback.AddListener(clickAction);
+                eventTrigger.triggers.Add(clickEntry);
+            }
+        }
+    }
+
+    private void ShowTibpad(BaseEventData eventData)
+    {
+        if (VirtualKeyboard.Instance == null)
+            return;
+
+        VirtualKeyboard.Instance.ShowTouchKeyboard();
+        this.MoveTag(true);
     }
 
     // Update is called once per frame
@@ -78,6 +102,7 @@ public class SendFeelings : MonoBehaviour
                 SetUI.Run(this.drawingPanel, true);
                 SetUI.Run(this.audioPanel, false);
                 if (VirtualKeyboard.Instance != null) VirtualKeyboard.Instance.HideTouchKeyboard();
+                this.MoveTag(false);
                 break;
             case 2:
                 Debug.Log("Audio Record");
@@ -86,6 +111,7 @@ public class SendFeelings : MonoBehaviour
                 SetUI.Run(this.audioPanel, true);
                 VirtualKeyboard.Instance.HideTouchKeyboard();
                 if (VirtualKeyboard.Instance != null) VirtualKeyboard.Instance.HideTouchKeyboard();
+                this.MoveTag(false);
                 break;
         }
     }
