@@ -37,7 +37,7 @@ public class CountDownTimer : MonoBehaviour
         {
             string head = "";
 
-            switch (PageController.Instance.languageId)
+            switch (LoaderConfig.Instance.languageId)
             {
                 case 0:
                     head = "剩下時間: ";
@@ -60,7 +60,7 @@ public class CountDownTimer : MonoBehaviour
         {
             string unit = "";
 
-            switch (PageController.Instance.languageId)
+            switch (LoaderConfig.Instance.languageId)
             {
                 case 0:
                     unit = "分鍾";
@@ -83,7 +83,7 @@ public class CountDownTimer : MonoBehaviour
         {
             string unit = "";
 
-            switch (PageController.Instance.languageId)
+            switch (LoaderConfig.Instance.languageId)
             {
                 case 0:
                     unit = "秒";

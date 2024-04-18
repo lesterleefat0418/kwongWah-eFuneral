@@ -1,4 +1,4 @@
 {
     "adminPassword": "000000",
-    "isLogined": true
+    "isLogined": false
 }

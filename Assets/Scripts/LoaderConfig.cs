@@ -5,6 +5,10 @@ public class LoaderConfig : MonoBehaviour
 {
     public static LoaderConfig Instance = null;
     public ConfigData configData;
+    public int languageId;
+    public int religionId;
+    public int selectReligionSceneLastPageId = 0;
+    public bool skipToHuabaoStage = false;
 
     private void Awake()
     {
@@ -13,6 +17,19 @@ public class LoaderConfig : MonoBehaviour
 
         DontDestroyOnLoad(this);
     }
+
+    public int SelectedLanguageId
+    {
+        get { return this.languageId; }
+        set { this.languageId = value; }
+    }
+
+    public int SelectedReligionId
+    {
+        get { return this.religionId; }
+        set { this.religionId = value; }
+    }
+
 
     void Start()
     {

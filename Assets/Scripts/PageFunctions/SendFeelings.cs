@@ -104,7 +104,7 @@ public class SendFeelings : MonoBehaviour
         var inputTxt = this.inputField.GetComponent<InputField>();
 
         Font ft = null;
-        switch (PageController.Instance.languageId)
+        switch (LoaderConfig.Instance.languageId)
         {
             case 0:
                 ft = this.tc;

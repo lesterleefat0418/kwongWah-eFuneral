@@ -8,13 +8,8 @@ public class PageController : MonoBehaviour
     public static PageController Instance = null;
     public Page pageController;
     public Language language;
-    public int languageId;
-    public CanvasGroup captureBg, adminLogin;
-    public InputField adminPasswordField;
+    public CanvasGroup captureBg;
     public CountDownTimer countDownTimer;
-    [HideInInspector]
-    public bool showAdminLogin = false;
-    public GameObject adminBtn, logoutBtn;
     public CanvasGroup[] HuabaoStage;
 
     private void Awake()
@@ -23,21 +18,13 @@ public class PageController : MonoBehaviour
             Instance = this;
     }
 
-    public int SelectedLanguageId
-    {
-        get{return this.languageId;}
-        set{this.languageId = value;}
-    }
-
     // Start is called before the first frame update
     void Start()
     {
         this.pageController.init();
         SetUI.Run(this.captureBg, false, 0f);
-        if (this.adminBtn != null) this.adminBtn.SetActive(LoaderConfig.Instance != null ? !LoaderConfig.Instance.configData.isLogined : false);
-        if (this.logoutBtn != null) this.logoutBtn.SetActive(LoaderConfig.Instance != null ? LoaderConfig.Instance.configData.isLogined : false);
         if (SettingHall.Instance != null) SettingHall.Instance.setGameMode();
-        this.showHuabaoStage(false);
+        this.showHuabaoStage(LoaderConfig.Instance.skipToHuabaoStage);
     }
 
     public void showHuabaoStage(bool skip)
@@ -50,6 +37,7 @@ public class PageController : MonoBehaviour
             this.HuabaoStage[1].interactable = false;
             this.HuabaoStage[1].blocksRaycasts = false;
             if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
+            this.ChangePage(4);
         }
         else
         {
@@ -68,11 +56,10 @@ public class PageController : MonoBehaviour
 
     }
 
-    public void SetLang(int langId)
+    public void SetLang()
     {
-        this.SelectedLanguageId = langId;
         string lang = "";
-        switch (this.SelectedLanguageId)
+        switch (LoaderConfig.Instance.languageId)
         {
             case 0:
                 lang = "TC";
@@ -94,60 +81,23 @@ public class PageController : MonoBehaviour
     public void ChangePage(int toPageId)
     {
         this.pageController.setPage(toPageId);
-        if (toPageId >= 4) SetUI.Run(this.captureBg, true, 0f);
-        if (toPageId >= 5) if (this.countDownTimer != null) this.countDownTimer.showTimer();
+        SetUI.Run(this.captureBg, toPageId >= 2 ? true : false, 0f);
+        if (toPageId >= 3) if (this.countDownTimer != null) this.countDownTimer.showTimer();
+        if (toPageId == 3) if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
+        if (toPageId == 4) if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(-532f, 0f);
         if (toPageId == 5) if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
-        if (toPageId == 6) if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(-532f, 0f);
-        if (toPageId == 7) if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
     }
 
-    public void controlAdminLogin(bool isLogined)
+    public void BackToSelectReligion()
     {
-        this.showAdminLogin = isLogined;
-        SetUI.Run(this.adminLogin, isLogined, 0f);
+        LoaderConfig.Instance.selectReligionSceneLastPageId = 1;
+        SceneManager.LoadScene(1);
     }
-
-    public void loginBtn()
-    {
-        if(this.adminPasswordField != null && LoaderConfig.Instance != null)
-        {
-            if (!string.IsNullOrEmpty(this.adminPasswordField.text))
-            {
-                if(this.adminPasswordField.text == LoaderConfig.Instance.configData.adminPassword)
-                {
-                    LoaderConfig.Instance.configData.isLogined = true;
-                    Debug.Log("Admin logined");
-                    this.controlAdminLogin(false);
-                    this.adminPasswordField.text = "";
-                    VirtualKeyboard.Instance.HideOnScreenKeyboard();
-                    if (this.adminBtn != null) this.adminBtn.SetActive(false);
-                    if (this.logoutBtn != null) this.logoutBtn.SetActive(true);
-                    SettingHall.Instance.setGameMode();
-                }
-                else
-                {
-                    LoaderConfig.Instance.configData.isLogined = false;
-                    Debug.Log("Wrong Password");
-                    this.adminPasswordField.text = "";
-                }
-            }
-        }
-    }
-
-    public void logout()
-    {
-        if(LoaderConfig.Instance != null)
-        {
-            LoaderConfig.Instance.configData.isLogined = false;
-            if (this.adminBtn != null) this.adminBtn.SetActive(true);
-            if (this.logoutBtn != null) this.logoutBtn.SetActive(false);
-            SettingHall.Instance.setGameMode();
-        }
-    }
-
+    
     public void BackToHome()
     {
         Debug.Log("reload scene");
+        LoaderConfig.Instance.selectReligionSceneLastPageId = 0;
         SceneManager.LoadScene(1);
     }
 

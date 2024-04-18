@@ -57,7 +57,7 @@ public class SettingHall : MonoBehaviour
                     this.flowerStands.init(0);
                     this.flowerBaskets.init(2);
 
-                    switch (PageController.Instance.languageId)
+                    switch (LoaderConfig.Instance.languageId)
                     {
                         case 0:
                             this.hallSpeakText.setTC(new char[4]{'永', '遠', '懷', '念' });
@@ -165,19 +165,19 @@ public class SettingHall : MonoBehaviour
 
         for(int i=0 ;i < wordtexts.Length; i++)
         {
-            if(wordtexts[i].name == "Text-TC" && PageController.Instance.languageId == 0)
+            if(wordtexts[i].name == "Text-TC" && LoaderConfig.Instance.languageId == 0)
             {
                 char[] wordsArray = wordtexts[i].text.ToCharArray();
                 Debug.Log(wordsArray);
                 this.hallSpeakText.setTC(wordsArray);
             }
-            else if (wordtexts[i].name == "Text-CN" && PageController.Instance.languageId == 1)
+            else if (wordtexts[i].name == "Text-CN" && LoaderConfig.Instance.languageId == 1)
             {
                 char[] wordsArray = wordtexts[i].text.ToCharArray();
                 Debug.Log(wordsArray);
                 this.hallSpeakText.setSC(wordsArray);
             }
-            else if (wordtexts[i].name == "Text-Eng" && PageController.Instance.languageId == 2)
+            else if (wordtexts[i].name == "Text-Eng" && LoaderConfig.Instance.languageId == 2)
             {
                 char[] wordsArray = wordtexts[i].text.ToCharArray();
                 Debug.Log(wordsArray);

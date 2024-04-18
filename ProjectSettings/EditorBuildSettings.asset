@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Loader.unity
     guid: c991096017be2df41b492904db0e943a
   - enabled: 1
-    path: Assets/Scenes/MainGame.unity
-    guid: 480f037288a3c32469cc618f005c9fce
+    path: Assets/Scenes/SelectReligion.unity
+    guid: 229597d1c88e28f4c9b04ccbef19bf23
+  - enabled: 1
+    path: Assets/Scenes/Taoism.unity
+    guid: 51c1e968dae366a468276af17fdc70dd
   - enabled: 0
     path: Assets/DrawingAssets/Scenes/DrawScene.unity
     guid: 6e1847b31284ed747821cdcb90137bed

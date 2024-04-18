@@ -67,11 +67,11 @@ public class CaptureManager : MonoBehaviour
     {
         this.screenShot = new Texture2D((int)targetScaler.referenceResolution.x, (int)targetScaler.referenceResolution.y, TextureFormat.RGB24, false, false);
         this.resetTargetTexture();
-
-        this.uploadPeopleUrl = "http://" + Ipaddress() + "/kongwahServer/";
-        this.uploadUrl = "http://" + Ipaddress() + "/kongwahServer/uploadResult.php";
-        this.uploadQRUrl = "http://" + Ipaddress() + "/kongwahServer/uploadResultQR.php";
-        this.resultPath = "http://" + Ipaddress() + "/kongwahServer/uploads/results";
+        string ip = this.Ipaddress();
+        this.uploadPeopleUrl = "http://" + ip + "/kongwahServer/";
+        this.uploadUrl = "http://" + ip + "/kongwahServer/uploadResult.php";
+        this.uploadQRUrl = "http://" + ip + "/kongwahServer/uploadResultQR.php";
+        this.resultPath = "http://" + ip + "/kongwahServer/uploads/results";
 
         Texture2D qrCodeTexture = GenerateQRCode(this.uploadPeopleUrl);
         if(this.qrImage != null)
