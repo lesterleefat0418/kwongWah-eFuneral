@@ -31,7 +31,6 @@ public class SettingHall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.setStepFrame(0);
         this.selectFlower.init();
         this.selectFlowerStand.init();
         this.selectFlowerBasket.init();
@@ -77,6 +76,9 @@ public class SettingHall : MonoBehaviour
                     this.processSteps.processSteps[i].SetActive(false);
                 }
             }
+
+            if (SendFeelings.Instance != null)
+                SendFeelings.Instance.setGameMode(true);
         }
         else
         {
@@ -92,6 +94,9 @@ public class SettingHall : MonoBehaviour
             this.flowers.init();
             this.flowerStands.init();
             this.flowerBaskets.init();
+
+            if (SendFeelings.Instance != null)
+                SendFeelings.Instance.setGameMode(false);
         }
     }
 

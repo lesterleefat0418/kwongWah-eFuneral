@@ -79,4 +79,6 @@ public class ConfigData
 {
     public string adminPassword="000000";
     public bool isLogined = false;
+    public float fullGameTime = 1200f;
+    public float onlyHuabaoTime = 600f;
 }

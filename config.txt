@@ -1,4 +1,6 @@
 {
     "adminPassword": "000000",
-    "isLogined": false
+    "isLogined": true,
+    "fullGameTime": 1200.0,
+    "onlyHuabaoTime": 600.0
 }

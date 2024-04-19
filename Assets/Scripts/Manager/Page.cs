@@ -47,10 +47,11 @@ public class Page
         }
     }
 
-    public void setPage(int toPageId)
+    public void setPage(int toPageId, Action tasks = null)
     {
         if (!this.isAnimated)
         {
+            tasks?.Invoke();
             this.isAnimated = true;
             this.currentId = toPageId;
             for (int i = 0; i < pages.Length; i++)

@@ -14,6 +14,7 @@ public class SelectReligion : MonoBehaviour
     [HideInInspector]
     public bool showAdminLogin = false;
     public GameObject adminBtn, logoutBtn;
+    private bool clickedLogout = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -94,7 +95,7 @@ public class SelectReligion : MonoBehaviour
 
     public void loginBtn()
     {
-        if (this.adminPasswordField != null && LoaderConfig.Instance != null)
+        if (this.adminPasswordField != null && LoaderConfig.Instance != null && !this.clickedLogout)
         {
             if (!string.IsNullOrEmpty(this.adminPasswordField.text))
             {
@@ -120,12 +121,20 @@ public class SelectReligion : MonoBehaviour
 
     public void logout()
     {
-        if (LoaderConfig.Instance != null)
+        if (LoaderConfig.Instance != null && !this.clickedLogout)
         {
             LoaderConfig.Instance.configData.isLogined = false;
             if (this.adminBtn != null) this.adminBtn.SetActive(true);
             if (this.logoutBtn != null) this.logoutBtn.SetActive(false);
+            StartCoroutine(delayResetClickedLogout());
         }
+    }
+
+    IEnumerator delayResetClickedLogout(float delay=1f)
+    {
+        this.clickedLogout = true;
+        yield return new WaitForSeconds(delay);
+        this.clickedLogout = false;
     }
 
 }

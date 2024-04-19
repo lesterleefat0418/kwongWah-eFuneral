@@ -10,7 +10,7 @@ using UnityEngine.Events;
 public class SendFeelings : MonoBehaviour
 {
     public static SendFeelings Instance = null;
-    public CanvasGroup feelingTag, feedbackTag, feedbackBtn;
+    public CanvasGroup feelingTag, feedbackTag, feedbackBtn, giveFlowerBtn, giveMoneyBtn;
     public bool showFeedbackBox = false;
     public bool showFeelingBox = false;
     private float originalY;
@@ -24,6 +24,13 @@ public class SendFeelings : MonoBehaviour
     {
         if(Instance == null)
             Instance = this;
+    }
+
+    public void setGameMode(bool isPublic)
+    {
+        SetUI.Run(this.feelingTag, isPublic ? false : true);
+        SetUI.Run(this.feedbackBtn, isPublic ? false : true);
+        SetUI.Run(this.giveFlowerBtn, isPublic ? false : true);
     }
 
     // Start is called before the first frame update

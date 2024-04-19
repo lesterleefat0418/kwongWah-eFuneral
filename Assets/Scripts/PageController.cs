@@ -11,6 +11,7 @@ public class PageController : MonoBehaviour
     public CanvasGroup captureBg;
     public CountDownTimer countDownTimer;
     public CanvasGroup[] HuabaoStage;
+    public CanvasGroup leavePopup;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class PageController : MonoBehaviour
     {
         this.pageController.init();
         SetUI.Run(this.captureBg, false, 0f);
+        SetUI.Run(this.leavePopup, false, 0f);
         if (SettingHall.Instance != null) SettingHall.Instance.setGameMode();
         this.showHuabaoStage(LoaderConfig.Instance.skipToHuabaoStage);
     }
@@ -36,11 +38,22 @@ public class PageController : MonoBehaviour
             this.HuabaoStage[1].DOFade(0f, 0f);
             this.HuabaoStage[1].interactable = false;
             this.HuabaoStage[1].blocksRaycasts = false;
-            if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
             this.ChangePage(4);
+            if (this.countDownTimer != null)
+            {
+                this.countDownTimer.totalTime = LoaderConfig.Instance.configData.onlyHuabaoTime;
+                this.countDownTimer.init();
+                this.countDownTimer.showTimer();
+                this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
+            }
         }
         else
         {
+             if (this.countDownTimer != null)
+            {
+                this.countDownTimer.totalTime = LoaderConfig.Instance.configData.fullGameTime;
+                this.countDownTimer.init();
+            }
             this.HuabaoStage[0].DOFade(0f, 0f);
             this.HuabaoStage[0].interactable = false;
             this.HuabaoStage[0].blocksRaycasts = false;
@@ -80,12 +93,30 @@ public class PageController : MonoBehaviour
 
     public void ChangePage(int toPageId)
     {
-        this.pageController.setPage(toPageId);
+        this.pageController.setPage(toPageId, ()=>changePageFunction(toPageId));
+    }
+
+    void changePageFunction(int toPageId)
+    {
         SetUI.Run(this.captureBg, toPageId >= 2 ? true : false, 0f);
-        if (toPageId >= 3) if (this.countDownTimer != null) this.countDownTimer.showTimer();
-        if (toPageId == 3) if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
-        if (toPageId == 4) if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(-532f, 0f);
-        if (toPageId == 5) if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
+
+        switch (toPageId)
+        {
+            case 3:
+                if (this.countDownTimer != null) { 
+                    this.countDownTimer.showTimer();
+                    this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
+                }
+                break;
+            case 4:
+                if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(-532f, 0f);
+                if (Huabao.Instance != null) Huabao.Instance.allowAutoBurn = true;
+                break;
+            case 5:
+                if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
+                if (Huabao.Instance != null) Huabao.Instance.allowAutoBurn = false;
+                break;
+        }
     }
 
     public void BackToSelectReligion()
@@ -96,10 +127,38 @@ public class PageController : MonoBehaviour
     
     public void BackToHome()
     {
+        Debug.Log("Show leave popup box");
+        SetUI.Run(this.leavePopup, true, 0.5f);
+    }
+
+    public void showPopup(CanvasGroup popup)
+    {
+        Debug.Log("Show popup box");
+        SetUI.Run(popup, true);
+    }
+
+    public void closePopup(CanvasGroup popup)
+    {
+        Debug.Log("Close popup box");
+        SetUI.Run(popup, false);
+    }
+
+    public void confirmBackToHome()
+    {
         Debug.Log("reload scene");
         LoaderConfig.Instance.selectReligionSceneLastPageId = 0;
         SceneManager.LoadScene(1);
     }
 
-
+    public void countDownFinished()
+    {
+        if (LoaderConfig.Instance.skipToHuabaoStage)
+        {
+            this.confirmBackToHome();
+        }
+        else
+        {
+            this.ChangePage(5);
+        }
+    }
 }

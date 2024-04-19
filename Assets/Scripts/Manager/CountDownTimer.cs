@@ -11,6 +11,8 @@ public class CountDownTimer : MonoBehaviour
     public float currentTime;
     public Text countdownText;
     private StringBuilder sb = null;
+    public CanvasGroup remindLastFiveMinutes;
+    public bool triggeredRemindLastFiveMinutes = false;
 
     [SerializeField]
     private UnityEvent finished = null;
@@ -107,7 +109,7 @@ public class CountDownTimer : MonoBehaviour
         this.triggerToStart = true;
     }
 
-    private void Start()
+    public void init()
     {
         currentTime = totalTime;
         this.sb = new StringBuilder();
@@ -126,6 +128,12 @@ public class CountDownTimer : MonoBehaviour
                 // Calculate minutes and seconds
                 int minutes = Mathf.FloorToInt(currentTime / 60);
                 int seconds = Mathf.FloorToInt(currentTime % 60);
+
+                if(currentTime <= 300f && !this.triggeredRemindLastFiveMinutes)
+                {
+                    SetUI.Run(this.remindLastFiveMinutes, true, 0.5f);
+                    this.triggeredRemindLastFiveMinutes = true;
+                }
 
                 if (currentTime <= 60f)
                 {
