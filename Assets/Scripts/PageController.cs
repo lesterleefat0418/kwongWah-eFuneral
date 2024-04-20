@@ -96,6 +96,14 @@ public class PageController : MonoBehaviour
 
     public void ChangePage(int toPageId)
     {
+        if(toPageId == 2)
+        {
+            if (SettingHall.Instance != null && SettingHall.Instance.skipToFeelingPage)
+            {
+                toPageId += 1;
+            }
+        }
+
         this.pageController.setPage(toPageId, ()=>changePageFunction(toPageId));
     }
 

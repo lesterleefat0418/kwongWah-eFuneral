@@ -5,8 +5,10 @@ using DG.Tweening;
 [System.Serializable]
 public class Select
 {
+    public string stepName;
     public int selected = 0;
     public Image[] options;
+    public Decoration decoration;
     public Page page;
     // Start is called before the first frame update
 
@@ -16,22 +18,28 @@ public class Select
         this.page.init();
     }
 
+    public void reset()
+    {
+        this.set(-1);
+        this.page.init();
+    }
+
     public void set(int id)
     {
         for (int i = 0; i < this.options.Length; i++)
         {
-            if (this.options[i] != null)
+            if (i == id)
             {
-                if (i == id)
-                {
-                    this.options[i].DOFade(1f, 0f);
-                    this.selected = i;
-                }
-                else
-                {
-                    this.options[i].DOFade(0f, 0f);
-                }
+                this.options[id].DOFade(1f, 0f);
+                this.decoration.set(id);
+                this.selected = id;
             }
+            else
+            {
+                this.options[i].DOFade(0f, 0f);
+                this.decoration.set(id);
+            }
+
         }
     }
 

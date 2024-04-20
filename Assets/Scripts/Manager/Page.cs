@@ -91,6 +91,25 @@ public class Page
         }
     }
 
+    public void toPreviousPage(Action stepEvent = null, Action completedEvent = null)
+    {
+        if (this.isAnimated)
+            return;
+        else
+        {
+            if (this.currentId > 0)
+            {
+                this.currentId -= 1;
+                this.setPage(this.currentId);
+                stepEvent.Invoke();
+            }
+            else
+            {
+                completedEvent.Invoke();
+            }
+        }
+    }
+
 
 
     void reset(int id)

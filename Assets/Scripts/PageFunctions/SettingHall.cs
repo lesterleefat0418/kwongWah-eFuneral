@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
 
 [System.Serializable]
 public class ProcessSteps
@@ -19,29 +20,24 @@ public class SettingHall : MonoBehaviour
     public Page steps;
     public Color stepColor;
     public ProcessSteps processSteps;
-    public Select selectFlower, selectFlowerStand, selectFlowerBasket, selectSpeakText, selectOfferFood;
-    public Decoration flowers, flowerStands, flowerBaskets, offerFoods;
+    public Select[] settingSteps;
+    public SelectFood[] food;
     public HallSpeakText hallSpeakText;
+    public bool skipToFeelingPage = true;
 
     private void Awake()
     {
         if(Instance == null)
             Instance = this;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.selectFlower.init();
-        this.selectFlowerStand.init();
-        this.selectFlowerBasket.init();
-        this.selectSpeakText.init();
-        this.selectOfferFood.init();
-        this.offerFoods.init();
-    }
-
 
     public void setGameMode()
     {
+        for (int i = 0; i < this.settingSteps.Length; i++)
+        {
+            this.settingSteps[i].init();
+        }
+
         if (!LoaderConfig.Instance.configData.isLogined)
         {
             Debug.Log("Public Mode");
@@ -52,24 +48,8 @@ public class SettingHall : MonoBehaviour
                     this.processSteps.processSteps[i].SetActive(true);
                     this.setStepFrame(i);
                     this.steps.init(null, i);
-                    this.flowers.init(2);
-                    this.flowerStands.init(0);
-                    this.flowerBaskets.init(2);
-
-                    switch (LoaderConfig.Instance.languageId)
-                    {
-                        case 0:
-                            this.hallSpeakText.setTC(new char[4]{'永', '遠', '懷', '念' });
-                            break;
-                        case 1:
-                            this.hallSpeakText.setSC(new char[4] { '永', '远', '怀', '念' });
-                            break;
-                        case 2:
-                            //this.hallSpeakText.setTC(wordsArray);
-                            break;
-                    }
-
-                    this.steps.currentId = this.steps.pages.Length-1;
+                    this.steps.currentId = i;
+                    skipToFeelingPage = false;
                 }
                 else
                 {
@@ -77,12 +57,20 @@ public class SettingHall : MonoBehaviour
                 }
             }
 
+            for (int i = 0; i < this.settingSteps.Length; i++)
+            {
+                this.settingSteps[i].decoration.publicInit();
+            }
+
+            this.hallSpeakText.setDefaultPublic();
+
             if (SendFeelings.Instance != null)
                 SendFeelings.Instance.setGameMode(true);
         }
         else
         {
             Debug.Log("Detail Mode");
+            this.skipToFeelingPage = false;
             for (int i = 0; i < this.processSteps.processSteps.Length; i++)
             {
                 this.processSteps.processSteps[i].SetActive(true);
@@ -91,9 +79,11 @@ public class SettingHall : MonoBehaviour
             this.setStepFrame(0);
             this.steps.init();
             this.hallSpeakText.reset();
-            this.flowers.init();
-            this.flowerStands.init();
-            this.flowerBaskets.init();
+
+            for (int i = 0; i < this.settingSteps.Length; i++)
+            {
+                this.settingSteps[i].init();
+            }
 
             if (SendFeelings.Instance != null)
                 SendFeelings.Instance.setGameMode(false);
@@ -106,102 +96,135 @@ public class SettingHall : MonoBehaviour
         
     }
 
+
     public void changeStep()
     {
-        this.steps.toNextPage(
-            () => this.setStepFrame(this.steps.currentId),
-            () => PageController.Instance.ChangePage(PageController.Instance.pageController.currentId + 1)
-        );
+        if (LoaderConfig.Instance.configData.isLogined) {
+            this.steps.toNextPage(
+                () => this.setStepFrame(this.steps.currentId),
+                () => PageController.Instance.ChangePage(PageController.Instance.pageController.currentId + 1)
+            );
+        }
+        else
+        {
+            this.setStepFrame(this.steps.currentId);
+            PageController.Instance.ChangePage(PageController.Instance.pageController.currentId + 1);
+        }
+    }
+
+    public void changePreviousStep()
+    {
+        if (LoaderConfig.Instance.configData.isLogined)
+        {
+            this.steps.toPreviousPage(
+                () => this.setStepFrame(this.steps.currentId),
+                () => resetHallSelected()
+            );
+        }
+        else
+        {
+            this.setStepFrame(this.steps.currentId);
+            PageController.Instance.ChangePage(PageController.Instance.pageController.currentId - 1);
+        }
+    }
+
+    public void resetHallSelected()
+    {
+        for (int i = 0; i < this.settingSteps.Length; i++)
+        {
+            this.settingSteps[i].reset();
+        }
+        this.SelectSpeakText(-1);
+        for (int i = 0; i < this.food.Length; i++)
+        {
+            if (this.food[i] != null)
+            {
+                this.food[i].NotSelect();
+            }
+        }
+        PageController.Instance.ChangePage(PageController.Instance.pageController.currentId - 1);
     }
 
     public void skipStep()
     {
-        this.changeStep();
         switch (this.steps.currentId)
         {
+            case 0:
+                this.SetSettingSteps(-1);
+                break;
             case 1:
-                this.SelectFlower(-1); // not select
+                this.SetSettingSteps(-1);
                 break;
             case 2:
-                this.SelectFlowerStand(-1); // not select
+                this.SetSettingSteps(-1);
                 break;
             case 3:
-                this.SelectFlowerBasket(-1); // not select
-                break;
-            case 4:
                 this.SelectSpeakText(-1);// not select
                 break;
-            case 5:
-                this.SelectOfferFood(-1);// not select
+            case 4:
+                this.SetSettingSteps(-1);
                 break;
-            case 6:
-                //this.SelectFoodToBuddle(-1);// not select
+            case 5:
+                for(int i=0; i< this.food.Length; i++)
+                {
+                    if(this.food[i] != null)
+                    {
+                        this.food[i].NotSelect();
+                    }
+                }
                 break;
 
         }
+        this.changeStep();
+
     }
 
-    public void SelectFlower(int id)
+    public void SetSettingSteps(int id)
     {
-        this.selectFlower.set(id);
-        this.flowers.set(id);
+        this.settingSteps[this.steps.currentId].set(id);
     }
 
-    public void SelectFlowerStand(int id)
-    {
-        this.selectFlowerStand.set(id);
-        this.flowerStands.set(id);
-    }
-
-    public void SelectFlowerBasket(int id)
-    {
-        this.selectFlowerBasket.set(id);
-        this.flowerBaskets.set(id);
-    }
 
     public void SelectSpeakText(int id)
     {
-        if(id == -1)
-            return;
+        int currentStep = this.steps.currentId;
+        if (id == -1) {
 
-        this.selectSpeakText.set(id);
-
-        Text[] wordtexts = this.selectSpeakText.options[id].GetComponentsInChildren<Text>();
-
-        for(int i=0 ;i < wordtexts.Length; i++)
-        {
-            if(wordtexts[i].name == "Text-TC" && LoaderConfig.Instance.languageId == 0)
-            {
-                char[] wordsArray = wordtexts[i].text.ToCharArray();
-                Debug.Log(wordsArray);
-                this.hallSpeakText.setTC(wordsArray);
-            }
-            else if (wordtexts[i].name == "Text-CN" && LoaderConfig.Instance.languageId == 1)
-            {
-                char[] wordsArray = wordtexts[i].text.ToCharArray();
-                Debug.Log(wordsArray);
-                this.hallSpeakText.setSC(wordsArray);
-            }
-            else if (wordtexts[i].name == "Text-Eng" && LoaderConfig.Instance.languageId == 2)
-            {
-                char[] wordsArray = wordtexts[i].text.ToCharArray();
-                Debug.Log(wordsArray);
-                this.hallSpeakText.setEng(wordsArray);
-            }
+            this.hallSpeakText.reset();
         }
+        else
+        {
+            this.settingSteps[currentStep].set(id);
 
+            Text[] wordtexts = this.settingSteps[currentStep].options[id].GetComponentsInChildren<Text>();
+
+            for (int i = 0; i < wordtexts.Length; i++)
+            {
+                if (wordtexts[i].name == "Text-TC" && LoaderConfig.Instance.languageId == 0)
+                {
+                    char[] wordsArray = wordtexts[i].text.ToCharArray();
+                    Debug.Log(wordsArray);
+                    this.hallSpeakText.setTC(wordsArray);
+                }
+                else if (wordtexts[i].name == "Text-CN" && LoaderConfig.Instance.languageId == 1)
+                {
+                    char[] wordsArray = wordtexts[i].text.ToCharArray();
+                    Debug.Log(wordsArray);
+                    this.hallSpeakText.setSC(wordsArray);
+                }
+                else if (wordtexts[i].name == "Text-Eng" && LoaderConfig.Instance.languageId == 2)
+                {
+                    char[] wordsArray = wordtexts[i].text.ToCharArray();
+                    Debug.Log(wordsArray);
+                    this.hallSpeakText.setEng(wordsArray);
+                }
+            }
+        }    
     }
-
-    public void SelectOfferFood(int id)
-    {
-        this.selectOfferFood.set(id);
-        this.offerFoods.set(id);
-    }
-
 
     public void SelectSpeakTextSwitchPage(bool right)
     {
-        this.selectSpeakText.changePage(right);
+        this.settingSteps[3].changePage(right);
     }
 
     void setStepFrame(int id)
@@ -239,11 +262,17 @@ public class SettingHall : MonoBehaviour
 public class Decoration
 {
     public CanvasGroup[] choice;
+    public int publicDefaultId;
     public int selected = -1;
 
     public void init(int defaultId = -1)
     {
         this.set(defaultId);
+    }
+
+    public void publicInit()
+    {
+        this.set(this.publicDefaultId);
     }
 
 
@@ -252,20 +281,17 @@ public class Decoration
         this.selected = id;
         for (int i = 0; i < this.choice.Length; i++)
         {
-            if (this.choice[i] != null)
+            if (i == id)
             {
-                if (i == id)
-                {
-                    this.choice[id].DOFade(1f, _duration);
-                    this.choice[id].interactable = true;
-                    this.choice[id].blocksRaycasts = true;
-                }
-                else
-                {
-                    this.choice[i].DOFade(0f, _duration);
-                    this.choice[i].interactable = false;
-                    this.choice[i].blocksRaycasts = false;
-                }
+                this.choice[id].DOFade(1f, _duration);
+                this.choice[id].interactable = true;
+                this.choice[id].blocksRaycasts = true;
+            }
+            else
+            {
+                this.choice[i].DOFade(0f, _duration);
+                this.choice[i].interactable = false;
+                this.choice[i].blocksRaycasts = false;
             }
         }
     }
@@ -274,8 +300,26 @@ public class Decoration
 [System.Serializable]
 public class HallSpeakText
 {
+    public char[] defaultTCWords = new char[4] { '永', '遠', '懷', '念' };
+    public char[] defaultCNWords = new char[4] { '永', '远', '怀', '念' };
     public GameObject[] langs;
     public HallTitle tc, sc, eng;
+
+    public void setDefaultPublic()
+    {
+        switch (LoaderConfig.Instance.languageId)
+        {
+            case 0:
+                this.setTC(this.defaultTCWords);
+                break;
+            case 1:
+                this.setSC(this.defaultCNWords);
+                break;
+            case 2:
+                //this.hallSpeakText.setTC(wordsArray);
+                break;
+        }
+    }
 
 
     public void setTC(char[] _words)

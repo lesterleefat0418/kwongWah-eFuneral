@@ -48,6 +48,14 @@ public class SelectReligion : MonoBehaviour
         VirtualKeyboard.Instance.ShowOnScreenKeyboard();
     }
 
+    public void HideKeyboard()
+    {
+        if (VirtualKeyboard.Instance == null)
+            return;
+
+        VirtualKeyboard.Instance.HideOnScreenKeyboard();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -89,7 +97,7 @@ public class SelectReligion : MonoBehaviour
     {
         LoaderConfig.Instance.SelectedReligionId = id;
         Debug.Log("selected regligion: " + id);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(id+2);
     }
 
     public void homeBtn()
@@ -112,6 +120,7 @@ public class SelectReligion : MonoBehaviour
     {
         this.showAdminLogin = isLogined;
         SetUI.Run(this.adminLogin, isLogined, 0f);
+        this.adminPasswordField.text = "";
     }
 
     public void loginBtn()
@@ -125,7 +134,6 @@ public class SelectReligion : MonoBehaviour
                     LoaderConfig.Instance.configData.isLogined = true;
                     Debug.Log("Admin logined");
                     this.controlAdminLogin(false);
-                    this.adminPasswordField.text = "";
                     VirtualKeyboard.Instance.HideOnScreenKeyboard();
                     if (this.adminBtn != null) this.adminBtn.SetActive(false);
                     if (this.logoutBtn != null) this.logoutBtn.SetActive(true);

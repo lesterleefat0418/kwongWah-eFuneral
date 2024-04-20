@@ -36,4 +36,13 @@ public class SelectFood : MonoBehaviour
         if(this.sceneFood != null)
             this.sceneFood.SetActive(this.selected);
     }
+
+    public void NotSelect()
+    {
+        this.selected = false;
+        this.select.DOFade(this.selected ? 1f : 0f, 0f);
+
+        if (this.sceneFood != null)
+            this.sceneFood.SetActive(this.selected);
+    }
 }
