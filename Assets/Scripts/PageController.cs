@@ -8,8 +8,10 @@ public class PageController : MonoBehaviour
     public static PageController Instance = null;
     public Page pageController;
     public Language language;
+    public Font tc, sc;
     public CanvasGroup captureBg;
     public CountDownTimer countDownTimer;
+    public Timer idlingTimer;
     public CanvasGroup[] HuabaoStage;
     public CanvasGroup leavePopup;
 
@@ -23,6 +25,7 @@ public class PageController : MonoBehaviour
     void Start()
     {
         this.pageController.init();
+        this.SetLang();
         SetUI.Run(this.captureBg, false, 0f);
         SetUI.Run(this.leavePopup, false, 0f);
         if (SettingHall.Instance != null) SettingHall.Instance.setGameMode();
@@ -72,7 +75,7 @@ public class PageController : MonoBehaviour
     public void SetLang()
     {
         string lang = "";
-        switch (LoaderConfig.Instance.languageId)
+        switch (LoaderConfig.Instance.SelectedLanguageId)
         {
             case 0:
                 lang = "TC";
@@ -113,7 +116,7 @@ public class PageController : MonoBehaviour
                 if (Huabao.Instance != null) Huabao.Instance.allowAutoBurn = true;
                 break;
             case 5:
-                if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
+                if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(692f, 0f);
                 if (Huabao.Instance != null) Huabao.Instance.allowAutoBurn = false;
                 break;
         }
@@ -133,14 +136,18 @@ public class PageController : MonoBehaviour
 
     public void showPopup(CanvasGroup popup)
     {
-        Debug.Log("Show popup box");
-        SetUI.Run(popup, true);
+        if(popup.interactable == false) { 
+            Debug.Log("Show popup box");
+            SetUI.Run(popup, true);
+        }
     }
 
     public void closePopup(CanvasGroup popup)
     {
-        Debug.Log("Close popup box");
-        SetUI.Run(popup, false);
+        if (popup.interactable) { 
+            Debug.Log("Close popup box");
+            SetUI.Run(popup, false);
+        }
     }
 
     public void confirmBackToHome()
@@ -159,6 +166,7 @@ public class PageController : MonoBehaviour
         else
         {
             this.ChangePage(5);
+            if (this.idlingTimer != null) this.idlingTimer.showTimer();
         }
     }
 }

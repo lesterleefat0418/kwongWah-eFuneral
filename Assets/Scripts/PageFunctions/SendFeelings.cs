@@ -17,7 +17,6 @@ public class SendFeelings : MonoBehaviour
     public FeedbackView feedbackView;
     public CanvasGroup inputField, drawingPanel, audioPanel;
     public GameObject message, recordResult;
-    public Font tc, sc;
 
 
     private void Awake()
@@ -137,16 +136,16 @@ public class SendFeelings : MonoBehaviour
         var inputTxt = this.inputField.GetComponent<InputField>();
 
         Font ft = null;
-        switch (LoaderConfig.Instance.languageId)
+        switch (LoaderConfig.Instance.SelectedLanguageId)
         {
             case 0:
-                ft = this.tc;
+                ft = PageController.Instance.tc;
                 break;
             case 1:
-                ft = this.sc;
+                ft = PageController.Instance.sc;
                 break;
             case 2:
-                ft = this.tc;
+                ft = PageController.Instance.tc;
                 break;
         }
 

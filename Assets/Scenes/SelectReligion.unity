@@ -1795,6 +1795,37 @@ MonoBehaviour:
   showAdminLogin: 0
   adminBtn: {fileID: 164795272}
   logoutBtn: {fileID: 1004174340}
+  language:
+    TC:
+    - {fileID: 3432444}
+    - {fileID: 274293686}
+    - {fileID: 572317512}
+    - {fileID: 649565371}
+    - {fileID: 1466799374}
+    - {fileID: 1794564076}
+    - {fileID: 939456061}
+    - {fileID: 1084577552}
+    - {fileID: 1542984831}
+    CN:
+    - {fileID: 2025224842}
+    - {fileID: 1008092544}
+    - {fileID: 935858494}
+    - {fileID: 2034053393}
+    - {fileID: 338280910}
+    - {fileID: 1976124824}
+    - {fileID: 127537900}
+    - {fileID: 486372443}
+    - {fileID: 433737534}
+    ENG:
+    - {fileID: 1746103072}
+    - {fileID: 818247413}
+    - {fileID: 932061160}
+    - {fileID: 1861375637}
+    - {fileID: 1091283940}
+    - {fileID: 1290127185}
+    - {fileID: 645532764}
+    - {fileID: 1453894840}
+    - {fileID: 705868563}
 --- !u!1 &572317512
 GameObject:
   m_ObjectHideFlags: 0
@@ -6101,7 +6132,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1759826890}
   m_OnClick:
     m_PersistentCalls:

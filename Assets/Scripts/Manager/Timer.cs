@@ -3,16 +3,16 @@ using UnityEngine.UI;
 using System.Text;
 using UnityEngine.Events;
 
-public class CountDownTimer : MonoBehaviour
+public class Timer : MonoBehaviour
 {
-    
+
     public bool triggerToStart = false;
     public float totalTime = 5 * 60;
     public float currentTime;
     public Text countdownText;
     private StringBuilder sb = null;
-    public CanvasGroup remindLastFiveMinutes;
-    public bool triggeredRemindLastFiveMinutes = false;
+    public CanvasGroup idlingRemind;
+    public bool triggeredIdlingRemind = false;
 
     [SerializeField]
     private UnityEvent finished = null;
@@ -39,16 +39,16 @@ public class CountDownTimer : MonoBehaviour
         {
             string head = "";
 
-            switch (LoaderConfig.Instance.SelectedLanguageId)
+            switch (LoaderConfig.Instance.languageId)
             {
                 case 0:
-                    head = "剩下時間: ";
+                    head = "儀式剩餘";
                     break;
                 case 1:
-                    head = "剩下时间: ";
+                    head = "仪式剩余";
                     break;
                 case 2:
-                    head = "Remaining Time: ";
+                    head = "";
                     break;
             }
 
@@ -62,7 +62,7 @@ public class CountDownTimer : MonoBehaviour
         {
             string unit = "";
 
-            switch (LoaderConfig.Instance.SelectedLanguageId)
+            switch (LoaderConfig.Instance.languageId)
             {
                 case 0:
                     unit = "分鍾";
@@ -85,7 +85,7 @@ public class CountDownTimer : MonoBehaviour
         {
             string unit = "";
 
-            switch (LoaderConfig.Instance.SelectedLanguageId)
+            switch (LoaderConfig.Instance.languageId)
             {
                 case 0:
                     unit = "秒";
@@ -102,10 +102,32 @@ public class CountDownTimer : MonoBehaviour
         }
     }
 
+    private string DefaultEnd
+    {
+        get
+        {
+            string head = "";
+
+            switch (LoaderConfig.Instance.languageId)
+            {
+                case 0:
+                    head = "便會自動結束";
+                    break;
+                case 1:
+                    head = "便会自动结束";
+                    break;
+                case 2:
+                    head = "left";
+                    break;
+            }
+
+            return head;
+        }
+    }
 
     public void showTimer()
     {
-        this.GetComponent<CanvasGroup>().alpha = 1f;
+        this.init();
         this.triggerToStart = true;
     }
 
@@ -113,14 +135,15 @@ public class CountDownTimer : MonoBehaviour
     {
         this.currentTime = this.totalTime;
         this.sb = new StringBuilder();
-        this.GetComponent<CanvasGroup>().alpha = 0f;
+        this.triggeredIdlingRemind = false;
     }
 
     private void Update()
     {
-        if(triggerToStart) {
+        if (triggerToStart)
+        {
 
-            if(currentTime > 0f)
+            if (currentTime > 0f)
             {
                 this.sb.Clear();
                 currentTime -= Time.deltaTime;
@@ -129,24 +152,27 @@ public class CountDownTimer : MonoBehaviour
                 int minutes = Mathf.FloorToInt(currentTime / 60);
                 int seconds = Mathf.FloorToInt(currentTime % 60);
 
-                if(currentTime <= 300f && !this.triggeredRemindLastFiveMinutes)
+                if (currentTime <= 15f && !this.triggeredIdlingRemind)
                 {
-                    SetUI.Run(this.remindLastFiveMinutes, true, 0.5f);
-                    this.triggeredRemindLastFiveMinutes = true;
+                    SetUI.Run(this.idlingRemind, true, 0.5f);
+                    this.triggeredIdlingRemind = true;
                 }
 
                 if (currentTime <= 60f)
                 {
                     this.sb.Append(this.DefaultHead);
                     this.sb.Append(seconds.ToString("0"));
-                    this.sb.Append(Second);
+                    this.sb.Append(this.Second);
+                    this.sb.Append(this.DefaultEnd);
                 }
                 else
                 {
                     this.sb.Append(this.DefaultHead);
                     this.sb.Append(minutes.ToString("0"));
-                    this.sb.Append(Minute);
+                    this.sb.Append(this.Minute);
+                    this.sb.Append(this.DefaultEnd);
                 }
+
             }
             else
             {
@@ -161,11 +187,14 @@ public class CountDownTimer : MonoBehaviour
                 InvokeFinishedDelegate();
             }
 
-            if (this.countdownText != null) { 
-                this.countdownText.font = LoaderConfig.Instance.SelectedLanguageId == 1 ? PageController.Instance.sc: PageController.Instance.tc;
+            if (this.countdownText != null)
+            {
+                this.countdownText.font = LoaderConfig.Instance.SelectedLanguageId == 1 ? PageController.Instance.sc : PageController.Instance.tc;
                 this.countdownText.text = this.sb.ToString();
             }
 
         }
     }
 }
+
+

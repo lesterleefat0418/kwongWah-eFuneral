@@ -305,9 +305,11 @@ public class HallSpeakText
 public class HallTitle
 {
     public Text[] words;
+    public Text finalPageTitle;
 
     public void setWords(char[] _words)
     {
+        string finalWords = "";
         for(int i=0; i< _words.Length; i++)
         {
             Debug.Log(_words[i]);
@@ -315,7 +317,11 @@ public class HallTitle
             {
                 this.words[i].text = _words[i].ToString();
             }
+
+            finalWords += _words[i];
         }
+
+        if (this.finalPageTitle != null) this.finalPageTitle.text = finalWords;
     }
 
     public void resetWords()
@@ -327,5 +333,7 @@ public class HallTitle
                 this.words[i].text = "";
             }
         }
+
+        if(this.finalPageTitle != null) this.finalPageTitle.text = "";
     }
 }
