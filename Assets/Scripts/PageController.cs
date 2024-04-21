@@ -8,6 +8,7 @@ public class PageController : MonoBehaviour
     public static PageController Instance = null;
     public Page pageController;
     public Language language;
+    public LanguageUI[] languageUI;
     public Font tc, sc;
     public CanvasGroup captureBg;
     public CountDownTimer countDownTimer;
@@ -92,6 +93,10 @@ public class PageController : MonoBehaviour
 
         }
         Debug.Log("current lang: " + lang);
+        for (int i = 0; i < this.languageUI.Length; i++)
+        {
+            if (this.languageUI[i] != null) this.languageUI[i].setLang();
+        }
     }
 
     public void ChangePage(int toPageId)

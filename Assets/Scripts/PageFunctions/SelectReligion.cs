@@ -15,7 +15,7 @@ public class SelectReligion : MonoBehaviour
     public bool showAdminLogin = false;
     public GameObject adminBtn, logoutBtn;
     private bool clickedLogout = false;
-    public Language language;
+    public LanguageUI[] languageUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,19 +72,20 @@ public class SelectReligion : MonoBehaviour
         {
             case 0:
                 lang = "TC";
-                this.language.setTC();
                 break;
             case 1:
                 lang = "CN";
-                this.language.setCN();
                 break;
             case 2:
                 lang = "Eng";
-                this.language.setENG();
                 break;
 
         }
         Debug.Log("current lang: " + lang);
+        for(int i= 0; i< this.languageUI.Length; i++)
+        {
+            if(this.languageUI[i] != null) this.languageUI[i].setLang();
+        }
     }
 
 
