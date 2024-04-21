@@ -181,43 +181,49 @@ public class SettingHall : MonoBehaviour
 
     public void SetSettingSteps(int id)
     {
-        this.settingSteps[this.steps.currentId].set(id);
+        if (this.settingSteps[this.steps.currentId].selected != id) { 
+            this.settingSteps[this.steps.currentId].set(id);
+        }
+        else {
+            this.settingSteps[this.steps.currentId].selected = -1;
+            this.settingSteps[this.steps.currentId].set(-1);
+
+        }
     }
 
 
     public void SelectSpeakText(int id)
     {
         int currentStep = this.steps.currentId;
-        if (id == -1) {
+        if (id == -1 || this.settingSteps[currentStep].selected == id) {
 
+            this.settingSteps[currentStep].selected = -1;
+            this.settingSteps[currentStep].set(-1);
             this.hallSpeakText.reset();
         }
         else
         {
             this.settingSteps[currentStep].set(id);
 
-            Text[] wordtexts = this.settingSteps[currentStep].options[id].GetComponentsInChildren<Text>();
+            Text wordtext = this.settingSteps[currentStep].options[id].GetComponentInChildren<Text>();
 
-            for (int i = 0; i < wordtexts.Length; i++)
+            if (LoaderConfig.Instance.languageId == 0)
             {
-                if (wordtexts[i].name == "Text-TC" && LoaderConfig.Instance.languageId == 0)
-                {
-                    char[] wordsArray = wordtexts[i].text.ToCharArray();
-                    Debug.Log(wordsArray);
-                    this.hallSpeakText.setTC(wordsArray);
-                }
-                else if (wordtexts[i].name == "Text-CN" && LoaderConfig.Instance.languageId == 1)
-                {
-                    char[] wordsArray = wordtexts[i].text.ToCharArray();
-                    Debug.Log(wordsArray);
-                    this.hallSpeakText.setSC(wordsArray);
-                }
-                else if (wordtexts[i].name == "Text-Eng" && LoaderConfig.Instance.languageId == 2)
-                {
-                    char[] wordsArray = wordtexts[i].text.ToCharArray();
-                    Debug.Log(wordsArray);
-                    this.hallSpeakText.setEng(wordsArray);
-                }
+                char[] wordsArray = wordtext.text.ToCharArray();
+                Debug.Log(wordsArray);
+                this.hallSpeakText.setTC(wordsArray);
+            }
+            else if (LoaderConfig.Instance.languageId == 1)
+            {
+                char[] wordsArray = wordtext.text.ToCharArray();
+                Debug.Log(wordsArray);
+                this.hallSpeakText.setSC(wordsArray);
+            }
+            else if (LoaderConfig.Instance.languageId == 2)
+            {
+                char[] wordsArray = wordtext.text.ToCharArray();
+                Debug.Log(wordsArray);
+                this.hallSpeakText.setEng(wordsArray);
             }
         }    
     }

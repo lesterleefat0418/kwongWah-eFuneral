@@ -16,8 +16,5 @@ EditorBuildSettings:
     guid: 51c1e968dae366a468276af17fdc70dd
   - enabled: 1
     path: Assets/Scenes/Buddism.unity
-    guid: 0b0f56af64ee0844c9283d2dcbddb9a8
-  - enabled: 0
-    path: Assets/Scenes/Buddism-old.unity
-    guid: 9de654a6e27b5c74c91114bf42ff447f
+    guid: cbd7766cf49f34746a5baf4d7095d5e8
   m_configObjects: {}
