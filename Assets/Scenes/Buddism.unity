@@ -5621,9 +5621,9 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
   cn: {fileID: 12800000, guid: fad0ce03be3eb33479134d5fdcdf668c, type: 3}
   text: {fileID: 661953704}
-  tcText: "\u4E94\u798F\u5168\u6B78"
-  cnText: "\u4E94\u798F\u5168\u5F52"
-  engText: All five blessings return
+  tcText: "\u6C38\u751F\u6A02\u571F"
+  cnText: "\u6C38\u751F\u4E50\u571F"
+  engText: Eternal Paradise
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &274212260
@@ -13443,7 +13443,7 @@ GameObject:
   - component: {fileID: 563987765}
   - component: {fileID: 563987761}
   m_Layer: 5
-  m_Name: GiveMoney
+  m_Name: Chanting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13527,14 +13527,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.3799498, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ef13512cf91a3f3418c4e67f4a6809fc, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13579,11 +13579,11 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 76409f875d20ae642b3ca7302b0b43e4, type: 3}
   cn: {fileID: 12800000, guid: 83f09c40ed3b6754a9f07363a891782e, type: 3}
   text: {fileID: 681923724}
-  tcText: "\u71D2\u7D19\u9322"
-  cnText: "\u70E7\u7EB8\u94B1"
-  engText: Burn Money
+  tcText: "\u8B1B\u5FF5\u300A\u5F80\u751F\u5492\u300B"
+  cnText: "\u8BB2\u5FF5\u300A\u5F80\u751F\u5492\u300B"
+  engText: Talk about reciting the Mantra of Rebirth
   chineseFontSize: 25
-  englishFontSize: 22
+  englishFontSize: 18
 --- !u!1 &565418854
 GameObject:
   m_ObjectHideFlags: 0
@@ -14233,7 +14233,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u540C\u60B2\u4E0D\u6368"
+  m_Text: "\u65E9\u767B\u6975\u6A02"
 --- !u!222 &583281933
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16721,7 +16721,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u4E94\u798F\u5168\u6B78"
+  m_Text: "\u6C38\u751F\u6A02\u571F"
 --- !u!222 &661953705
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17219,7 +17219,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5929\u5730\u540C\u60B2"
+  m_Text: "\u5F97\u5927\u81EA\u5728"
 --- !u!222 &680168929
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -17314,8 +17314,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.2799988, y: -61.22}
-  m_SizeDelta: {x: -37.28, y: -50.44}
+  m_AnchoredPosition: {x: 0, y: -50.86}
+  m_SizeDelta: {x: 62.179993, y: -162.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &681923724
 MonoBehaviour:
@@ -17342,7 +17342,7 @@ MonoBehaviour:
     m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -17350,7 +17350,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u71D2\u7D19\u9322"
+  m_Text: "\u8B1B\u5FF5\u300A\u5F80\u751F\u5492\u300B"
 --- !u!222 &681923725
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23881,7 +23881,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5343\u79CB\u6C38\u8A23"
+  m_Text: "\u5F80\u751F\u6975\u6A02"
 --- !u!222 &944256150
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24444,7 +24444,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u75DB\u9694\u5929\u4EBA"
+  m_Text: "\u6FA4\u5728\u4EBA\u9593"
 --- !u!222 &961394327
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26599,9 +26599,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1021551738}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &1021551744
 MonoBehaviour:
@@ -29492,7 +29492,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6C38\u9060\u61F7\u5FF5"
+  m_Text: "\u5F80\u751F\u6DE8\u571F"
 --- !u!222 &1157206225
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -29674,9 +29674,9 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
   cn: {fileID: 12800000, guid: fad0ce03be3eb33479134d5fdcdf668c, type: 3}
   text: {fileID: 1499656688}
-  tcText: "\u89AA\u6069\u6C38\u61F7"
-  cnText: "\u4EB2\u6069\u6C38\u6000"
-  engText: Everlasting kindness
+  tcText: "\u60B2\u9858\u5B8F\u6DF1"
+  cnText: "\u60B2\u613F\u5B8F\u6DF1"
+  engText: Deep Sorrow and Wish
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &1162551303
@@ -32468,9 +32468,9 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
   cn: {fileID: 12800000, guid: fad0ce03be3eb33479134d5fdcdf668c, type: 3}
   text: {fileID: 583281932}
-  tcText: "\u540C\u60B2\u4E0D\u6368"
-  cnText: "\u540C\u60B2\u4E0D\u820D"
-  engText: Sharing the same sorrow
+  tcText: "\u65E9\u767B\u6975\u6A02"
+  cnText: "\u65E9\u767B\u6781\u4E50"
+  engText: Early Morning Bliss
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &1326120606
@@ -37405,7 +37405,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 283899006}
   m_HandleRect: {fileID: 283899005}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -38115,7 +38115,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u89AA\u6069\u6C38\u61F7"
+  m_Text: "\u60B2\u9858\u5B8F\u6DF1"
 --- !u!222 &1499656689
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -38683,7 +38683,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u798F\u58FD\u5168\u6B78"
+  m_Text: "\u529F\u5FB7\u5713\u6EFF"
 --- !u!222 &1524047012
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -40621,7 +40621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -732.39, y: 220}
+  m_AnchoredPosition: {x: -732.39, y: 0}
   m_SizeDelta: {x: 457.97, y: 430.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1605017069
@@ -46876,9 +46876,9 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
   cn: {fileID: 12800000, guid: fad0ce03be3eb33479134d5fdcdf668c, type: 3}
   text: {fileID: 961394326}
-  tcText: "\u75DB\u9694\u5929\u4EBA"
-  cnText: "\u75DB\u9694\u5929\u4EBA"
-  engText: Pain every other day
+  tcText: "\u6FA4\u5728\u4EBA\u9593"
+  cnText: "\u6CFD\u5728\u4EBA\u95F4"
+  engText: Ze in the World
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &1826275297
@@ -47748,9 +47748,9 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
   cn: {fileID: 12800000, guid: fad0ce03be3eb33479134d5fdcdf668c, type: 3}
   text: {fileID: 1157206224}
-  tcText: "\u6C38\u9060\u61F7\u5FF5"
-  cnText: "\u6C38\u8FDC\u6000\u5FF5"
-  engText: Miss you forever
+  tcText: "\u5F80\u751F\u6DE8\u571F"
+  cnText: "\u5F80\u751F\u51C0\u571F"
+  engText: Rebirth in the Pure Land
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &1847978359
@@ -54371,9 +54371,9 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
   cn: {fileID: 12800000, guid: fad0ce03be3eb33479134d5fdcdf668c, type: 3}
   text: {fileID: 944256149}
-  tcText: "\u5343\u79CB\u6C38\u8A23"
-  cnText: "\u5343\u79CB\u6C38\u8BC0"
-  engText: Eternal farewell
+  tcText: "\u5F80\u751F\u6975\u6A02"
+  cnText: "\u5F80\u751F\u6781\u4E50"
+  engText: Bliss After Death
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &2090323684
@@ -55061,9 +55061,9 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
   cn: {fileID: 12800000, guid: fad0ce03be3eb33479134d5fdcdf668c, type: 3}
   text: {fileID: 1524047011}
-  tcText: "\u798F\u58FD\u5168\u6B78"
-  cnText: "\u798F\u5BFF\u5168\u5F52"
-  engText: Good luck and longevity
+  tcText: "\u529F\u5FB7\u5713\u6EFF"
+  cnText: "\u529F\u5FB7\u5706\u6EE1"
+  engText: Complete Merits
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &2112162653
@@ -55155,9 +55155,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112162653}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &2113800705
 GameObject:
@@ -55573,9 +55573,9 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
   cn: {fileID: 12800000, guid: fad0ce03be3eb33479134d5fdcdf668c, type: 3}
   text: {fileID: 680168928}
-  tcText: "\u5929\u5730\u540C\u60B2"
-  cnText: "\u5929\u5730\u540C\u60B2"
-  engText: Heaven and earth share the same sorrow
+  tcText: "\u5F97\u5927\u81EA\u5728"
+  cnText: "\u5F97\u5927\u81EA\u5728"
+  engText: Feel at Ease
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &2124456227
@@ -55706,9 +55706,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130373270}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &2130373272
 MonoBehaviour:
@@ -55953,7 +55953,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -380.93002}
+  m_AnchoredPosition: {x: 0, y: -380.93}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!224 &714616410246739094
