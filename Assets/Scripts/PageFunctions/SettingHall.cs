@@ -17,6 +17,7 @@ public class ProcessSteps
 public class SettingHall : MonoBehaviour
 {
     public static SettingHall Instance = null;
+    public int selectedHallId = 1;
     public Page steps;
     public Color stepColor;
     public ProcessSteps processSteps;
@@ -59,10 +60,14 @@ public class SettingHall : MonoBehaviour
 
             for (int i = 0; i < this.settingSteps.Length; i++)
             {
-                this.settingSteps[i].decoration.publicInit();
+                if(this.settingSteps[i].decoration.Length > 0) {
+
+                    int publicDefaultId = this.settingSteps[i].decoration[this.selectedHallId].publicDefaultId;
+                    this.settingSteps[i].set(publicDefaultId, this.selectedHallId);
+                }
             }
 
-            this.hallSpeakText.setDefaultPublic();
+            this.hallSpeakText.setDefaultPublic(this.selectedHallId);
 
             if (SendFeelings.Instance != null)
                 SendFeelings.Instance.setGameMode(true);
@@ -78,7 +83,7 @@ public class SettingHall : MonoBehaviour
 
             this.setStepFrame(0);
             this.steps.init();
-            this.hallSpeakText.reset();
+            this.hallSpeakText.reset(this.selectedHallId);
 
             for (int i = 0; i < this.settingSteps.Length; i++)
             {
@@ -182,11 +187,11 @@ public class SettingHall : MonoBehaviour
     public void SetSettingSteps(int id)
     {
         if (this.settingSteps[this.steps.currentId].selected != id) { 
-            this.settingSteps[this.steps.currentId].set(id);
+            this.settingSteps[this.steps.currentId].set(id, this.selectedHallId);
         }
         else {
             this.settingSteps[this.steps.currentId].selected = -1;
-            this.settingSteps[this.steps.currentId].set(-1);
+            this.settingSteps[this.steps.currentId].set(-1, this.selectedHallId);
 
         }
     }
@@ -198,12 +203,12 @@ public class SettingHall : MonoBehaviour
         if (id == -1 || this.settingSteps[currentStep].selected == id) {
 
             this.settingSteps[currentStep].selected = -1;
-            this.settingSteps[currentStep].set(-1);
-            this.hallSpeakText.reset();
+            this.settingSteps[currentStep].set(-1, this.selectedHallId);
+            this.hallSpeakText.reset(this.selectedHallId);
         }
         else
         {
-            this.settingSteps[currentStep].set(id);
+            this.settingSteps[currentStep].set(id, this.selectedHallId);
 
             Text wordtext = this.settingSteps[currentStep].options[id].GetComponentInChildren<Text>();
 
@@ -211,19 +216,19 @@ public class SettingHall : MonoBehaviour
             {
                 char[] wordsArray = wordtext.text.ToCharArray();
                 Debug.Log(wordsArray);
-                this.hallSpeakText.setTC(wordsArray);
+                this.hallSpeakText.setTC(wordsArray, this.selectedHallId);
             }
             else if (LoaderConfig.Instance.languageId == 1)
             {
                 char[] wordsArray = wordtext.text.ToCharArray();
                 Debug.Log(wordsArray);
-                this.hallSpeakText.setSC(wordsArray);
+                this.hallSpeakText.setSC(wordsArray, this.selectedHallId);
             }
             else if (LoaderConfig.Instance.languageId == 2)
             {
                 char[] wordsArray = wordtext.text.ToCharArray();
                 Debug.Log(wordsArray);
-                this.hallSpeakText.setEng(wordsArray);
+                this.hallSpeakText.setEng(wordsArray, this.selectedHallId);
             }
         }    
     }
@@ -267,14 +272,10 @@ public class SettingHall : MonoBehaviour
 [System.Serializable]
 public class Decoration
 {
+    public string name;
     public CanvasGroup[] choice;
     public int publicDefaultId;
     public int selected = -1;
-
-    public void init(int defaultId = -1)
-    {
-        this.set(defaultId);
-    }
 
     public void publicInit()
     {
@@ -308,18 +309,17 @@ public class HallSpeakText
 {
     public char[] defaultTCWords = new char[4] { '永', '遠', '懷', '念' };
     public char[] defaultCNWords = new char[4] { '永', '远', '怀', '念' };
-    public GameObject[] langs;
-    public HallTitle tc, sc, eng;
+    public HallTitle[] halltc, hallsc, halleng;
 
-    public void setDefaultPublic()
+    public void setDefaultPublic(int hallId)
     {
         switch (LoaderConfig.Instance.languageId)
         {
             case 0:
-                this.setTC(this.defaultTCWords);
+                this.setTC(this.defaultTCWords, hallId);
                 break;
             case 1:
-                this.setSC(this.defaultCNWords);
+                this.setSC(this.defaultCNWords, hallId);
                 break;
             case 2:
                 //this.hallSpeakText.setTC(wordsArray);
@@ -328,39 +328,46 @@ public class HallSpeakText
     }
 
 
-    public void setTC(char[] _words)
+    public void setTC(char[] _words, int hallId)
     {
-        this.tc.setWords(_words);
+        if(this.halltc.Length > hallId)
+            this.halltc[hallId].setWords(_words);
     }
 
-    public void setSC(char[] _words)
+    public void setSC(char[] _words, int hallId)
     {
-        this.sc.setWords(_words);
+        if (this.hallsc.Length > hallId)
+            this.hallsc[hallId].setWords(_words);
     }
 
-    public void setEng(char[] _words)
+    public void setEng(char[] _words, int hallId)
     {
-        this.eng.setWords(_words);
+        if (this.halleng.Length > hallId)
+            this.halleng[hallId].setWords(_words);
     }
 
-    public void reset()
+    public void reset(int hallId)
     {
-        this.tc.resetWords();
-        this.sc.resetWords();
-        this.eng.resetWords();
+        if (this.halltc.Length > hallId)
+            this.halltc[hallId].resetWords();
+        if (this.hallsc.Length > hallId)
+            this.hallsc[hallId].resetWords();
+        if (this.halleng.Length > hallId)
+            this.halleng[hallId].resetWords();
     }
 }
 
 [System.Serializable]
 public class HallTitle
 {
+    public string name;
     public Text[] words;
     public Text finalPageTitle;
 
     public void setWords(char[] _words)
     {
         string finalWords = "";
-        for(int i=0; i< _words.Length; i++)
+        for(int i=0; i< words.Length; i++)
         {
             Debug.Log(_words[i]);
             if(this.words[i] != null)

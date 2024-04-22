@@ -8,7 +8,7 @@ public class SelectFood : MonoBehaviour
     public Image foodImage;
     private AspectRatioFitter aspectRatio;
     public bool selected = false;
-    public GameObject sceneFood;
+    public GameObject[] scenesFood;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,20 +29,22 @@ public class SelectFood : MonoBehaviour
     }
 
     public void Selected()
-    {
+    {  
         this.selected = !this.selected;
-        this.select.DOFade(this.selected ? 1f : 0f, 0f);
+        setFood();
+    }
 
-        if(this.sceneFood != null)
-            this.sceneFood.SetActive(this.selected);
+
+    void setFood()
+    {
+        this.select.DOFade(this.selected ? 1f : 0f, 0f);
+        if (this.scenesFood[SettingHall.Instance.selectedHallId] != null)
+            this.scenesFood[SettingHall.Instance.selectedHallId].SetActive(this.selected);
     }
 
     public void NotSelect()
     {
         this.selected = false;
-        this.select.DOFade(this.selected ? 1f : 0f, 0f);
-
-        if (this.sceneFood != null)
-            this.sceneFood.SetActive(this.selected);
+        setFood();
     }
 }

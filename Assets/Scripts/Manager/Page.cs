@@ -12,6 +12,23 @@ public class Page
     public bool isAnimated = false;
     public Idling[] pageIdling;
 
+    public void Init(float[] _pageTotalTime = null)
+    {
+        this.setPage(this.currentId);
+        this.isAnimated = false;
+
+        for (int i = 0; i < this.pageIdling.Length; i++)
+        {
+            if (this.pageIdling[i] != null)
+            {
+                if (this.pageIdling.Length == _pageTotalTime.Length)
+                    this.pageIdling[i].init(_pageTotalTime[i]);
+                else
+                    this.pageIdling[i].init();
+            }
+        }
+    }
+
     public void init(float[] _pageTotalTime = null, int defaultId = 0)
     {
         this.currentId = defaultId;

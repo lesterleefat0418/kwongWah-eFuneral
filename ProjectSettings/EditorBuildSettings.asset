@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Catholic.unity
     guid: 3a63d714a723377459c95872a71c12d9
+  - enabled: 1
+    path: Assets/Scenes/Christian.unity
+    guid: 1fd12bf38c464c74b88bf6cae960bcb9
+  - enabled: 1
+    path: Assets/Scenes/Islam.unity
+    guid: e6a18944c304f1d4aa7e1f25252c1081
   m_configObjects: {}

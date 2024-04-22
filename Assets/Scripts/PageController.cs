@@ -25,11 +25,10 @@ public class PageController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.pageController.init();
+        this.pageController.Init();
         this.SetLang();
         SetUI.Run(this.captureBg, false, 0f);
         SetUI.Run(this.leavePopup, false, 0f);
-        if (SettingHall.Instance != null) SettingHall.Instance.setGameMode();
         this.showHuabaoStage(LoaderConfig.Instance.skipToHuabaoStage);
     }
 

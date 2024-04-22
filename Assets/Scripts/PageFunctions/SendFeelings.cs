@@ -159,11 +159,13 @@ public class SendFeelings : MonoBehaviour
 
     public void inputFieldToSimple()
     {
-        if(this.inputField.GetComponent<InputField>() == null)
-            return;
+        if(LoaderConfig.Instance.SelectedLanguageId == 1) { 
+            if(this.inputField.GetComponent<InputField>() == null)
+                return;
+            var input = this.inputField.GetComponent<InputField>();
+            input.text = ChineseConvertTool.ToSimplified(input.text);
+        }
 
-        var input = this.inputField.GetComponent<InputField>();
-        input.text = ChineseConvertTool.ToSimplified(input.text);
     }
 
     public void sendAudioRecord()

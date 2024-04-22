@@ -291,7 +291,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 926034941}
   selected: 0
-  sceneFood: {fileID: 1713723927}
+  scenesFood:
+  - {fileID: 1713723927}
 --- !u!1 &18574162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,6 +1360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 74206296}
+  - component: {fileID: 74206297}
   m_Layer: 5
   m_Name: People
   m_TagString: Untagged
@@ -1387,6 +1389,18 @@ RectTransform:
   m_AnchoredPosition: {x: -2.36, y: 23.45}
   m_SizeDelta: {x: 78.88, y: 94.34}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &74206297
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74206295}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &86039684
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,7 +2745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 522269468}
   selected: 0
-  sceneFood: {fileID: 2124456227}
+  scenesFood:
+  - {fileID: 2124456227}
 --- !u!1 &137174904
 GameObject:
   m_ObjectHideFlags: 0
@@ -2887,86 +2902,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138365168}
-  m_CullTransparentMesh: 1
---- !u!1 &139284614
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 139284615}
-  - component: {fileID: 139284617}
-  - component: {fileID: 139284616}
-  m_Layer: 5
-  m_Name: Text-Eng
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &139284615
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139284614}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1620456578}
-  m_RootOrder: -2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.005004883, y: 0}
-  m_SizeDelta: {x: 0.0099945, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &139284616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139284614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 76409f875d20ae642b3ca7302b0b43e4, type: 3}
-    m_FontSize: 24
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: Home
---- !u!222 &139284617
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139284614}
   m_CullTransparentMesh: 1
 --- !u!1 &141030897
 GameObject:
@@ -4073,7 +4008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6039216, g: 0.3764706, b: 0.02745098, a: 1}
+  m_Color: {r: 0.6784314, g: 0.5294118, b: 0.36078432, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4081,7 +4016,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 4e8f77c37aaf9984481f2c8f7ce005a9, type: 3}
+    m_Font: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
@@ -4484,8 +4419,8 @@ MonoBehaviour:
   tcText: "\u4E3B\u9801"
   cnText: "\u4E3B\u9875"
   engText: Home
-  chineseFontSize: 25
-  englishFontSize: 22
+  chineseFontSize: 22
+  englishFontSize: 18
 --- !u!1 &219761619
 GameObject:
   m_ObjectHideFlags: 0
@@ -5507,16 +5442,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectHall:
-    stepName: SelectHall
-    selected: 1
+    selected: -1
     options:
     - {fileID: 1122515320}
     - {fileID: 1414310974}
     - {fileID: 1626048081}
-    decoration:
-      choice: []
-      publicDefaultId: -1
-      selected: -1
     page:
       pages:
       - name: Hall-1
@@ -5528,6 +5458,7 @@ MonoBehaviour:
       currentId: 1
       isAnimated: 0
       pageIdling: []
+  nextBtn: {fileID: 1694454949}
 --- !u!1 &270122114
 GameObject:
   m_ObjectHideFlags: 0
@@ -7285,7 +7216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 648150925}
   selected: 0
-  sceneFood: {fileID: 0}
+  scenesFood: []
 --- !u!1 &342142759
 GameObject:
   m_ObjectHideFlags: 0
@@ -7336,8 +7267,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c735b2562fbea74c8360c2e4192f6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tc: {fileID: 12800000, guid: 76409f875d20ae642b3ca7302b0b43e4, type: 3}
-  cn: {fileID: 12800000, guid: 83f09c40ed3b6754a9f07363a891782e, type: 3}
+  tc: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
+  cn: {fileID: 12800000, guid: fad0ce03be3eb33479134d5fdcdf668c, type: 3}
   text: {fileID: 1506192330}
   tcText: "\u6216"
   cnText: "\u6216"
@@ -7658,7 +7589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 1153339008}
   selected: 0
-  sceneFood: {fileID: 0}
+  scenesFood: []
 --- !u!1 &362878732
 GameObject:
   m_ObjectHideFlags: 0
@@ -8474,9 +8405,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387038182}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &397485190
 GameObject:
@@ -10539,8 +10470,8 @@ MonoBehaviour:
   tcText: "\u4E0A\u4E00\u9801"
   cnText: "\u4E0A\u4E00\u9875"
   engText: Previous
-  chineseFontSize: 25
-  englishFontSize: 22
+  chineseFontSize: 22
+  englishFontSize: 18
 --- !u!1 &460066663
 GameObject:
   m_ObjectHideFlags: 0
@@ -10861,7 +10792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 609506615}
   selected: 0
-  sceneFood: {fileID: 0}
+  scenesFood: []
 --- !u!1 &464537649
 GameObject:
   m_ObjectHideFlags: 0
@@ -11628,7 +11559,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 1326120609}
   selected: 0
-  sceneFood: {fileID: 1174953775}
+  scenesFood:
+  - {fileID: 1174953775}
 --- !u!1 &506648201
 GameObject:
   m_ObjectHideFlags: 0
@@ -11957,7 +11889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 1462856549}
   selected: 0
-  sceneFood: {fileID: 0}
+  scenesFood: []
 --- !u!1 &521276546
 GameObject:
   m_ObjectHideFlags: 0
@@ -13228,7 +13160,6 @@ MonoBehaviour:
     - {fileID: 1771749740}
     - {fileID: 1674845081}
     - {fileID: 923919085}
-    - {fileID: 1216905757}
     - {fileID: 18574162}
     CN:
     - {fileID: 1946630395}
@@ -13249,7 +13180,6 @@ MonoBehaviour:
     - {fileID: 881069510}
     - {fileID: 1959787830}
     - {fileID: 1979469333}
-    - {fileID: 1488358567}
     - {fileID: 1419913516}
     ENG:
     - {fileID: 730229908}
@@ -13270,7 +13200,6 @@ MonoBehaviour:
     - {fileID: 1905064881}
     - {fileID: 1426289797}
     - {fileID: 2020136432}
-    - {fileID: 139284614}
     - {fileID: 1039130854}
   languageUI:
   - {fileID: 878286366}
@@ -13338,6 +13267,7 @@ MonoBehaviour:
   - {fileID: 1161192118}
   - {fileID: 372118752}
   - {fileID: 1417162408}
+  - {fileID: 1620456582}
   tc: {fileID: 12800000, guid: 76409f875d20ae642b3ca7302b0b43e4, type: 3}
   sc: {fileID: 12800000, guid: 83f09c40ed3b6754a9f07363a891782e, type: 3}
   captureBg: {fileID: 62408786}
@@ -17147,7 +17077,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 1094960718}
   selected: 0
-  sceneFood: {fileID: 1067700059}
+  scenesFood:
+  - {fileID: 1067700059}
 --- !u!1 &680168926
 GameObject:
   m_ObjectHideFlags: 0
@@ -17684,7 +17615,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 257683827}
   selected: 0
-  sceneFood: {fileID: 0}
+  scenesFood: []
 --- !u!1 &687612882
 GameObject:
   m_ObjectHideFlags: 0
@@ -18472,7 +18403,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 993261256}
   selected: 0
-  sceneFood: {fileID: 426570712}
+  scenesFood:
+  - {fileID: 426570712}
 --- !u!1 &726086848
 GameObject:
   m_ObjectHideFlags: 0
@@ -18833,7 +18765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 1863789970}
   selected: 0
-  sceneFood: {fileID: 0}
+  scenesFood: []
 --- !u!1 &759672034
 GameObject:
   m_ObjectHideFlags: 0
@@ -20037,8 +19969,8 @@ MonoBehaviour:
   tcText: "\u4E3B\u9801"
   cnText: "\u4E3B\u9875"
   engText: Home
-  chineseFontSize: 25
-  englishFontSize: 22
+  chineseFontSize: 22
+  englishFontSize: 18
 --- !u!1 &795488033
 GameObject:
   m_ObjectHideFlags: 0
@@ -20924,8 +20856,8 @@ MonoBehaviour:
   tcText: "\u4E3B\u9801"
   cnText: "\u4E3B\u9875"
   engText: Home
-  chineseFontSize: 25
-  englishFontSize: 22
+  chineseFontSize: 22
+  englishFontSize: 18
 --- !u!1 &822530903
 GameObject:
   m_ObjectHideFlags: 0
@@ -21580,7 +21512,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 1981358399}
   selected: 0
-  sceneFood: {fileID: 627139727}
+  scenesFood:
+  - {fileID: 627139727}
 --- !u!1 &874355451
 GameObject:
   m_ObjectHideFlags: 0
@@ -21591,6 +21524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 874355452}
   - component: {fileID: 874355454}
+  - component: {fileID: 874355455}
   - component: {fileID: 874355453}
   m_Layer: 5
   m_Name: People
@@ -21658,6 +21592,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874355451}
   m_CullTransparentMesh: 1
+--- !u!225 &874355455
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874355451}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &878286361
 GameObject:
   m_ObjectHideFlags: 0
@@ -24979,7 +24925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6039216, g: 0.3764706, b: 0.02745098, a: 1}
+  m_Color: {r: 0.6784314, g: 0.5294118, b: 0.36078432, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -24987,7 +24933,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 76409f875d20ae642b3ca7302b0b43e4, type: 3}
+    m_Font: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
@@ -25468,7 +25414,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 208389655}
   selected: 0
-  sceneFood: {fileID: 999185679}
+  scenesFood:
+  - {fileID: 999185679}
 --- !u!1 &993261253
 GameObject:
   m_ObjectHideFlags: 0
@@ -27111,7 +27058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 1020202851}
   selected: 0
-  sceneFood: {fileID: 0}
+  scenesFood: []
 --- !u!1 &1039130854
 GameObject:
   m_ObjectHideFlags: 0
@@ -30559,7 +30506,7 @@ GameObject:
   - component: {fileID: 1216905760}
   - component: {fileID: 1216905759}
   m_Layer: 5
-  m_Name: Text-TC
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37449,86 +37396,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480205830}
   m_CullTransparentMesh: 1
---- !u!1 &1488358567
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1488358568}
-  - component: {fileID: 1488358570}
-  - component: {fileID: 1488358569}
-  m_Layer: 5
-  m_Name: Text-CN
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1488358568
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488358567}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1620456578}
-  m_RootOrder: -2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.005004883, y: 0}
-  m_SizeDelta: {x: 0.0099945, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1488358569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488358567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 83f09c40ed3b6754a9f07363a891782e, type: 3}
-    m_FontSize: 22
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\u8FD4\u56DE\u4E3B\u9875"
---- !u!222 &1488358570
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1488358567}
-  m_CullTransparentMesh: 1
 --- !u!1 &1488421293
 GameObject:
   m_ObjectHideFlags: 0
@@ -38251,7 +38118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6039216, g: 0.3764706, b: 0.02745098, a: 1}
+  m_Color: {r: 0.6784314, g: 0.5294118, b: 0.36078432, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -38259,7 +38126,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 76409f875d20ae642b3ca7302b0b43e4, type: 3}
+    m_Font: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
     m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
@@ -39445,7 +39312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 1474805186}
   selected: 0
-  sceneFood: {fileID: 1663408275}
+  scenesFood:
+  - {fileID: 1663408275}
 --- !u!1 &1558495396
 GameObject:
   m_ObjectHideFlags: 0
@@ -40205,8 +40073,8 @@ MonoBehaviour:
   tcText: "\u4E3B\u9801"
   cnText: "\u4E3B\u9875"
   engText: Home
-  chineseFontSize: 25
-  englishFontSize: 22
+  chineseFontSize: 22
+  englishFontSize: 18
 --- !u!1 &1597921397
 GameObject:
   m_ObjectHideFlags: 0
@@ -40433,7 +40301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 1025391094}
   selected: 0
-  sceneFood: {fileID: 0}
+  scenesFood: []
 --- !u!1 &1603312454
 GameObject:
   m_ObjectHideFlags: 0
@@ -40932,6 +40800,7 @@ GameObject:
   - component: {fileID: 1620456578}
   - component: {fileID: 1620456581}
   - component: {fileID: 1620456580}
+  - component: {fileID: 1620456582}
   - component: {fileID: 1620456579}
   m_Layer: 5
   m_Name: HomeBtn
@@ -40953,8 +40822,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1216905758}
-  - {fileID: 1488358568}
-  - {fileID: 139284615}
   m_Father: {fileID: 560789110}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -41057,6 +40924,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620456577}
   m_CullTransparentMesh: 1
+--- !u!114 &1620456582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620456577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c735b2562fbea74c8360c2e4192f6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tc: {fileID: 12800000, guid: 76409f875d20ae642b3ca7302b0b43e4, type: 3}
+  cn: {fileID: 12800000, guid: 83f09c40ed3b6754a9f07363a891782e, type: 3}
+  text: {fileID: 1216905759}
+  tcText: "\u8FD4\u56DE\u4E3B\u9801"
+  cnText: "\u8FD4\u56DE\u4E3B\u9875"
+  engText: Home
+  chineseFontSize: 25
+  englishFontSize: 22
 --- !u!1 &1621429135
 GameObject:
   m_ObjectHideFlags: 0
@@ -41149,7 +41036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 463140876}
   selected: 0
-  sceneFood: {fileID: 0}
+  scenesFood: []
 --- !u!1 &1621830267
 GameObject:
   m_ObjectHideFlags: 0
@@ -42848,7 +42735,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 1489030255}
   selected: 0
-  sceneFood: {fileID: 1125179918}
+  scenesFood:
+  - {fileID: 1125179918}
 --- !u!1 &1681938419
 GameObject:
   m_ObjectHideFlags: 0
@@ -43028,6 +42916,7 @@ GameObject:
   - component: {fileID: 1694454947}
   - component: {fileID: 1694454946}
   - component: {fileID: 1694454948}
+  - component: {fileID: 1694454949}
   - component: {fileID: 1694454945}
   m_Layer: 5
   m_Name: NextBtn
@@ -43172,6 +43061,18 @@ MonoBehaviour:
   engText: Next
   chineseFontSize: 25
   englishFontSize: 22
+--- !u!225 &1694454949
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694454943}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1696771652
 GameObject:
   m_ObjectHideFlags: 0
@@ -45950,7 +45851,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 1630069901}
   selected: 0
-  sceneFood: {fileID: 0}
+  scenesFood: []
 --- !u!1 &1786826858
 GameObject:
   m_ObjectHideFlags: 0
@@ -47647,8 +47548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c735b2562fbea74c8360c2e4192f6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tc: {fileID: 12800000, guid: 76409f875d20ae642b3ca7302b0b43e4, type: 3}
-  cn: {fileID: 12800000, guid: 83f09c40ed3b6754a9f07363a891782e, type: 3}
+  tc: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
+  cn: {fileID: 12800000, guid: fad0ce03be3eb33479134d5fdcdf668c, type: 3}
   text: {fileID: 975476288}
   tcText: "\u4E0A\u8F09\u65B9\u6CD5"
   cnText: "\u4E0A\u8F7D\u65B9\u6CD5"
@@ -48944,7 +48845,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodImage: {fileID: 370026888}
   selected: 0
-  sceneFood: {fileID: 1053130667}
+  scenesFood:
+  - {fileID: 1053130667}
 --- !u!1 &1901760511
 GameObject:
   m_ObjectHideFlags: 0
@@ -52428,9 +52330,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012739029}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &2012739032
 MonoBehaviour:
@@ -52444,6 +52346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6377465368a92e64fb3468b2f9cc86ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedHallId: 1
   steps:
     pages:
     - name: SelectFlower
@@ -52486,11 +52389,20 @@ MonoBehaviour:
     - {fileID: 1817675492}
     - {fileID: 117436675}
     decoration:
+    - name: Hall-1
       choice:
       - {fileID: 621697124}
       - {fileID: 143333433}
       - {fileID: 957462608}
       publicDefaultId: 2
+      selected: -1
+    - name: Hall-2
+      choice: []
+      publicDefaultId: 0
+      selected: -1
+    - name: Hall-3
+      choice: []
+      publicDefaultId: 0
       selected: -1
     page:
       pages: []
@@ -52504,10 +52416,19 @@ MonoBehaviour:
     - {fileID: 975348714}
     - {fileID: 184127827}
     decoration:
+    - name: Hall-1
       choice:
       - {fileID: 594324812}
       - {fileID: 782074997}
       - {fileID: 1657259576}
+      publicDefaultId: 0
+      selected: -1
+    - name: Hall-2
+      choice: []
+      publicDefaultId: 0
+      selected: -1
+    - name: Hall-3
+      choice: []
       publicDefaultId: 0
       selected: -1
     page:
@@ -52522,11 +52443,20 @@ MonoBehaviour:
     - {fileID: 1291511519}
     - {fileID: 362878734}
     decoration:
+    - name: Hall-1
       choice:
       - {fileID: 1496177250}
       - {fileID: 1604560679}
       - {fileID: 1826275299}
       publicDefaultId: 2
+      selected: -1
+    - name: Hall-2
+      choice: []
+      publicDefaultId: 0
+      selected: -1
+    - name: Hall-3
+      choice: []
+      publicDefaultId: 0
       selected: -1
     page:
       pages: []
@@ -52544,10 +52474,7 @@ MonoBehaviour:
     - {fileID: 1323157052}
     - {fileID: 1821424665}
     - {fileID: 1161192116}
-    decoration:
-      choice: []
-      publicDefaultId: 0
-      selected: -1
+    decoration: []
     page:
       pages:
       - name: TextPage1
@@ -52563,9 +52490,18 @@ MonoBehaviour:
     - {fileID: 372118750}
     - {fileID: 1417162406}
     decoration:
+    - name: Hall-1
       choice:
       - {fileID: 2032100803}
       - {fileID: 1108005078}
+      publicDefaultId: -1
+      selected: -1
+    - name: Hall-2
+      choice: []
+      publicDefaultId: 0
+      selected: -1
+    - name: Hall-3
+      choice: []
       publicDefaultId: 0
       selected: -1
     page:
@@ -52597,24 +52533,46 @@ MonoBehaviour:
   hallSpeakText:
     defaultTCWords: 805f1f75e86d1f57
     defaultCNWords: 805f1f75c0511f57
-    langs:
-    - {fileID: 18574162}
-    - {fileID: 1419913516}
-    tc:
+    halltc:
+    - name: Hall-1
       words:
       - {fileID: 1234325627}
       - {fileID: 858979830}
       - {fileID: 185950820}
       - {fileID: 1726203300}
       finalPageTitle: {fileID: 1674845083}
-    sc:
+    - name: Hall-2
+      words: []
+      finalPageTitle: {fileID: 1674845083}
+    - name: Hall-3
+      words: []
+      finalPageTitle: {fileID: 1674845083}
+    hallsc:
+    - name: Hall-1
       words:
       - {fileID: 712062105}
       - {fileID: 55231712}
       - {fileID: 1455275857}
       - {fileID: 2002022111}
       finalPageTitle: {fileID: 1959787832}
-    eng:
+    - name: Hall-2
+      words: []
+      finalPageTitle: {fileID: 1959787832}
+    - name: Hall-3
+      words: []
+      finalPageTitle: {fileID: 1959787832}
+    halleng:
+    - name: Hall-1
+      words:
+      - {fileID: 1286344135}
+      - {fileID: 1102488015}
+      - {fileID: 672645272}
+      - {fileID: 293672248}
+      finalPageTitle: {fileID: 1426289799}
+    - name: Hall-2
+      words: []
+      finalPageTitle: {fileID: 1426289799}
+    - name: Hall-3
       words: []
       finalPageTitle: {fileID: 1426289799}
   skipToFeelingPage: 1
