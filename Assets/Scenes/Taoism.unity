@@ -5171,7 +5171,7 @@ MonoBehaviour:
   text: {fileID: 661953704}
   tcText: "\u4E94\u798F\u5168\u6B78"
   cnText: "\u4E94\u798F\u5168\u5F52"
-  engText: All five blessings return
+  engText: "\u4E94\u798F\u5168\u6B78"
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &274212260
@@ -28902,7 +28902,7 @@ MonoBehaviour:
   text: {fileID: 1499656688}
   tcText: "\u89AA\u6069\u6C38\u61F7"
   cnText: "\u4EB2\u6069\u6C38\u6000"
-  engText: Everlasting kindness
+  engText: "\u89AA\u6069\u6C38\u61F7"
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &1162551303
@@ -31616,7 +31616,7 @@ MonoBehaviour:
   text: {fileID: 583281932}
   tcText: "\u540C\u60B2\u4E0D\u6368"
   cnText: "\u540C\u60B2\u4E0D\u820D"
-  engText: Sharing the same sorrow
+  engText: "\u540C\u60B2\u4E0D\u6368"
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &1326120606
@@ -45680,7 +45680,7 @@ MonoBehaviour:
   text: {fileID: 961394326}
   tcText: "\u75DB\u9694\u5929\u4EBA"
   cnText: "\u75DB\u9694\u5929\u4EBA"
-  engText: Pain every other day
+  engText: "\u75DB\u9694\u5929\u4EBA"
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &1826275297
@@ -46494,7 +46494,7 @@ MonoBehaviour:
   text: {fileID: 1157206224}
   tcText: "\u6C38\u9060\u61F7\u5FF5"
   cnText: "\u6C38\u8FDC\u6000\u5FF5"
-  engText: Miss you forever
+  engText: "\u6C38\u9060\u61F7\u5FF5"
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &1847978359
@@ -53091,7 +53091,7 @@ MonoBehaviour:
   text: {fileID: 944256149}
   tcText: "\u5343\u79CB\u6C38\u8A23"
   cnText: "\u5343\u79CB\u6C38\u8BC0"
-  engText: Eternal farewell
+  engText: "\u5343\u79CB\u6C38\u8A23"
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &2090323684
@@ -53626,7 +53626,7 @@ MonoBehaviour:
   text: {fileID: 1524047011}
   tcText: "\u798F\u58FD\u5168\u6B78"
   cnText: "\u798F\u5BFF\u5168\u5F52"
-  engText: Good luck and longevity
+  engText: "\u798F\u58FD\u5168\u6B78"
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &2112162653
@@ -54138,7 +54138,7 @@ MonoBehaviour:
   text: {fileID: 680168928}
   tcText: "\u5929\u5730\u540C\u60B2"
   cnText: "\u5929\u5730\u540C\u60B2"
-  engText: Heaven and earth share the same sorrow
+  engText: "\u5929\u5730\u540C\u60B2"
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &2124456227

@@ -3089,6 +3089,95 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150627830}
   m_CullTransparentMesh: 1
+--- !u!1 &153203430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 153203431}
+  - component: {fileID: 153203433}
+  - component: {fileID: 153203432}
+  m_Layer: 5
+  m_Name: Text-Eng
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &153203431
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153203430}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1861887793}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 2.0025024, y: -7.449997}
+  m_SizeDelta: {x: -26.01, y: -14.9}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &153203432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153203430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 76409f875d20ae642b3ca7302b0b43e4, type: 3}
+    m_FontSize: 13
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 0.9
+  m_Text: "Friends and family, let us trust in Christ our Saviour who will transform
+    our lowly flesh to be like His glorious body. We pray to Him. Christ, Son of
+    the living God, you raised your friend Lazarus from the dead. Grant eternal life
+    to your servant.\u3000\r\n\r\n<color=orange>Lord, You are our life and resurrection.</color>\n\nComfort
+    those who mourn, Christ. Give strength and hope to the friends and relatives
+    of the dead.\n\n<color=orange>Lord, You are our life and resurrection.</color>\n\nLord
+    Jesus, you are merciful to all, and you have prepared a new dwelling place in
+    heaven for your redeemed ones. We commit this departed brother/sister into your
+    hands, trusting wholeheartedly in your favour for him/her. You, along with the
+    Father and the Holy Spirit, are the only God, the eternal and immortal King.\n\nAmen!"
+--- !u!222 &153203433
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153203430}
+  m_CullTransparentMesh: 1
 --- !u!1 &153568393
 GameObject:
   m_ObjectHideFlags: 0
@@ -4030,8 +4119,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.84, y: 48.42}
-  m_SizeDelta: {x: -20.33, y: 204.11}
+  m_AnchoredPosition: {x: 4.8399963, y: -0.0002593994}
+  m_SizeDelta: {x: -20.33, y: -0.00048828}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &198074595
 MonoBehaviour:
@@ -4059,7 +4148,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 165
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -5718,6 +5807,92 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263369201}
   m_CullTransparentMesh: 1
+--- !u!1 &265173514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 265173515}
+  - component: {fileID: 265173517}
+  - component: {fileID: 265173516}
+  m_Layer: 5
+  m_Name: Text-CN
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &265173515
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265173514}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1861887793}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 2.0025024, y: -7.449997}
+  m_SizeDelta: {x: -26.01, y: -14.9}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &265173516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265173514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 83f09c40ed3b6754a9f07363a891782e, type: 3}
+    m_FontSize: 16
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 0.8
+  m_Text: "\u5404\u4F4D\u4EB2\u53CB\uFF0C\u8BA9\u6211\u4EEC\u4FE1\u8D56\u57FA\u7763\uFF0C\u6211\u4EEC\u7684\u6551\u4E3B\uFF0C\u7942\u5FC5\u6539\u53D8\u6211\u4EEC\u5351\u5FAE\u7684\u8089\u8EAF\uFF0C\u4F7F\u4E4B\u76F8\u4F3C\u7942\u5149\u8363\u7684\u8EAB\u4F53\u3002\u6211\u4EEC\u5411\u7942\u7948\u6C42\u3002\u57FA\u7763\uFF0C\u6C38\u751F\u5929\u4E3B\u4E4B\u5B50\uFF0C\u7962\u66FE\u7531\u6B7B\u8005\u4E2D\u628A\u7962\u7684\u670B\u53CB\u62C9\u531D\u7984\u5524\u8D77\u6765\u3002\u6C42\u7962\u628A\u6C38\u8FDC\u7684\u751F\u547D\u8D50\u7ED9\u7962\u7684\u8FD9\u4F4D\u4EC6\u4EBA\u3002\n\n<color=orange>\u4E3B\uFF0C\u7962\u662F\u6211\u4EEC\u7684\u751F\u547D\u548C\u590D\u6D3B\u3002
+    </color>\n\n\u57FA\u7763\uFF0C\u7962\u5B89\u6170\u54C0\u6078\u7684\u4EBA\u3002
+    \u6C42\u7962\u628A\u529B\u91CF\u4E0E\u5E0C\u671B\u8D50\u7ED9\u4EA1\u8005\u7684\u4EB2\u53CB\u3002
+    \u3000\n\n<color=orange>\u4E3B\uFF0C\u7962\u662F\u6211\u4EEC\u7684\u751F\u547D\u548C\u590D\u6D3B\u3002
+    </color>\n\n\u4E3B\u8036\u7A23\uFF0C\u7962\u601C\u7231\u4F17\u4EBA\uFF0C\u7962\u5728\u5929\u4E0A\u4E3A\u7962\u6240\u6551\u8D4E\u7684\u4EBA\u51C6\u5907\u4E86\u65B0\u7684\u5C45\u6240\u3002
+    \u6211\u4EEC\u628A\u8FD9\u4F4D\u901D\u53BB\u7684\u5F1F\u5144/\u59CA\u59B9\u4EA4\u6258\u5728\u7962\u624B\u4E2D\uFF0C\u5168\u5FC3\u4FE1\u8D56\u7962\u5BF9\u4ED6\uFF08\u5979\uFF09\u7F8E\u597D\u7684\u5B89\u6392\u3002
+    \u7962\u548C\u5723\u7236\u53CA\u5723\u795E\uFF0C\u662F\u552F\u4E00\u5929\u4E3B\uFF0C\u6C38\u751F\u6C38\u738B\u3002\n\n\u963F\u4EEC\u3002"
+--- !u!222 &265173517
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 265173514}
+  m_CullTransparentMesh: 1
 --- !u!1 &267374322
 GameObject:
   m_ObjectHideFlags: 0
@@ -5900,7 +6075,7 @@ MonoBehaviour:
   text: {fileID: 661953704}
   tcText: "\u5728\u4E3B\u61F7\u62B1"
   cnText: "\u5728\u4E3B\u6000\u62B1"
-  engText: In the arms of the lord
+  engText: "\u5728\u4E3B\u61F7\u62B1"
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &274212260
@@ -10957,7 +11132,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.25, y: -10.88}
+  m_AnchoredPosition: {x: 2.25, y: -10.880005}
   m_SizeDelta: {x: -34.5, y: -21.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &470292421
@@ -13071,6 +13246,7 @@ MonoBehaviour:
     - {fileID: 1511220327}
     - {fileID: 198074593}
     - {fileID: 1573820001}
+    - {fileID: 2090295013}
     CN:
     - {fileID: 1321927029}
     - {fileID: 1321927024}
@@ -13094,6 +13270,7 @@ MonoBehaviour:
     - {fileID: 1774555326}
     - {fileID: 844934544}
     - {fileID: 1984449865}
+    - {fileID: 265173514}
     ENG:
     - {fileID: 1321927028}
     - {fileID: 1321927023}
@@ -13117,6 +13294,7 @@ MonoBehaviour:
     - {fileID: 872637706}
     - {fileID: 1685031381}
     - {fileID: 470292419}
+    - {fileID: 153203430}
   languageUI:
   - {fileID: 878286366}
   - {fileID: 528096473}
@@ -14961,8 +15139,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -300, y: 87.76}
-  m_SizeDelta: {x: 361.47, y: 373.65}
+  m_AnchoredPosition: {x: -300, y: 91.6}
+  m_SizeDelta: {x: 361.47, y: 381.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &620847280
 CanvasGroup:
@@ -20374,7 +20552,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -2, y: -3}
+  m_AnchoredPosition: {x: -10, y: -3}
   m_SizeDelta: {x: 43, y: 43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &807009853
@@ -21134,7 +21312,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.84, y: 0}
+  m_AnchoredPosition: {x: 4.8399963, y: 0}
   m_SizeDelta: {x: -20.33, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &844934546
@@ -30126,7 +30304,7 @@ MonoBehaviour:
   text: {fileID: 1499656688}
   tcText: "\u8207\u4E3B\u5055\u884C"
   cnText: "\u4E0E\u4E3B\u5055\u884C"
-  engText: Walk with the Lord
+  engText: "\u8207\u4E3B\u5055\u884C"
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &1162551303
@@ -30718,9 +30896,9 @@ RectTransform:
   m_Father: {fileID: 1861887793}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -170, y: 310}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -7}
   m_SizeDelta: {x: 43, y: 43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1204035770
@@ -31983,9 +32161,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248727729}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &1248727732
 MonoBehaviour:
@@ -33207,7 +33385,7 @@ MonoBehaviour:
   text: {fileID: 583281932}
   tcText: "\u5929\u570B\u6C38\u751F"
   cnText: "\u5929\u56FD\u6C38\u751F"
-  engText: Eternal Life in Heaven
+  engText: "\u5929\u570B\u6C38\u751F"
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &1326120606
@@ -35308,7 +35486,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -163, y: -674}
+  m_AnchoredPosition: {x: -163, y: -641}
   m_SizeDelta: {x: 162, y: 222}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1401622660
@@ -35616,9 +35794,9 @@ RectTransform:
   m_Father: {fileID: 1248727730}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -170, y: 310}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -7}
   m_SizeDelta: {x: 43, y: 43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1413250663
@@ -38072,7 +38250,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 11, y: -7}
+  m_AnchoredPosition: {x: 10, y: -7}
   m_SizeDelta: {x: 43, y: 43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1477677474
@@ -43605,8 +43783,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.25, y: -10.88}
-  m_SizeDelta: {x: -34.5, y: -21.76}
+  m_AnchoredPosition: {x: 2.25, y: -10.110001}
+  m_SizeDelta: {x: -34.5, y: -20.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1685031383
 MonoBehaviour:
@@ -43641,15 +43819,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.9
-  m_Text: "On this mountain the Lord Almighty will prepare a feast of rich food for
-    all peoples, a banquet of aged wine\u2014 the best of meats and the finest of
-    wines. \r\n\r\nOn this mountain he will destroy the shroud that enfolds all peoples,
-    the sheet that covers all nations; \rhe will swallow up death forever. The Sovereign
-    Lord will wipe away the tears from all faces; he will remove his people\u2019s
-    disgrace from all the earth. The Lord has spoken.\r\n\rOn that day they will
-    say, \u201CSurely this is our God; we trusted in him, and he saved us. This is
-    the Lord, we trusted in him; let us rejoice and be glad in his salvation.\r\n\r\nFrom
-    the Lord\r\n"
+  m_Text: "Read Isaiah 25: 6-9\n\nOn this mountain the Lord Almighty will prepare
+    a feast of rich food for all peoples, a banquet of aged wine\u2014 the best of
+    meats and the finest of wines. \rOn this mountain he will destroy the shroud
+    that enfolds all peoples, the sheet that covers all nations; \rhe will swallow
+    up death forever. The Sovereign Lord will wipe away the tears from all faces;
+    he will remove his people\u2019s disgrace from all the earth. The Lord has spoken.\r\n\rOn
+    that day they will say, \u201CSurely this is our God; we trusted in him, and
+    he saved us. This is the Lord, we trusted in him; let us rejoice and be glad
+    in his salvation.\r\n\r\nFrom the Lord\r\n"
 --- !u!222 &1685031384
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -47487,7 +47665,7 @@ MonoBehaviour:
   text: {fileID: 961394326}
   tcText: "\u6C38\u5149\u7167\u4E4B"
   cnText: "\u6C38\u5149\u7167\u4E4B"
-  engText: Everlasting Light
+  engText: "\u6C38\u5149\u7167\u4E4B"
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &1824164461
@@ -48470,7 +48648,7 @@ MonoBehaviour:
   text: {fileID: 1157206224}
   tcText: "\u6C38\u9060\u61F7\u5FF5"
   cnText: "\u6C38\u8FDC\u6000\u5FF5"
-  engText: Miss You Forever
+  engText: "\u6C38\u9060\u61F7\u5FF5"
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &1847978359
@@ -48918,14 +49096,17 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2090295014}
+  - {fileID: 265173515}
+  - {fileID: 153203431}
   - {fileID: 1204035769}
   m_Father: {fileID: 224903815}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -301, y: 281}
-  m_SizeDelta: {x: 361.47, y: 634.27}
+  m_AnchoredPosition: {x: -301, y: 177.04}
+  m_SizeDelta: {x: 361.47, y: 419.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &1861887794
 CanvasGroup:
@@ -52355,7 +52536,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.84, y: 0}
+  m_AnchoredPosition: {x: 4.8399963, y: 0}
   m_SizeDelta: {x: -20.33, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1984449867
@@ -55470,9 +55651,89 @@ MonoBehaviour:
   text: {fileID: 944256149}
   tcText: "\u8499\u4E3B\u5BF5\u53EC"
   cnText: "\u8499\u4E3B\u5BA0\u53EC"
-  engText: Called by the Lord
+  engText: "\u8499\u4E3B\u5BF5\u53EC"
   chineseFontSize: 30
   englishFontSize: 15
+--- !u!1 &2090295013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2090295014}
+  - component: {fileID: 2090295016}
+  - component: {fileID: 2090295015}
+  m_Layer: 5
+  m_Name: Text-TC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2090295014
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090295013}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1861887793}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 2.0025024, y: -7.449997}
+  m_SizeDelta: {x: -26.01, y: -14.9}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2090295015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090295013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 76409f875d20ae642b3ca7302b0b43e4, type: 3}
+    m_FontSize: 16
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 0.8
+  m_Text: "\u5404\u4F4D\u89AA\u53CB\uFF0C\u8B93\u6211\u5011\u4FE1\u8CF4\u57FA\u7763\uFF0C\u6211\u5011\u7684\u6551\u4E3B\uFF0C\u7942\u5FC5\u6539\u8B8A\u6211\u5011\u5351\u5FAE\u7684\u8089\u8EC0\uFF0C\u4F7F\u4E4B\u76F8\u4F3C\u7942\u5149\u69AE\u7684\u8EAB\u9AD4\u3002\u6211\u5011\u5411\u7942\u7948\u6C42\u3002\u57FA\u7763\uFF0C\u6C38\u751F\u5929\u4E3B\u4E4B\u5B50\uFF0C\u7962\u66FE\u7531\u6B7B\u8005\u4E2D\u628A\u7962\u7684\u670B\u53CB\u62C9\u531D\u797F\u559A\u8D77\u4F86\u3002\u6C42\u7962\u628A\u6C38\u9060\u7684\u751F\u547D\u8CDC\u7D66\u7962\u7684\u9019\u4F4D\u50D5\u4EBA\u3002\n\n<color=orange>\u4E3B\uFF0C\u7962\u662F\u6211\u5011\u7684\u751F\u547D\u548C\u5FA9\u6D3B\u3002</color>\n\n\u57FA\u7763\uFF0C\u7962\u5B89\u6170\u54C0\u615F\u7684\u4EBA\u3002\u6C42\u7962\u628A\u529B\u91CF\u8207\u5E0C\u671B\u8CDC\u7D66\u4EA1\u8005\u7684\u89AA\u53CB\u3002\u3000\n\n<color=orange>\u4E3B\uFF0C\u7962\u662F\u6211\u5011\u7684\u751F\u547D\u548C\u5FA9\u6D3B\u3002</color>\r\n\n\u4E3B\u8036\u7A4C\uFF0C\u7962\u6190\u611B\u773E\u4EBA\uFF0C\u7962\u5728\u5929\u4E0A\u70BA\u7962\u6240\u6551\u8D16\u7684\u4EBA\u6E96\u5099\u4E86\u65B0\u7684\u5C45\u6240\u3002\u6211\u5011\u628A\u9019\u4F4D\u901D\u53BB\u7684\u5F1F\u5144/\u59CA\u59B9\u4EA4\u8A17\u5728\u7962\u624B\u4E2D\uFF0C\u5168\u5FC3\u4FE1\u8CF4\u7962\u5C0D\u4ED6\uFF08\u5979\uFF09\u7F8E\u597D\u7684\u5B89\u6392\u3002\u7962\u548C\u8056\u7236\u53CA\u8056\u795E\uFF0C\u662F\u552F\u4E00\u5929\u4E3B\uFF0C\u6C38\u751F\u6C38\u738B\u3002\n\n\u963F\u5011\u3002"
+--- !u!222 &2090295016
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090295013}
+  m_CullTransparentMesh: 1
 --- !u!1 &2090323684
 GameObject:
   m_ObjectHideFlags: 0
@@ -56005,7 +56266,7 @@ MonoBehaviour:
   text: {fileID: 1524047011}
   tcText: "\u4E3B\u61F7\u5B89\u606F"
   cnText: "\u4E3B\u6000\u5B89\u606F"
-  engText: Rest in Peace
+  engText: "\u4E3B\u61F7\u5B89\u606F"
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &2112162653
@@ -56567,7 +56828,7 @@ MonoBehaviour:
   text: {fileID: 680168928}
   tcText: "\u606F\u52DE\u6B78\u4E3B"
   cnText: "\u606F\u52B3\u5F52\u4E3B"
-  engText: Rest from labor and return to the Lord
+  engText: "\u606F\u52DE\u6B78\u4E3B"
   chineseFontSize: 30
   englishFontSize: 15
 --- !u!1 &2124456227
