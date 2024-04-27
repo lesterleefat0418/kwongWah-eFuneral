@@ -22,7 +22,7 @@ public class SettingHall : MonoBehaviour
     public Color stepColor;
     public ProcessSteps processSteps;
     public Select[] settingSteps;
-    public SelectFood[] food;
+    public SelectFood[] food, Ornaments;
     public HallSpeakText hallSpeakText;
     public bool skipToFeelingPage = true;
 
@@ -75,7 +75,9 @@ public class SettingHall : MonoBehaviour
         else
         {
             Debug.Log("Detail Mode");
-            this.skipToFeelingPage = false;
+            if(LoaderConfig.Instance.religionId != 4)
+                this.skipToFeelingPage = false;
+
             for (int i = 0; i < this.processSteps.processSteps.Length; i++)
             {
                 this.processSteps.processSteps[i].SetActive(true);
@@ -147,6 +149,13 @@ public class SettingHall : MonoBehaviour
                 this.food[i].NotSelect();
             }
         }
+        for (int i = 0; i < this.Ornaments.Length; i++)
+        {
+            if (this.Ornaments[i] != null)
+            {
+                this.Ornaments[i].NotSelect();
+            }
+        }
         PageController.Instance.ChangePage(PageController.Instance.pageController.currentId - 1);
     }
 
@@ -167,14 +176,39 @@ public class SettingHall : MonoBehaviour
                 this.SelectSpeakText(-1);// not select
                 break;
             case 4:
-                this.SetSettingSteps(-1);
+                if (LoaderConfig.Instance.religionId == 5)
+                {
+                    for (int i = 0; i < this.food.Length; i++)
+                    {
+                        if (this.food[i] != null)
+                        {
+                            this.food[i].NotSelect();
+                        }
+                    }
+                }
+                else { 
+                    this.SetSettingSteps(-1);
+                }
                 break;
             case 5:
-                for(int i=0; i< this.food.Length; i++)
+                if (LoaderConfig.Instance.religionId == 5)
                 {
-                    if(this.food[i] != null)
+                    for (int i = 0; i < this.Ornaments.Length; i++)
                     {
-                        this.food[i].NotSelect();
+                        if (this.Ornaments[i] != null)
+                        {
+                            this.Ornaments[i].NotSelect();
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < this.food.Length; i++)
+                    {
+                        if (this.food[i] != null)
+                        {
+                            this.food[i].NotSelect();
+                        }
                     }
                 }
                 break;

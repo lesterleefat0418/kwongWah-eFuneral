@@ -38,8 +38,10 @@ public class SelectFood : MonoBehaviour
     void setFood()
     {
         this.select.DOFade(this.selected ? 1f : 0f, 0f);
-        if (this.scenesFood[SettingHall.Instance.selectedHallId] != null)
-            this.scenesFood[SettingHall.Instance.selectedHallId].SetActive(this.selected);
+        if(this.scenesFood.Length > SettingHall.Instance.selectedHallId) { 
+            if (this.scenesFood[SettingHall.Instance.selectedHallId] != null)
+                this.scenesFood[SettingHall.Instance.selectedHallId].SetActive(this.selected);
+        }
     }
 
     public void NotSelect()

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System.Text.RegularExpressions;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using System;
 
 public class SendFeelings : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class SendFeelings : MonoBehaviour
     public FeedbackView feedbackView;
     public CanvasGroup inputField, drawingPanel, audioPanel;
     public GameObject message, recordResult;
+    public CanvasGroup[] processes;
 
 
     private void Awake()
@@ -29,7 +31,17 @@ public class SendFeelings : MonoBehaviour
     {
         SetUI.Run(this.feelingTag, isPublic ? false : true);
         SetUI.Run(this.feedbackBtn, isPublic ? false : true);
-        SetUI.Run(this.giveFlowerBtn, isPublic ? false : true);
+
+        if(LoaderConfig.Instance.religionId < 4) { 
+            SetUI.Run(this.giveFlowerBtn, isPublic ? false : true);
+        }
+        else
+        {
+            if (LoaderConfig.Instance.religionId != 5)
+                SetUI.Run(this.giveFlowerBtn, false);
+            else
+                SetUI.Run(this.giveFlowerBtn, true);
+        }
     }
 
     // Start is called before the first frame update
@@ -53,6 +65,23 @@ public class SendFeelings : MonoBehaviour
                 eventTrigger.triggers.Add(clickEntry);
             }
         }
+        this.resetAllProcesses();
+    }
+
+
+    public void resetAllProcesses(int apartId = -1)
+    {
+        for(int i=0;i< this.processes.Length; i++)
+        {
+            if(i == apartId) { 
+                SetUI.Run(this.processes[apartId], true);
+            }
+            else
+            {
+                SetUI.Run(this.processes[i], false);
+            }
+        }
+
     }
 
     private void ShowTibpad(BaseEventData eventData)

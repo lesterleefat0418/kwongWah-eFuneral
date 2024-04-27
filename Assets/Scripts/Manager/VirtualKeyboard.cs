@@ -4,6 +4,11 @@ using UnityEngine;
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Drawing;
+using System.Threading.Tasks;
+using UnityEngine.UIElements;
+using UnityEngine.XR;
+using Microsoft.Win32;
 
 public class VirtualKeyboard: MonoBehaviour
 {
@@ -13,7 +18,7 @@ public class VirtualKeyboard: MonoBehaviour
     static extern IntPtr FindWindow(String sClassName, String sAppName);
 
     [DllImport("user32.dll", SetLastError = true)]
-    static extern bool SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+    static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
         private const int SWP_NOSIZE = 0x0001;
     private const int SWP_NOZORDER = 0x0004;
     [DllImport("user32")]
@@ -27,6 +32,11 @@ public class VirtualKeyboard: MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    private void Start()
+    {
+        getKey();
     }
 
     //Show the touch keyboard (tabtip.exe).
@@ -51,7 +61,8 @@ public class VirtualKeyboard: MonoBehaviour
                 //win10 
                 UnityEngine.Debug.Log("Window 10");
                 HideTouchKeyboard();
-                ExternalCall("C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\Tabtip.exe", null, false);
+                //ExternalCall("C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\Tabtip.exe", null, false);
+                callTabtip();
                 //ExternalCall("TABTIP", null, false);
             }
         }
@@ -62,13 +73,14 @@ public class VirtualKeyboard: MonoBehaviour
         }
     }
 
+
     //Hide the touch keyboard (tabtip.exe).
     public void HideTouchKeyboard()
     {
         uint WM_SYSCOMMAND = 274;
         int SC_CLOSE = 61536;
-        IntPtr ptr = FindWindow("IPTip_Main_Window", null);
-        PostMessage(ptr, WM_SYSCOMMAND, SC_CLOSE, 0);
+        IntPtr TabTipHandle = FindWindow("IPTip_Main_Window", null);
+        PostMessage(TabTipHandle, WM_SYSCOMMAND, SC_CLOSE, 0);
     }
 
     //Show the on screen keyboard (osk.exe).
@@ -99,6 +111,38 @@ public class VirtualKeyboard: MonoBehaviour
         ExternalCall("REG", @"ADD HKCU\Software\Microsoft\Osk /v WindowTop /t REG_DWORD /d " + (int)rect.y + " /f", true);
         ExternalCall("REG", @"ADD HKCU\Software\Microsoft\Osk /v WindowWidth /t REG_DWORD /d " + (int)rect.width + " /f", true);
         ExternalCall("REG", @"ADD HKCU\Software\Microsoft\Osk /v WindowHeight /t REG_DWORD /d " + (int)rect.height + " /f", true);
+    }
+
+
+    void callTabtip()
+    {
+        HideTouchKeyboard();
+        ExternalCall("C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\Tabtip.exe", null, false);
+    
+    }
+
+
+    void getKey()
+    {
+        string keyPath = @"HKEY_CURRENT_USER\Software\Microsoft\TabletTip\1.7";
+        string valueName = "OptimizedKeyboardRelativeXPositionOnScreen";
+
+        // Retrieve the registry value
+        object value = Registry.GetValue(keyPath, valueName, null);
+        Console.WriteLine(value);
+
+        if (value != null)
+        {
+            // Cast or convert the value to the appropriate type
+            string stringValue = value.ToString();
+            // Use the value as needed
+            Console.WriteLine(stringValue);
+        }
+        else
+        {
+            // Handle case where the value does not exist
+            Console.WriteLine("Registry value does not exist.");
+        }
     }
 
     private static Process ExternalCall(string filename, string arguments, bool hideWindow)

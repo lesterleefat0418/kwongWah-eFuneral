@@ -137,6 +137,24 @@ public class DrawViewController : MonoBehaviour, IBeginDragHandler, IDragHandler
         }
     }
 
+    public void Undo()
+    {
+        if(drawSettings.CanUndo()) { 
+            currentColors = drawSettings.Undo(drawTexture.GetPixels32());
+            ApplyCurrentColors();
+        }
+    }
+
+    public void Redo()
+    {
+        if(drawSettings.CanRedo())
+        {
+            currentColors = drawSettings.Redo(drawTexture.GetPixels32());
+            ApplyCurrentColors();
+        }
+    }
+
+
     public void ClearBtn()
     {
 
