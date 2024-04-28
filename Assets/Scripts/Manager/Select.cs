@@ -40,15 +40,18 @@ public class Select
 {
     public string stepName;
     public int selected = 0;
-    public Image[] options;
+    public Image[] options, btnImages;
     public Decoration[] decoration;
     public Page page;
+    private Color32 originalColor;
     // Start is called before the first frame update
 
     public void init()
     {
         this.set(this.selected, 1);
         this.page.init();
+
+        this.originalColor = new Color32(235, 219, 174, 255);
     }
 
     public void reset()
@@ -64,11 +67,19 @@ public class Select
             if (i == id)
             {
                 this.options[id].DOFade(1f, 0f);
+                if(this.options[id].GetComponent<LanguageUI>() != null)
+                {
+                    this.options[id].GetComponent<LanguageUI>().text.color = Color.white;
+                }
                 if (this.decoration.Length > 0) this.decoration[hallType].set(id);
                 this.selected = id;
             }
             else
             {
+                if (this.options[i].GetComponent<LanguageUI>() != null)
+                {
+                    this.options[i].GetComponent<LanguageUI>().text.color = this.originalColor;
+                }
                 this.options[i].DOFade(0f, 0f);
                 if(this.decoration.Length > 0) this.decoration[hallType].set(id);
             }

@@ -71,6 +71,9 @@ public class SendFeelings : MonoBehaviour
 
     public void resetAllProcesses(int apartId = -1)
     {
+        if(this.processes == null)
+            return;
+
         for(int i=0;i< this.processes.Length; i++)
         {
             if(i == apartId) { 
