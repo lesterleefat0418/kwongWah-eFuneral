@@ -91,13 +91,16 @@ public class Select
     {
         if (right)
         {
-            if(this.page.currentId < this.page.pages.Length - 1)
+            if (this.page.currentId < this.page.pages.Length - 1) {
                 this.page.currentId += 1;
+            }
         }
         else
         {
-            if(this.page.currentId > 0)
+            if (this.page.currentId > 0)
+            {
                 this.page.currentId -= 1;
+            }
         }
 
         this.page.setPage(this.page.currentId);
