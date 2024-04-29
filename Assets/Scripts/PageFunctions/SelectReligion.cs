@@ -59,7 +59,10 @@ public class SelectReligion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            this.HideKeyboard();
+        }
     }
 
     public void setLang(int langId)

@@ -125,11 +125,11 @@ public class PageController : MonoBehaviour
                 break;
             case 4:
                 if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(-532f, 0f);
-                if (Huabao.Instance != null) Huabao.Instance.allowAutoBurn = true;
+                if (Huabao.Instance != null) Huabao.Instance.setHuaBao(true);
                 break;
             case 5:
                 if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(692f, 0f);
-                if (Huabao.Instance != null) Huabao.Instance.allowAutoBurn = false;
+                if (Huabao.Instance != null) Huabao.Instance.setHuaBao(false);
                 break;
         }
     }

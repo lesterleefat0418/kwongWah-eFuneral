@@ -51,7 +51,7 @@ public class SendFeelings : MonoBehaviour
         if (this.feelingTag != null) this.originalY = this.feelingTag.transform.localPosition.y;
         if(this.feedbackBtn != null) this.feedbackBtn.alpha = 1f;
         SetUI.Run(this.feedbackTag, false);
-        this.showInputType(0);
+        this.showInputType(-1);
 
         if (this.inputField != null) { 
             var input = this.inputField.GetComponent<InputField>();
@@ -111,13 +111,17 @@ public class SendFeelings : MonoBehaviour
     public void showFeedbackBoxTag()
     {
         this.showFeedbackBox = !this.showFeedbackBox;
+        showFeedBackFrame();
+    }
+
+    void showFeedBackFrame()
+    {
         SetUI.Run(this.feedbackTag, this.showFeedbackBox);
         bool reviseStatus = !this.showFeedbackBox;
         SetUI.Run(this.feedbackBtn, reviseStatus);
         if (VirtualKeyboard.Instance != null) VirtualKeyboard.Instance.HideTouchKeyboard();
         this.MoveTag(false);
     }
-
     public void showFeelingTag()
     {
         this.showFeelingBox = !this.showFeelingBox;
@@ -126,8 +130,19 @@ public class SendFeelings : MonoBehaviour
 
     public void showInputType(int type)
     {
+        if (!this.showFeedbackBox && type != -1)
+        {
+            this.showFeedbackBox = true;
+            showFeedBackFrame();
+        }
         switch (type)
         {
+            case -1:
+                Debug.Log("Default settings");
+                SetUI.Run(this.inputField, true);
+                SetUI.Run(this.drawingPanel, false);
+                SetUI.Run(this.audioPanel, false);
+                break;
             case 0:
                 Debug.Log("Inputfield");
                 SetUI.Run(this.inputField, true);

@@ -60,9 +60,9 @@ public class VirtualKeyboard: MonoBehaviour
             {
                 //win10 
                 UnityEngine.Debug.Log("Window 10");
-                HideTouchKeyboard();
-                //ExternalCall("C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\Tabtip.exe", null, false);
-                callTabtip();
+                //HideTouchKeyboard();
+                ExternalCall("C:\\Program Files\\Common Files\\Microsoft Shared\\ink\\Tabtip.exe", null, false);
+                //callTabtip();
                 //ExternalCall("TABTIP", null, false);
             }
         }

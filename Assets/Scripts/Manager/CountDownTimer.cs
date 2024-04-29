@@ -71,7 +71,7 @@ public class CountDownTimer : MonoBehaviour
                     unit = "分鍾";
                     break;
                 case 2:
-                    unit = " minitues";
+                    unit = " minute(s)";
                     break;
             }
 
@@ -94,7 +94,7 @@ public class CountDownTimer : MonoBehaviour
                     unit = "秒";
                     break;
                 case 2:
-                    unit = " seconds";
+                    unit = " second(s)";
                     break;
             }
 
