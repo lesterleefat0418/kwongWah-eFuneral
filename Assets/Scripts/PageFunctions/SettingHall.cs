@@ -356,7 +356,7 @@ public class HallSpeakText
                 this.setSC(this.defaultCNWords, hallId);
                 break;
             case 2:
-                //this.hallSpeakText.setTC(wordsArray);
+                this.setTC(this.defaultTCWords, hallId);
                 break;
         }
     }

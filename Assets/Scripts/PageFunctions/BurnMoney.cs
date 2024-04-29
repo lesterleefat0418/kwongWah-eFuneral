@@ -17,7 +17,7 @@ public class BurnMoney : MonoBehaviour
     void Start()
     {
         this.resetPaper();
-        if(this.loopBtn != null) this.loopBtn.GetComponent<Image>().DOFade(1f, 0f);
+        this.resetLoop();
     }
 
     public void setLoop()
@@ -50,6 +50,12 @@ public class BurnMoney : MonoBehaviour
         }
     }
 
+    void resetLoop()
+    {
+        this.isLoop = false;
+        if (this.loopBtn != null) this.loopBtn.GetComponent<Image>().DOFade(1f, 0f);
+    }
+
     public void set(int id)
     {
         if(id == 0)
@@ -60,6 +66,7 @@ public class BurnMoney : MonoBehaviour
             {
                 this.fireParticle.SetActive(false);
             }
+            this.resetLoop();
         }
         else
         {
