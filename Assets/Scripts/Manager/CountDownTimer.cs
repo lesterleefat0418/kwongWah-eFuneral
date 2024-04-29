@@ -48,7 +48,7 @@ public class CountDownTimer : MonoBehaviour
                     head = "剩下时间: ";
                     break;
                 case 2:
-                    head = "Remaining Time: ";
+                    head = "Timer: ";
                     break;
             }
 

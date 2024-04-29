@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
+using System.Windows.Forms;
 
 public class BurnMoney : MonoBehaviour
 {
@@ -9,25 +11,43 @@ public class BurnMoney : MonoBehaviour
     public GameObject fireParticle;
     public Transform money;
     public bool isAnimated = false;
+    public GameObject loopBtn;
+    public bool isLoop = false;
     // Start is called before the first frame update
     void Start()
     {
         this.resetPaper();
+        if(this.loopBtn != null) this.loopBtn.GetComponent<Image>().DOFade(1f, 0f);
     }
 
-    public void burnPaper()
+    public void setLoop()
+    {
+        this.isLoop = !this.isLoop;
+        if (this.loopBtn != null) this.loopBtn.GetComponent<Image>().DOFade(this.isLoop? 0.5f : 1f, 0f);
+        burnPaper();
+    }
+
+    public void burnPaper(float _delay = 0f)
     {
         if (this.money != null && !this.isAnimated)
         {
             this.isAnimated = true;
-            this.money.DOLocalMove(new Vector2(0f, 0f), 0.5f).SetEase(Ease.InOutBack).OnComplete(()=> resetPaper());
+            this.money.DOLocalMove(new Vector2(0f, 0f), 1f).SetDelay(_delay).SetEase(Ease.InOutBack).OnComplete(()=> resetPaper());
         }
     }
 
     void resetPaper()
     {
+        this.money.DOLocalMove(new Vector2(0f, 130f), 0f).OnComplete(()=> loopPlay());
+    }
+
+    void loopPlay()
+    {
         isAnimated = false;
-        this.money.DOLocalMove(new Vector2(0f, 130f), 0f);
+        if (this.isLoop)
+        {
+            burnPaper(0.5f);
+        }
     }
 
     public void set(int id)
