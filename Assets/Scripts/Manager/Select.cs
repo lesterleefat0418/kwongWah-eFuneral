@@ -66,21 +66,27 @@ public class Select
         {
             if (i == id)
             {
-                this.options[id].DOFade(1f, 0f);
-                if(this.options[id].GetComponent<LanguageUI>() != null)
+                if(this.options[id] != null)
                 {
-                    this.options[id].GetComponent<LanguageUI>().text.color = Color.white;
+                    this.options[id].DOFade(1f, 0f);
+                    if(this.options[id].GetComponent<LanguageUI>() != null)
+                    {
+                        this.options[id].GetComponent<LanguageUI>().text.color = Color.white;
+                    }
                 }
                 if (this.decoration.Length > 0) this.decoration[hallType].set(id);
                 this.selected = id;
             }
             else
             {
-                if (this.options[i].GetComponent<LanguageUI>() != null)
+                if (this.options[i] != null)
                 {
-                    this.options[i].GetComponent<LanguageUI>().text.color = this.originalColor;
+                    if (this.options[i].GetComponent<LanguageUI>() != null)
+                    {
+                        this.options[i].GetComponent<LanguageUI>().text.color = this.originalColor;
+                    }
+                    this.options[i].DOFade(0f, 0f);
                 }
-                this.options[i].DOFade(0f, 0f);
                 if(this.decoration.Length > 0) this.decoration[hallType].set(id);
             }
 

@@ -10,7 +10,6 @@ public class Huabao : MonoBehaviour
     public float delayTime = 3f;
     public Drag[] burnItemsSkip, burnItems;
     public int burnId = 0;
-    public GameObject[] fire;
 
     private void Awake()
     {
@@ -23,14 +22,6 @@ public class Huabao : MonoBehaviour
     void Start()
     {
         this.resetAutoBurnTime();
-
-        for (int i = 0; i < this.fire.Length; i++)
-        {
-            if (this.fire[i] != null)
-            {
-                this.fire[i].SetActive(false);
-            }
-        }
     }
 
     // Update is called once per frame
@@ -64,14 +55,6 @@ public class Huabao : MonoBehaviour
     public void setHuaBao(bool status)
     {
         this.allowAutoBurn = status;
-        for (int i = 0; i < this.fire.Length; i++)
-        {
-            if (this.fire[i] != null)
-            {
-                this.fire[i].SetActive(status);
-            }
-        }
-
     }
 
     public void resetAutoBurnTime()

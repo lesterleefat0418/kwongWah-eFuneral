@@ -61,7 +61,6 @@ public class SettingHall : MonoBehaviour
             for (int i = 0; i < this.settingSteps.Length; i++)
             {
                 if(this.settingSteps[i].decoration.Length > 0) {
-
                     int publicDefaultId = this.settingSteps[i].decoration[this.selectedHallId].publicDefaultId;
                     this.settingSteps[i].set(publicDefaultId, this.selectedHallId);
                 }
@@ -270,6 +269,11 @@ public class SettingHall : MonoBehaviour
     public void SelectSpeakTextSwitchPage(bool right)
     {
         this.settingSteps[3].changePage(right);
+    }
+
+    public void SelectFoodSwitchPage(bool right)
+    {
+        this.settingSteps[4].changePage(right);
     }
 
     void setStepFrame(int id)
