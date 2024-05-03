@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Text;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class CountDownTimer : MonoBehaviour
 {
@@ -11,9 +12,14 @@ public class CountDownTimer : MonoBehaviour
     public float currentTime;
     public Text countdownText;
     private StringBuilder sb = null;
+    public Image bground;
+    public Color32 shineColor;
     public CanvasGroup remindLastFiveMinutes;
     public bool triggeredRemindLastFiveMinutes = false;
-
+    //public string[] titleHeads = new string[3]{ "剩下時間: ", "剩下时间: ", "Timer: "};
+    public string[] heads = new string[3] { "儀式會在: ", "仪式会在: ", "The ceremony will be end after: " };
+    public string[] goodByeheads = new string[3] { "禮成會在: ", "礼成会在: ", "The Funeral will be end after: " };
+    public string[] ends = new string[3] { "後結束！", "后结束！", "!" };
     [SerializeField]
     private UnityEvent finished = null;
 
@@ -38,18 +44,10 @@ public class CountDownTimer : MonoBehaviour
         get
         {
             string head = "";
-
-            switch (LoaderConfig.Instance.SelectedLanguageId)
+            if(PageController.Instance != null)
             {
-                case 0:
-                    head = "剩下時間: ";
-                    break;
-                case 1:
-                    head = "剩下时间: ";
-                    break;
-                case 2:
-                    head = "Timer: ";
-                    break;
+                head = PageController.Instance.pageController.currentId != PageController.Instance.pageController.pages.Length - 1 ? heads[LoaderConfig.Instance.SelectedLanguageId] : goodByeheads[LoaderConfig.Instance.SelectedLanguageId];
+
             }
 
             return head;
@@ -65,13 +63,13 @@ public class CountDownTimer : MonoBehaviour
             switch (LoaderConfig.Instance.SelectedLanguageId)
             {
                 case 0:
-                    unit = "分鍾";
+                    unit = "分鍾" + ends[0];
                     break;
                 case 1:
-                    unit = "分鍾";
+                    unit = "分钟" + ends[1];
                     break;
                 case 2:
-                    unit = " minute(s)";
+                    unit = " minute(s)" + ends[2];
                     break;
             }
 
@@ -88,13 +86,13 @@ public class CountDownTimer : MonoBehaviour
             switch (LoaderConfig.Instance.SelectedLanguageId)
             {
                 case 0:
-                    unit = "秒";
+                    unit = "秒" + ends[0];
                     break;
                 case 1:
-                    unit = "秒";
+                    unit = "秒" + ends[1];
                     break;
                 case 2:
-                    unit = " second(s)";
+                    unit = " second(s)" + ends[2];
                     break;
             }
 
@@ -105,7 +103,7 @@ public class CountDownTimer : MonoBehaviour
 
     public void showTimer()
     {
-        this.GetComponent<CanvasGroup>().alpha = 1f;
+        SetUI.Set(this.GetComponent<CanvasGroup>(), true, 1f);
         this.triggerToStart = true;
     }
 
@@ -113,7 +111,7 @@ public class CountDownTimer : MonoBehaviour
     {
         this.currentTime = this.totalTime;
         this.sb = new StringBuilder();
-        this.GetComponent<CanvasGroup>().alpha = 0f;
+        SetUI.Set(this.GetComponent<CanvasGroup>(), false, 0f);
     }
 
     private void Update()
@@ -129,9 +127,10 @@ public class CountDownTimer : MonoBehaviour
                 int minutes = Mathf.FloorToInt(currentTime / 60);
                 int seconds = Mathf.FloorToInt(currentTime % 60);
 
-                if(currentTime <= 300f && !this.triggeredRemindLastFiveMinutes)
+                if(currentTime <= 360f && !this.triggeredRemindLastFiveMinutes)
                 {
-                    SetUI.Run(this.remindLastFiveMinutes, true, 0.5f);
+                    if(this.bground != null) this.bground.DOColor(shineColor, 1f).SetLoops(-1, LoopType.Yoyo);
+                    this.remindLastFiveMinutes.DOFade(1f, 1f).SetLoops(6, LoopType.Yoyo);
                     this.triggeredRemindLastFiveMinutes = true;
                 }
 
@@ -162,7 +161,7 @@ public class CountDownTimer : MonoBehaviour
             }
 
             if (this.countdownText != null) { 
-                this.countdownText.font = LoaderConfig.Instance.SelectedLanguageId == 1 ? PageController.Instance.sc: PageController.Instance.tc;
+                this.countdownText.font = LoaderConfig.Instance.SelectedLanguageId == 1 ? LoaderConfig.Instance.sc: LoaderConfig.Instance.tc;
                 this.countdownText.text = this.sb.ToString();
             }
 

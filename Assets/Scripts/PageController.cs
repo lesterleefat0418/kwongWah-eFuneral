@@ -9,7 +9,6 @@ public class PageController : MonoBehaviour
     public Page pageController;
     public Language language;
     public LanguageUI[] languageUI;
-    public Font tc, sc;
     public CanvasGroup captureBg;
     public CountDownTimer countDownTimer;
     public Timer idlingTimer;
@@ -145,6 +144,7 @@ public class PageController : MonoBehaviour
         Debug.Log("Show leave popup box");
         SetUI.Run(this.leavePopup, true, 0.5f);
     }
+
 
     public void showPopup(CanvasGroup popup)
     {

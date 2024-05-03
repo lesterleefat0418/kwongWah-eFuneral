@@ -186,13 +186,13 @@ public class SendFeelings : MonoBehaviour
         switch (LoaderConfig.Instance.SelectedLanguageId)
         {
             case 0:
-                ft = PageController.Instance.tc;
+                ft = LoaderConfig.Instance.tc;
                 break;
             case 1:
-                ft = PageController.Instance.sc;
+                ft = LoaderConfig.Instance.sc;
                 break;
             case 2:
-                ft = PageController.Instance.tc;
+                ft = LoaderConfig.Instance.tc;
                 break;
         }
 

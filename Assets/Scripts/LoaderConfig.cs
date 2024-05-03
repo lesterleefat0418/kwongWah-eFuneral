@@ -9,6 +9,7 @@ public class LoaderConfig : MonoBehaviour
     public int religionId;
     public int selectReligionSceneLastPageId = 0;
     public bool skipToHuabaoStage = false;
+    public Font tc, sc;
 
     private void Awake()
     {

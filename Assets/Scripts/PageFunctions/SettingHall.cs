@@ -102,6 +102,20 @@ public class SettingHall : MonoBehaviour
         
     }
 
+    public void switchStep(int toStepId)
+    {
+        if (LoaderConfig.Instance.configData.isLogined)
+        {
+            this.steps.setPage(toStepId,
+                () => this.setStepFrame(toStepId)
+            );
+        }
+        else
+        {
+            this.setStepFrame(this.steps.currentId);
+            this.steps.setPage(toStepId, () => this.setStepFrame(toStepId));
+        }
+    }
 
     public void changeStep()
     {

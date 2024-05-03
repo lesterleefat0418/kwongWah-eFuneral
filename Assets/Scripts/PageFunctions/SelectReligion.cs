@@ -16,6 +16,7 @@ public class SelectReligion : MonoBehaviour
     public GameObject adminBtn, logoutBtn;
     private bool clickedLogout = false;
     public LanguageUI[] languageUI;
+    public CountDownTimer idling;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,7 @@ public class SelectReligion : MonoBehaviour
             clickEntry.callback.AddListener(clickAction);
             eventTrigger.triggers.Add(clickEntry);
         }
+        this.idling?.init();
     }
 
 
@@ -89,6 +91,8 @@ public class SelectReligion : MonoBehaviour
         {
             if(this.languageUI[i] != null) this.languageUI[i].setLang();
         }
+
+        if(this.idling != null) this.idling.showTimer();
     }
 
 

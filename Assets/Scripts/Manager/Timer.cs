@@ -189,7 +189,7 @@ public class Timer : MonoBehaviour
 
             if (this.countdownText != null)
             {
-                this.countdownText.font = LoaderConfig.Instance.SelectedLanguageId == 1 ? PageController.Instance.sc : PageController.Instance.tc;
+                this.countdownText.font = LoaderConfig.Instance.SelectedLanguageId == 1 ? LoaderConfig.Instance.sc : LoaderConfig.Instance.tc;
                 this.countdownText.text = this.sb.ToString();
             }
 

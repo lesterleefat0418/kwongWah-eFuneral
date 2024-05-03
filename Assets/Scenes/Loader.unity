@@ -385,6 +385,8 @@ MonoBehaviour:
   religionId: 0
   selectReligionSceneLastPageId: 0
   skipToHuabaoStage: 0
+  tc: {fileID: 12800000, guid: 76409f875d20ae642b3ca7302b0b43e4, type: 3}
+  sc: {fileID: 12800000, guid: 83f09c40ed3b6754a9f07363a891782e, type: 3}
 --- !u!114 &558532251
 MonoBehaviour:
   m_ObjectHideFlags: 0
