@@ -39,7 +39,8 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
 
         if (this.targetObject != null && eventData.pointerCurrentRaycast.gameObject == targetObject)
         {
-           this.fireBurn();
+            if (Huabao.Instance != null) Huabao.Instance.setHuaBao(false);
+            this.fireBurn();
         }
     }
 
@@ -56,10 +57,20 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
     {
         if (this.sceneburn != null)
         {
-            this.sceneburn.DOFade(1f, 1f).SetLoops(2, LoopType.Yoyo).SetEase(Ease.InOutBack);
+            this.controlDragUIStatus(false);
+            this.sceneburn.DOFade(1f, 1f).SetLoops(2, LoopType.Yoyo).SetEase(Ease.InOutBack).OnComplete(
+                ()=> this.controlDragUIStatus(true)
+            );
             this.sceneburn.transform.DOScale(0.5f, 2f).SetEase(Ease.Linear);
         }
-        SetUI.Set(this.dragUI, false, 0.5f);
-        this.enabled = false;
+
+    }
+
+    void controlDragUIStatus(bool status)
+    {
+        this.sceneburn.DORewind();
+        this.sceneburn.transform.DORewind();
+        SetUI.Set(this.dragUI, status, status? 1f : 0.5f);
+        this.enabled = status;
     }
 }

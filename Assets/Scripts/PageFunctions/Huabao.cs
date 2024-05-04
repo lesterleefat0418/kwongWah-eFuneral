@@ -10,6 +10,7 @@ public class Huabao : MonoBehaviour
     public float delayTime = 3f;
     public Drag[] burnItemsSkip, burnItems;
     public int burnId = 0;
+    public CanvasGroup[] loopDropUI, manualDropUI, hints;
 
     private void Awake()
     {
@@ -46,8 +47,9 @@ public class Huabao : MonoBehaviour
             }
             else
             {
-                Debug.Log("Finished auto burn");
-                this.allowAutoBurn = false;
+                Debug.Log("Restart the loop auto burn");
+                //this.allowAutoBurn = false;
+                this.burnId = 0;
             }          
         }
     }
@@ -55,6 +57,18 @@ public class Huabao : MonoBehaviour
     public void setHuaBao(bool status)
     {
         this.allowAutoBurn = status;
+
+        if (status)
+        {
+            this.burnId = 0;
+        }
+
+        for (int i=0; i<this.loopDropUI.Length; i++)
+        {
+            SetUI.Set(this.loopDropUI[i], !status, status? 0.5f: 1f);
+            SetUI.Set(this.manualDropUI[i], status, status ? 1f : 0.5f);
+            SetUI.Set(this.hints[i], status, status? 1f: 0f);
+        }
     }
 
     public void resetAutoBurnTime()

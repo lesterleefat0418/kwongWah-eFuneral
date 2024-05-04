@@ -100,6 +100,10 @@ public class Select
             if (this.page.currentId < this.page.pages.Length - 1) {
                 this.page.currentId += 1;
             }
+            else
+            {
+                this.page.currentId = 0;
+            }
         }
         else
         {
@@ -107,8 +111,17 @@ public class Select
             {
                 this.page.currentId -= 1;
             }
+            else
+            {
+                this.page.currentId = this.page.pages.Length - 1;
+            }
         }
 
         this.page.setPage(this.page.currentId);
+    }
+
+    public void switchPage(int toPage)
+    {
+        this.page.setPage(toPage);
     }
 }

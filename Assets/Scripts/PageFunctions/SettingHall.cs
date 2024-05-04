@@ -74,7 +74,10 @@ public class SettingHall : MonoBehaviour
         else
         {
             Debug.Log("Detail Mode");
-            if(LoaderConfig.Instance.religionId != 4)
+            if(LoaderConfig.Instance.SelectedReligionId == 0)
+                this.SelectSpeakTextType(0);
+
+            if (LoaderConfig.Instance.SelectedReligionId != 4)
                 this.skipToFeelingPage = false;
 
             for (int i = 0; i < this.processSteps.processSteps.Length; i++)
@@ -93,6 +96,8 @@ public class SettingHall : MonoBehaviour
 
             if (SendFeelings.Instance != null)
                 SendFeelings.Instance.setGameMode(false);
+
+           
         }
     }
 
@@ -283,6 +288,25 @@ public class SettingHall : MonoBehaviour
     public void SelectSpeakTextSwitchPage(bool right)
     {
         this.settingSteps[3].changePage(right);
+    }
+
+    public void SelectSpeakTextType(int typeId)
+    {
+        if (this.settingSteps[3].btnImages.Length > 0)
+        {
+            for(int i=0; i< this.settingSteps[3].btnImages.Length; i++)
+            {
+                if(i== typeId)
+                {
+                    this.settingSteps[3].btnImages[typeId].DOFade(1f, 0f);
+                }
+                else
+                {
+                    this.settingSteps[3].btnImages[i].DOFade(0f, 0f);
+                }
+            }
+        }
+        this.settingSteps[3].switchPage(typeId);
     }
 
     public void SelectFoodSwitchPage(bool right)
