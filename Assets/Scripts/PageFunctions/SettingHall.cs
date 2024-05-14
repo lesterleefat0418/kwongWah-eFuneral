@@ -248,7 +248,6 @@ public class SettingHall : MonoBehaviour
         }
     }
 
-
     public void SelectSpeakText(int id)
     {
         int currentStep = this.steps.currentId;
