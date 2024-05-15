@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class SelectBanner : MonoBehaviour
 {
     public Select bannerBtns;
-    public List<Banner> scenesBanner;
+    public List<Banner> scenesBanner, goodByeBanner;
 
     // Update is called once per frame
     void Start()
@@ -37,11 +37,17 @@ public class SelectBanner : MonoBehaviour
                 {
                     if (this.scenesBanner[id].scenesBanner[LoaderConfig.Instance.SelectedLanguageId] != null)
                         this.scenesBanner[id].scenesBanner[LoaderConfig.Instance.SelectedLanguageId].DOFade(1f, 0f);
+
+                    if (this.goodByeBanner[id].scenesBanner[LoaderConfig.Instance.SelectedLanguageId] != null)
+                        this.goodByeBanner[id].scenesBanner[LoaderConfig.Instance.SelectedLanguageId].DOFade(1f, 0f);
                 }
                 else
                 {
                     if (this.scenesBanner[i].scenesBanner[LoaderConfig.Instance.SelectedLanguageId] != null)
                         this.scenesBanner[i].scenesBanner[LoaderConfig.Instance.SelectedLanguageId].DOFade(0f, 0f);
+
+                    if (this.goodByeBanner[i].scenesBanner[LoaderConfig.Instance.SelectedLanguageId] != null)
+                        this.goodByeBanner[i].scenesBanner[LoaderConfig.Instance.SelectedLanguageId].DOFade(0f, 0f);
                 }
                 
             }
