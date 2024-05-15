@@ -20,6 +20,8 @@ public class SelectFood : MonoBehaviour
             this.aspectRatio = this.foodImage.GetComponent<AspectRatioFitter>();
             this.aspectRatio.aspectRatio = width/height;
         }
+        this.selected = false;
+        this.setFood();
     }
 
     // Update is called once per frame
