@@ -4,61 +4,15 @@
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
     <script src="https://use.fontawesome.com/3a2eaf6206.js"></script>
-    <title>Upload Image to Localhost</title>
-    <style>
-         div{
-            text-align:center;
-            padding:3%;
-            border:thin solid black;
-        }
-        
-        input[type="file"]{
-            display: none;
-        }
-
-        label{
-            cursor:pointer;
-        }
-        
-        #imageName{
-            color:green;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            padding: 20px;
-            text-align: center;
-        }
-
-        #imagePreview {
-            max-width: 100%;
-            width: auto;
-            height: auto;
-        }
-
-        input[type="file"],
-        input[type="submit"] {
-            padding: 10px 20px;
-            font-size: 1.2rem;
-        }
-
-        @media (max-width: 1000px) {
-            #imagePreview {
-                max-width: 80%;
-            }
-        }
-
-    </style>
+    <title>KwongWah Upload Image</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <h1>Upload Image to Localhost</h1>
+    <h1>KwongWah Upload Image</h1>
     <form action="upload.php" method="post" enctype="multipart/form-data">
         <label for="inputTag">
             選擇照片/选择照片/Select Image
+            <br/>
             <br/>
             <i class="fa fa-2x fa-camera"></i>
             <input type="file" accept="image/*" name="image" id="inputTag" onchange="previewImage(event)">
@@ -66,11 +20,12 @@
             <span id="imageName"></span>
           </label>
           <br/>
+          <br/>
         <div>
-            <img id="imagePreview" src="./image/people/defaultPeople.png" alt="Image Preview">
+            <img id="imagePreview" src="./image/photo_displayArea.png" alt="Image Preview">
         </div>
         <br/>
-        <input type="submit" value="上載/上载/Upload">
+        <input id="submit" type="submit" value="上載/上载/Upload">
     </form>
 
     <script>

@@ -12817,8 +12817,6 @@ MonoBehaviour:
     - {fileID: 1771749740}
     - {fileID: 1674845081}
     - {fileID: 923919085}
-    - {fileID: 18574162}
-    - {fileID: 704673494}
     CN:
     - {fileID: 1674215511}
     - {fileID: 1674215506}
@@ -12859,8 +12857,6 @@ MonoBehaviour:
     - {fileID: 1905064881}
     - {fileID: 1426289797}
     - {fileID: 2020136432}
-    - {fileID: 1039130854}
-    - {fileID: 704673492}
   languageUI:
   - {fileID: 878286366}
   - {fileID: 528096473}
@@ -17608,6 +17604,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hall-Type2
       objectReference: {fileID: 0}
+    - target: {fileID: 686147741116930743, guid: 734427d6e1ceaa24b8c3117e26ed335f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3636123333120393417, guid: 734427d6e1ceaa24b8c3117e26ed335f,
         type: 3}
       propertyPath: m_Pivot.x
@@ -17801,21 +17802,9 @@ CanvasGroup:
     type: 3}
   m_PrefabInstance: {fileID: 704673489}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &704673492 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1977441140436657350, guid: 734427d6e1ceaa24b8c3117e26ed335f,
-    type: 3}
-  m_PrefabInstance: {fileID: 704673489}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &704673493 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2091176020795862162, guid: 734427d6e1ceaa24b8c3117e26ed335f,
-    type: 3}
-  m_PrefabInstance: {fileID: 704673489}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &704673494 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 686147741116930743, guid: 734427d6e1ceaa24b8c3117e26ed335f,
     type: 3}
   m_PrefabInstance: {fileID: 704673489}
   m_PrefabAsset: {fileID: 0}
