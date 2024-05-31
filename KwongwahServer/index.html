@@ -8,14 +8,16 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <h1>KwongWah Upload Image</h1>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+    <img class="logo" src="./image/logo_kwh.png" alt="Logo">
+    <br><br>
+    <form action="upload.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
         <label for="inputTag">
             選擇照片/选择照片/Select Image
             <br/>
             <br/>
             <i class="fa fa-2x fa-camera"></i>
             <input type="file" accept="image/*" name="image" id="inputTag" onchange="previewImage(event)">
+            
             <br/>
             <span id="imageName"></span>
           </label>
@@ -39,6 +41,16 @@
                 imagePreview.src = reader.result;
             };
             reader.readAsDataURL(file);
+        }
+
+        
+        function validateForm() {
+            var fileInput = document.getElementById('inputTag');
+            if (fileInput.files.length === 0) {
+                alert('請先選擇要上載的相片.');
+                return false;
+            }
+            return true;
         }
     </script>
 </body>

@@ -2,20 +2,41 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using System.Security.Cryptography.X509Certificates;
 using SFB;
+using System.Net;
+using System.Security.Policy;
+using System;
+using Unity.VisualScripting;
 
 public class PeoplePhotoLoader : MonoBehaviour
 {
-    public string getImageUrl = "http://localhost/kongwahServer/getPhoto.php";
+    public static PeoplePhotoLoader Instance = null;
+    public string getImageUrl = "";
     public Texture originalImage, originalHallPeopleImage, originalResultPeopleImage;
     public RawImage image, hallPeopleImage, resultPeopleImage;
     private string currentImageUrl;
     public CanvasGroup resetBtn;
 
+    public string GetImageApi
+    {
+        set
+        {
+            this.getImageUrl = value;
+        }
+        get
+        {
+            return this.getImageUrl;
+        }
+    }
 
     private void Awake()
     {
-        if(this.image != null && this.image.texture != null)
+        if(Instance == null)
+            Instance = this;
+
+
+        if (this.image != null && this.image.texture != null)
             this.originalImage = this.image.texture;
 
         if (this.hallPeopleImage != null && this.hallPeopleImage.texture != null)
@@ -28,14 +49,30 @@ public class PeoplePhotoLoader : MonoBehaviour
         {
             SetUI.Set(this.resetBtn, false, 0.75f, 0f);
         }
+
     }
 
-    IEnumerator Start()
+    private void OnEnable()
+    {
+        StartCoroutine(CheckUploadPhoto());
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(CheckUploadPhoto());
+    }
+
+    IEnumerator CheckUploadPhoto()
     {       
-        while (true)
+        if(LoaderConfig.Instance != null)
+        {
+            this.GetImageApi = "http://localhost/" + LoaderConfig.Instance.configData.getImageFolderName + "/getPhoto.php";
+        }
+
+        while (this.enabled && !string.IsNullOrEmpty(this.GetImageApi))
         {
             // Create a UnityWebRequest to get the image URL
-            using (UnityWebRequest www = UnityWebRequest.Get(getImageUrl))
+            using (UnityWebRequest www = UnityWebRequest.Get(this.GetImageApi))
             {
                 yield return www.SendWebRequest();
 
@@ -45,13 +82,40 @@ public class PeoplePhotoLoader : MonoBehaviour
                 }
                 else
                 {
-                    string imageUrl = www.downloadHandler.text;
+                    string response = www.downloadHandler.text;
 
-                    // Check if a new image URL is received
-                    if (!string.IsNullOrEmpty(imageUrl) && imageUrl != currentImageUrl)
+                    if (response.StartsWith("NEW_IMAGE:"))
                     {
-                        currentImageUrl = imageUrl;
-                        yield return LoadImage(imageUrl);
+                        Debug.Log(response);
+                        string[] parts = response.Split(',');
+                        string latestImageFile = parts[0].Substring("NEW_IMAGE:".Length);
+                        long creationTime = long.Parse(parts[1]);
+                        //Debug.Log("creationTime:" + creationTime);
+                        // Convert the creation time to a DateTime object
+                        DateTime createdAt = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc).AddSeconds(creationTime);
+                        createdAt = createdAt.ToUniversalTime().AddHours(8);
+                        //Debug.Log("createdAt:" + createdAt);
+                        //Debug.Log("Now:" + DateTime.Now);
+                        // Check if the image was created within the last 10 seconds
+                        if ((DateTime.Now - createdAt).TotalSeconds <= 10)
+                        {
+                            //Debug.Log(response);
+                            Debug.Log("New image created within the last 10 seconds: " + latestImageFile);
+                            currentImageUrl = latestImageFile;
+                            yield return LoadImage(latestImageFile);
+                        }
+                        else
+                        {
+                            Debug.Log("no new image: ");
+                        }
+                    }
+                    else if (response == "NO_NEW_IMAGE")
+                    {
+                        Debug.Log("No new image message: " + response);
+                    }
+                    else
+                    {
+                        Debug.Log("Unexpected response from server: " + response);
                     }
                 }
             }
@@ -137,6 +201,8 @@ public class PeoplePhotoLoader : MonoBehaviour
     {
         using (UnityWebRequest imageRequest = UnityWebRequestTexture.GetTexture(path))
         {
+          //  imageRequest.certificateHandler = new WebReqSkipCert();
+
             yield return imageRequest.SendWebRequest();
 
             if (imageRequest.result != UnityWebRequest.Result.Success)
@@ -174,5 +240,14 @@ public class PeoplePhotoLoader : MonoBehaviour
                 }
             }
         }
+    }
+}
+
+
+public class WebReqSkipCert: CertificateHandler
+{
+    protected override bool ValidateCertificate(byte[] certificateData)
+    {
+        return true;
     }
 }

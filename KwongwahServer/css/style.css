@@ -30,10 +30,15 @@ body {
     background: url(../image/bg_clean.png);
 }
 
+.logo {
+    max-width: 200px;
+    margin-bottom: 50px; /* Adjust the margin as needed */
+}
+
 #imagePreview {
     position: relative;
     max-width: 281px;
-    height: auto;
+    height: calc(25vw, 25vh);
     background: url(../image/photo_displayArea.png);
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 50);
     z-index: 0;
@@ -73,3 +78,6 @@ input[type="submit"] {
         width: 60vh;
     }
 }
+
+
+

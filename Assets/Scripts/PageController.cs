@@ -108,6 +108,22 @@ public class PageController : MonoBehaviour
         }
 
         this.pageController.setPage(toPageId, ()=>changePageFunction(toPageId));
+
+        switch (toPageId)
+        {
+            case 0:
+                if (PeoplePhotoLoader.Instance != null)
+                {
+                    PeoplePhotoLoader.Instance.enabled = true;
+                }
+                break;
+            case 1:
+                if(PeoplePhotoLoader.Instance != null)
+                {
+                    PeoplePhotoLoader.Instance.enabled = false;
+                }
+                break;
+        }
     }
 
     void changePageFunction(int toPageId)

@@ -29816,12 +29816,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558532246}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c255fa29fb53c57438d786684868b5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getImageUrl: http://localhost/kongwahServer/getPhoto.php
+  getImageUrl: 
   originalImage: {fileID: 0}
   originalHallPeopleImage: {fileID: 0}
   originalResultPeopleImage: {fileID: 0}
@@ -29842,9 +29842,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uploadPeopleUrl: 
-  uploadUrl: http://localhost/kongwahServer/uploadResult.php
-  uploadQRUrl: http://localhost/kongwahServer/uploadResultQR.php
-  resultPath: http://localhost/kongwahServer/uploads/results
+  uploadUrl: http://localhost/kwongwahServer/uploadResult.php
+  uploadQRUrl: http://localhost/kwongwahServer/uploadResultQR.php
+  resultPath: http://localhost/kwongwahServer/uploads/results
   captureCamera: {fileID: 993621386}
   targetScaler: {fileID: 1941478757}
   outputFormat: 0

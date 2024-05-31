@@ -78,6 +78,7 @@ public class LoaderConfig : MonoBehaviour
 [System.Serializable]
 public class ConfigData
 {
+    public string getImageFolderName = "KwongwahServer";
     public string adminPassword="000000";
     public bool isLogined = false;
     public float fullGameTime = 1200f;

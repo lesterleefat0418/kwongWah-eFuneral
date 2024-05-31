@@ -10,10 +10,11 @@ if (!is_dir($uploadFolder)) {
 
 $latestImageFile = getLatestImageFile($uploadFolder);
 if ($latestImageFile !== null) {
-    $imageUrl = 'http://localhost/kongwahServer/' . $uploadFolder . $latestImageFile;
-    echo $imageUrl;
+    $imageUrl = 'http://localhost/kwongwahServer/' . $uploadFolder . $latestImageFile;
+    $creationTime = filectime($uploadFolder . $latestImageFile);
+    echo "NEW_IMAGE:" . $imageUrl. "," . $creationTime;
 } else {
-    echo ""; // Return an empty string if no new image is available
+    echo "NO_NEW_IMAGE"; // Return an empty string if no new image is available
 }
 
 function getLatestImageFile($uploadFolder) {

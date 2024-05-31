@@ -30,9 +30,9 @@ public class UploadResult : CaptureManager
 public class CaptureManager : MonoBehaviour
 {
     public string uploadPeopleUrl;
-    public string uploadUrl = "http://localhost/kongwahServer/uploadResult.php";
-    public string uploadQRUrl = "http://localhost/kongwahServer/uploadResultQR.php";
-    public string resultPath = "http://localhost/kongwahServer/uploads/results";
+    public string uploadUrl = "http://localhost/KwongwahServer/uploadResult.php";
+    public string uploadQRUrl = "http://localhost/KwongwahServer/uploadResultQR.php";
+    public string resultPath = "http://localhost/KwongwahServer/uploads/results";
     public Camera captureCamera;
     public CanvasScaler targetScaler;
     public OutputFormat outputFormat = OutputFormat.jpg;
@@ -68,10 +68,10 @@ public class CaptureManager : MonoBehaviour
         this.screenShot = new Texture2D((int)targetScaler.referenceResolution.x, (int)targetScaler.referenceResolution.y, TextureFormat.RGB24, false, false);
         this.resetTargetTexture();
         string ip = this.Ipaddress();
-        this.uploadPeopleUrl = "http://" + ip + "/kongwahServer/";
-        this.uploadUrl = "http://" + ip + "/kongwahServer/uploadResult.php";
-        this.uploadQRUrl = "http://" + ip + "/kongwahServer/uploadResultQR.php";
-        this.resultPath = "http://" + ip + "/kongwahServer/uploads/results";
+        this.uploadPeopleUrl = "http://" + ip + "/"+ LoaderConfig.Instance.configData.getImageFolderName + "/";
+        this.uploadUrl = "http://" + ip + "/" + LoaderConfig.Instance.configData.getImageFolderName + "/uploadResult.php";
+        this.uploadQRUrl = "http://" + ip + "/" + LoaderConfig.Instance.configData.getImageFolderName + "/uploadResultQR.php";
+        this.resultPath = "http://" + ip + "/" + LoaderConfig.Instance.configData.getImageFolderName + "/uploads/results";
 
         Texture2D qrCodeTexture = GenerateQRCode(this.uploadPeopleUrl);
         if(this.qrImage != null)
