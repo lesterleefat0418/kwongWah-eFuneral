@@ -3,29 +3,25 @@
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-    <script src="https://use.fontawesome.com/3a2eaf6206.js"></script>
     <title>KwongWah Upload Image</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <img class="logo" src="./image/logo_kwh.png" alt="Logo">
-    <br><br>
+    <div>
+        <img class="logo" src="./image/logo_kwh.png" alt="Logo">
+    </div>
+    <br>
     <form action="upload.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
-        <label for="inputTag">
+        <label for="inputTag" >
             選擇照片/选择照片/Select Image
-            <br/>
-            <br/>
-            <i class="fa fa-2x fa-camera"></i>
             <input type="file" accept="image/*" name="image" id="inputTag" onchange="previewImage(event)">
-            
-            <br/>
             <span id="imageName"></span>
           </label>
           <br/>
           <br/>
-        <div>
+          <div>
             <img id="imagePreview" src="./image/photo_displayArea.png" alt="Image Preview">
-        </div>
+          </div>
         <br/>
         <input id="submit" type="submit" value="上載/上载/Upload">
     </form>

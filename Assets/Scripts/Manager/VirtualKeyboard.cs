@@ -44,6 +44,7 @@ public class VirtualKeyboard: MonoBehaviour
     {
         try
         {
+            UnityEngine.Debug.Log("Environment.OSVersion.Version.Major:" + Environment.OSVersion.Version.Major);
             var isWin7 = Environment.OSVersion.Version.Major == 6 && Environment.OSVersion.Version.Minor == 1;
             var isWin8OrWin10 =
                 Environment.OSVersion.Version.Major == 6 && Environment.OSVersion.Version.Minor == 2;

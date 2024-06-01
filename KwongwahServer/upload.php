@@ -91,7 +91,7 @@ if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
     imagedestroy($resizedImage);
 
     //echo "Image uploaded successfully: " . $uniqueFilename;
-    echo "<br>成功上載!";
+    //echo "<br>成功上載!";
 } else {
     echo 'Error: ' . $_FILES['image']['error'];
 }
