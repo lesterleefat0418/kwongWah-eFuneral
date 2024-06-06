@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LoaderConfig : MonoBehaviour
@@ -10,6 +11,8 @@ public class LoaderConfig : MonoBehaviour
     public int selectReligionSceneLastPageId = 0;
     public bool skipToHuabaoStage = false;
     public Font tc, sc;
+    public CanvasGroup serverErrorBox;
+    public Text errorText; 
 
     private void Awake()
     {
@@ -35,8 +38,18 @@ public class LoaderConfig : MonoBehaviour
     void Start()
     {
         this.LoadRecords();
+        this.setServerPopup(false);
     }
 
+    public void closePopup()
+    {
+        this.setServerPopup(false);
+    }
+    public void setServerPopup(bool status, string content = "")
+    {
+        SetUI.Run(this.serverErrorBox, status);
+        if(this.errorText != null) this.errorText.text ="Server Host error: " + content; 
+    }
 
     public void LoadRecords()
     {
@@ -83,4 +96,5 @@ public class ConfigData
     public bool isLogined = false;
     public float fullGameTime = 1200f;
     public float onlyHuabaoTime = 600f;
+    public float latestUploadPhotoWithinTime = 5f;
 }

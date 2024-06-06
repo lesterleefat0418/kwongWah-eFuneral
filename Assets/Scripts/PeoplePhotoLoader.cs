@@ -2,12 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
-using System.Security.Cryptography.X509Certificates;
 using SFB;
-using System.Net;
-using System.Security.Policy;
 using System;
-using Unity.VisualScripting;
 
 public class PeoplePhotoLoader : MonoBehaviour
 {
@@ -17,6 +13,8 @@ public class PeoplePhotoLoader : MonoBehaviour
     public RawImage image, hallPeopleImage, resultPeopleImage;
     private string currentImageUrl;
     public CanvasGroup resetBtn;
+    public float latestUploadPhotoWithinTime = 5;
+    public bool showOncePopup = false;
 
     public string GetImageApi
     {
@@ -55,11 +53,13 @@ public class PeoplePhotoLoader : MonoBehaviour
     private void OnEnable()
     {
         StartCoroutine(CheckUploadPhoto());
+        this.showOncePopup = false;
     }
 
     private void OnDisable()
     {
         StopCoroutine(CheckUploadPhoto());
+        this.showOncePopup = false;
     }
 
     IEnumerator CheckUploadPhoto()
@@ -67,6 +67,7 @@ public class PeoplePhotoLoader : MonoBehaviour
         if(LoaderConfig.Instance != null)
         {
             this.GetImageApi = "http://localhost/" + LoaderConfig.Instance.configData.getImageFolderName + "/getPhoto.php";
+            this.latestUploadPhotoWithinTime = LoaderConfig.Instance.configData.latestUploadPhotoWithinTime;
         }
 
         while (this.enabled && !string.IsNullOrEmpty(this.GetImageApi))
@@ -79,6 +80,10 @@ public class PeoplePhotoLoader : MonoBehaviour
                 if (www.result != UnityWebRequest.Result.Success)
                 {
                     Debug.Log("Failed to get image URL: " + www.error);
+                    if(LoaderConfig.Instance!= null && !this.showOncePopup) { 
+                        LoaderConfig.Instance.setServerPopup(true, www.error);
+                        this.showOncePopup = true;
+                    }
                 }
                 else
                 {
@@ -97,7 +102,7 @@ public class PeoplePhotoLoader : MonoBehaviour
                         //Debug.Log("createdAt:" + createdAt);
                         //Debug.Log("Now:" + DateTime.Now);
                         // Check if the image was created within the last 10 seconds
-                        if ((DateTime.Now - createdAt).TotalSeconds <= 10)
+                        if ((DateTime.Now - createdAt).TotalSeconds <= this.latestUploadPhotoWithinTime)
                         {
                             //Debug.Log(response);
                             Debug.Log("New image created within the last 10 seconds: " + latestImageFile);
