@@ -58,6 +58,11 @@ public class PeoplePhotoLoader : MonoBehaviour
 
     private void OnDisable()
     {
+        this.StopCheckUploadPhoto();
+    }
+
+    public void StopCheckUploadPhoto()
+    {
         StopCoroutine(CheckUploadPhoto());
         this.showOncePopup = false;
     }
@@ -83,6 +88,8 @@ public class PeoplePhotoLoader : MonoBehaviour
                     if(LoaderConfig.Instance!= null && !this.showOncePopup) { 
                         LoaderConfig.Instance.setServerPopup(true, www.error);
                         this.showOncePopup = true;
+
+                        yield return new WaitForSeconds(5f);
                     }
                 }
                 else

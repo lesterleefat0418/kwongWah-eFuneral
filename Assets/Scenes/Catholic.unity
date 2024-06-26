@@ -13391,6 +13391,8 @@ MonoBehaviour:
   hallPeopleImage: {fileID: 864457305}
   resultPeopleImage: {fileID: 1686090868}
   resetBtn: {fileID: 190603586}
+  latestUploadPhotoWithinTime: 5
+  showOncePopup: 0
 --- !u!114 &558532252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23484,8 +23486,8 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 76409f875d20ae642b3ca7302b0b43e4, type: 3}
   cn: {fileID: 12800000, guid: 83f09c40ed3b6754a9f07363a891782e, type: 3}
   text: {fileID: 1451803218}
-  tcText: "\u601D\u5FF5\u95A3"
-  cnText: "\u601D\u5FF5\u9601"
+  tcText: "\u6DF1\u60C5\u7559\u8A00"
+  cnText: "\u6DF1\u60C5\u7559\u8A00"
   engText: Memorial Message Board
   chineseFontSize: 32
   englishFontSize: 25
@@ -36981,7 +36983,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u601D\u5FF5\u95A3"
+  m_Text: "\u6DF1\u60C5\u7559\u8A00"
 --- !u!222 &1451803219
 CanvasRenderer:
   m_ObjectHideFlags: 0

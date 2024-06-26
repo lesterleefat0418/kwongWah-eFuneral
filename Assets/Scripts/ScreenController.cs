@@ -24,17 +24,17 @@ public class ScreenController : FocusWindow
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.F1) && (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)))
         {
             mouseStatus = !this.mouseStatus;
             Cursor.visible = mouseStatus;
         }
-        else if (Input.GetKeyDown(KeyCode.F2))
+        else if (Input.GetKeyDown(KeyCode.F2) && (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)))
         {
             this.enableFocusWindow = !this.enableFocusWindow;
             this.isOn = this.enableFocusWindow;
         }
-        else if (Input.GetKeyDown(KeyCode.R))
+        else if (Input.GetKeyDown(KeyCode.R) && (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)))
         {
             Debug.Log("Refresh Scene");
             SceneManager.LoadScene(1);

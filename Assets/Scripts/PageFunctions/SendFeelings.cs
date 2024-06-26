@@ -314,8 +314,10 @@ public class FeedbackView
                 var newContent = GameObject.Instantiate(this.page, scrollView.viewport);
                 newContent.name = "Page" + (this.totalPages.Count + 1);
 
-                if (newFeedback != null)
+                if (newFeedback != null) {
+                    newFeedback.transform.SetAsFirstSibling();
                     newFeedback.transform.SetParent(newContent.transform, false);
+                }
 
                 if (this.scrollView != null)
                 {
@@ -326,8 +328,17 @@ public class FeedbackView
         }
         else
         {
-            if (newFeedback != null)
+            if (newFeedback != null) {
                 newFeedback.transform.SetParent(this.CurrentContent, false);
+                newFeedback.transform.SetAsFirstSibling();
+            }
+
+            float totalHeight = 0f;
+            foreach (Transform child in this.CurrentContent.transform)
+            {
+                totalHeight += child.GetComponent<RectTransform>().sizeDelta.y;
+            }
+            this.CurrentContent.sizeDelta = new Vector2(this.CurrentContent.sizeDelta.x, totalHeight);
         }
     }
 

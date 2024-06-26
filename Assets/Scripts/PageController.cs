@@ -121,6 +121,7 @@ public class PageController : MonoBehaviour
                 if(PeoplePhotoLoader.Instance != null)
                 {
                     PeoplePhotoLoader.Instance.enabled = false;
+                    PeoplePhotoLoader.Instance.StopCheckUploadPhoto();
                 }
                 break;
         }
