@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class CountDownTimer : MonoBehaviour
 {
-    
+    public DisplayFormat displayFormat = DisplayFormat.Timer;
     public bool triggerToStart = false;
     public float totalTime = 5 * 60;
     public float currentTime;
@@ -20,6 +20,13 @@ public class CountDownTimer : MonoBehaviour
     public string[] heads = new string[3] { "儀式會在: ", "仪式会在: ", "The ceremony will be end after: " };
     public string[] goodByeheads = new string[3] { "禮成會在: ", "礼成会在: ", "The Funeral will be end after: " };
     public string[] ends = new string[3] { "後結束！", "后结束！", "!" };
+
+    public enum DisplayFormat
+    {
+        OnlyUnits = 0,
+        Timer = 1,
+    }
+
     [SerializeField]
     private UnityEvent finished = null;
 
@@ -130,33 +137,55 @@ public class CountDownTimer : MonoBehaviour
                 if(currentTime <= 360f && !this.triggeredRemindLastFiveMinutes)
                 {
                     if(this.bground != null) this.bground.DOColor(shineColor, 1f).SetLoops(-1, LoopType.Yoyo);
-                    this.remindLastFiveMinutes.DOFade(1f, 1f).SetLoops(6, LoopType.Yoyo);
+                    if(this.remindLastFiveMinutes != null) this.remindLastFiveMinutes.DOFade(1f, 1f).SetLoops(6, LoopType.Yoyo);
                     this.triggeredRemindLastFiveMinutes = true;
                 }
 
-                if (currentTime <= 60f)
+                switch (displayFormat)
                 {
-                    this.sb.Append(this.DefaultHead);
-                    this.sb.Append(seconds.ToString("0"));
-                    this.sb.Append(Second);
+                    case DisplayFormat.OnlyUnits:
+                        if (currentTime <= 60f)
+                        {
+                            this.sb.Append(this.DefaultHead);
+                            this.sb.Append(seconds.ToString("0"));
+                            this.sb.Append(Second);
+                        }
+                        else
+                        {
+                            this.sb.Append(this.DefaultHead);
+                            this.sb.Append(minutes.ToString("0"));
+                            this.sb.Append(Minute);
+                        }
+                        break;
+                    case DisplayFormat.Timer:
+                        this.sb.Append(this.DefaultHead);
+                        this.sb.Append(minutes.ToString("00")); // Format minutes as two digits
+                        this.sb.Append(":");
+                        this.sb.Append(seconds.ToString("00")); // Format seconds as two digits
+                        this.sb.Append(this.ends[LoaderConfig.Instance.SelectedLanguageId]);
+                        break;
                 }
-                else
-                {
-                    this.sb.Append(this.DefaultHead);
-                    this.sb.Append(minutes.ToString("0"));
-                    this.sb.Append(Minute);
-                }
+
+                
             }
             else
             {
                 this.triggerToStart = false;
                 Debug.Log("Finished");
-
                 this.sb.Clear();
                 this.sb.Append(this.DefaultHead);
-                this.sb.Append("0");
-                this.sb.Append(Second);
 
+                switch (displayFormat)
+                {
+                    case DisplayFormat.OnlyUnits:
+                        this.sb.Append("0");
+                        this.sb.Append(Second);
+                        break;
+                    case DisplayFormat.Timer:
+                        this.sb.Append("00:00");
+                        this.sb.Append(this.ends[LoaderConfig.Instance.SelectedLanguageId]);
+                        break;
+                }
                 InvokeFinishedDelegate();
             }
 
