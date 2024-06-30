@@ -2,11 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="./css/success.css">
     <title>Image Upload Success</title>
 </head>
 <body>
+    <div class="background"></div>
     <img class="logo" src="./image/logo_kwh.png" alt="Logo">
     <br><br>
     <div class="container">
@@ -22,6 +23,22 @@
         function goToHome() {
             window.location.href = './'; // Replace with the actual path to your home page
         }
+
+        // Disable pinch-to-zoom on iOS devices
+        document.addEventListener('touchstart', function (event) {
+          if (event.touches.length > 1) {
+            event.preventDefault();
+          }
+        }, { passive: false });
+
+        var lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+          var now = (new Date()).getTime();
+          if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+          }
+          lastTouchEnd = now;
+        }, false);
     </script>
 </body>
 </html>

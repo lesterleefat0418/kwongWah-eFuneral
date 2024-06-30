@@ -1,8 +1,13 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DrawViewController : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler {
+
+    public UnityEvent triggerActions;
     //This is the data model used to store our draw settings
     DrawSettings drawSettings;
 
@@ -206,6 +211,9 @@ public class DrawViewController : MonoBehaviour, IBeginDragHandler, IDragHandler
             localCursor.y < rectTransform.rect.height &&
             localCursor.x > 0 &&
             localCursor.y > 0) {
+
+            this.triggerActions.Invoke();
+
             float rectToPixelScale = drawImage.sprite.rect.width / rectTransform.rect.width;
             localCursor = new Vector2(localCursor.x * rectToPixelScale, localCursor.y * rectToPixelScale);
             Paint(localCursor);

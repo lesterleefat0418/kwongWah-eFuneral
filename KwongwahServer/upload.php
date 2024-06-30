@@ -9,11 +9,13 @@ if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
     // Get the current date in the format 'yyyymmdd'
     $dateFolder = date('Ymd');
 
-    // Generate a unique filename
-    $uniqueFilename = uniqid() . '_' . urlencode(pathinfo($originalFilename, PATHINFO_FILENAME)) . '.' . pathinfo($originalFilename, PATHINFO_EXTENSION);
+    $uniqueCode = uniqid('', true);
+
+    // Construct the new file name
+    $newFileName = date('YmdHis') . '-' . $uniqueCode . '.' . pathinfo($originalFilename, PATHINFO_EXTENSION);
 
     // Destination path for the uploaded file
-    $destination = 'uploads/people/' . $dateFolder . '/' . $uniqueFilename;
+    $destination = 'uploads/people/' . $dateFolder . '/' . $newFileName;
 
     // Set the desired maximum width and height for the resized image
     $maxWidth = 1920;
@@ -32,7 +34,7 @@ if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
         case IMAGETYPE_JPEG:
         case IMAGETYPE_JPEG2000:
             if (function_exists('exif_read_data')) {
-                $exif = exif_read_data($file);
+                $exif =  @exif_read_data($file);
                 $orientation = isset($exif['Orientation']) ? $exif['Orientation'] : 1;
             } else {
                 $orientation = 1;
@@ -93,5 +95,5 @@ if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
     //echo "Image uploaded successfully: " . $uniqueFilename;
     //echo "<br>成功上載!";
 } else {
-    echo 'Error: ' . $_FILES['image']['error'];
+    echo 'Upload Error: ' . $_FILES['image']['error'];
 }
