@@ -63,6 +63,9 @@ public class LoaderConfig : MonoBehaviour
             this.SaveRecords();
         }
 
+        ScreenController.Instance.isTopMostEnabled = this.configData.topMostEnable;
+        ScreenController.Instance.EnableScreenFoucs();
+
         this.changeScene(1);
     }
 
@@ -97,4 +100,5 @@ public class ConfigData
     public float fullGameTime = 1200f;
     public float onlyHuabaoTime = 600f;
     public float latestUploadPhotoWithinTime = 5f;
+    public bool topMostEnable = false;
 }

@@ -19,7 +19,8 @@ public class ScreenController : FocusWindow
     {
         Screen.SetResolution(this.resolution.x, this.resolution.y, true);
         Cursor.visible = this.mouseStatus;
-        base.Start();
+
+        //base.Start();
     }
 
     public void Update()

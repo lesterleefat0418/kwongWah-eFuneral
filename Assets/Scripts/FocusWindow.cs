@@ -93,6 +93,15 @@ public class FocusWindow : Singleton<FocusWindow>
 #endif
     }
 
+    public void EnableScreenFoucs()
+    {
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+        unityWindow = GetActiveWindow();
+        SetTopMost();
+        StartCoroutine(RefocusWindow(this.reFocusTime));
+#endif
+    }
+
     private void OnApplicationQuit()
     {
         this.isTopMostEnabled = false;

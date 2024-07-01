@@ -4,5 +4,6 @@
     "isLogined": true,
     "fullGameTime": 1200.0,
     "onlyHuabaoTime": 600.0,
-    "latestUploadPhotoWithinTime": 5.0
+    "latestUploadPhotoWithinTime": 5.0,
+    "topMostEnable": true
 }
