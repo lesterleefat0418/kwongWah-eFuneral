@@ -1,7 +1,5 @@
 <?php
 
-include 'success.php';
-
 if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
     $file = $_FILES['image']['tmp_name'];
     $originalFilename = $_FILES['image']['name'];
@@ -94,6 +92,8 @@ if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
 
     //echo "Image uploaded successfully: " . $uniqueFilename;
     //echo "<br>成功上載!";
+    header("Location: success.php");
+    exit();
 } else {
     echo 'Upload Error: ' . $_FILES['image']['error'];
 }
