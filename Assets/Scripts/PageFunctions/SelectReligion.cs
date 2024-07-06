@@ -17,6 +17,7 @@ public class SelectReligion : MonoBehaviour
     private bool clickedLogout = false;
     public LanguageUI[] languageUI;
     public CountDownTimer idling;
+    public bool showTimer = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,13 +66,25 @@ public class SelectReligion : MonoBehaviour
         {
             this.HideKeyboard();
         }
+
+        if(LoaderConfig.Instance != null)
+        {
+            if(LoaderConfig.Instance.selectReligionSceneLastPageId == 1 && !this.showTimer)
+            {
+                for (int i = 0; i < this.languageUI.Length; i++)
+                {
+                    if (this.languageUI[i] != null) this.languageUI[i].setLang();
+                }
+                if (this.idling != null) this.idling.showTimer();
+                this.showTimer = true;
+            }
+        }
     }
 
     public void setLang(int langId)
     {
         LoaderConfig.Instance.SelectedLanguageId = langId;
         Debug.Log("selected language: " + langId);
-
         string lang = "";
         switch (langId)
         {
@@ -87,12 +100,7 @@ public class SelectReligion : MonoBehaviour
 
         }
         Debug.Log("current lang: " + lang);
-        for(int i= 0; i< this.languageUI.Length; i++)
-        {
-            if(this.languageUI[i] != null) this.languageUI[i].setLang();
-        }
-
-        if(this.idling != null) this.idling.showTimer();
+        LoaderConfig.Instance.selectReligionSceneLastPageId = 1;
     }
 
 
@@ -111,6 +119,7 @@ public class SelectReligion : MonoBehaviour
     public void homeBtn()
     {
         Debug.Log("back to home!");
+        LoaderConfig.Instance.selectReligionSceneLastPageId = 0;
         LoaderConfig.Instance.SelectedLanguageId = 0;
         LoaderConfig.Instance.SelectedReligionId = 0;
         SceneManager.LoadScene(1);

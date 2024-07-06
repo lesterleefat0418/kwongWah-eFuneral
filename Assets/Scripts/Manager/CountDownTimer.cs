@@ -10,12 +10,13 @@ public class CountDownTimer : MonoBehaviour
     public bool triggerToStart = false;
     public float totalTime = 5 * 60;
     public float currentTime;
+    public float remindLastSecords = 300f;
     public Text countdownText;
     private StringBuilder sb = null;
     public Image bground;
     public Color32 shineColor;
     public CanvasGroup remindLastFiveMinutes;
-    public bool triggeredRemindLastFiveMinutes = false;
+    public bool triggeredRemindFinalMinutes = false;
     //public string[] titleHeads = new string[3]{ "剩下時間: ", "剩下时间: ", "Timer: "};
     public string[] heads = new string[3] { "儀式會在: ", "仪式会在: ", "The ceremony will be end after: " };
     public string[] goodByeheads = new string[3] { "禮成會在: ", "礼成会在: ", "The Funeral will be end after: " };
@@ -70,7 +71,7 @@ public class CountDownTimer : MonoBehaviour
             switch (LoaderConfig.Instance.SelectedLanguageId)
             {
                 case 0:
-                    unit = "分鍾" + ends[0];
+                    unit = "分鐘" + ends[0];
                     break;
                 case 1:
                     unit = "分钟" + ends[1];
@@ -125,26 +126,26 @@ public class CountDownTimer : MonoBehaviour
     {
         if(triggerToStart) {
 
-            if(currentTime > 0f)
+            if(this.currentTime > 0f)
             {
                 this.sb.Clear();
-                currentTime -= Time.deltaTime;
+                this.currentTime -= Time.deltaTime;
 
                 // Calculate minutes and seconds
-                int minutes = Mathf.FloorToInt(currentTime / 60);
-                int seconds = Mathf.FloorToInt(currentTime % 60);
+                int minutes = Mathf.FloorToInt(this.currentTime / 60);
+                int seconds = Mathf.FloorToInt(this.currentTime % 60);
 
-                if(currentTime <= 360f && !this.triggeredRemindLastFiveMinutes)
+                if(this.currentTime <= this.remindLastSecords && !this.triggeredRemindFinalMinutes)
                 {
                     if(this.bground != null) this.bground.DOColor(shineColor, 1f).SetLoops(-1, LoopType.Yoyo);
                     if(this.remindLastFiveMinutes != null) this.remindLastFiveMinutes.DOFade(1f, 1f).SetLoops(6, LoopType.Yoyo);
-                    this.triggeredRemindLastFiveMinutes = true;
+                    this.triggeredRemindFinalMinutes = true;
                 }
 
                 switch (displayFormat)
                 {
                     case DisplayFormat.OnlyUnits:
-                        if (currentTime <= 60f)
+                        if (this.currentTime <= 60f)
                         {
                             this.sb.Append(this.DefaultHead);
                             this.sb.Append(seconds.ToString("0"));

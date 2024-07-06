@@ -20,15 +20,16 @@
     </div>
 
     <script>
+      
         function goToHome() {
             window.location.href = './'; // Replace with the actual path to your home page
         }
 
         // Disable pinch-to-zoom on iOS devices
         document.addEventListener('touchstart', function (event) {
-          if (event.touches.length > 1) {
+          /*if (event.touches.length > 1) {
             event.preventDefault();
-          }
+          }*/
         }, { passive: false });
 
         var lastTouchEnd = 0;

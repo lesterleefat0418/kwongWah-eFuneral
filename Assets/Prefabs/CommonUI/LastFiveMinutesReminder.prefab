@@ -648,7 +648,7 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
   cn: {fileID: 12800000, guid: fad0ce03be3eb33479134d5fdcdf668c, type: 3}
   text: {fileID: 7540442135976994538}
-  tcText: "\u5100\u5F0F\u5269\u99185\u5206\u937E\u4FBF\u8981\u7D50\u675F\u3002"
+  tcText: "\u5100\u5F0F\u5269\u99185\u5206\u9418\u4FBF\u8981\u7D50\u675F\u3002"
   cnText: "\u4EEA\u5F0F\u5269\u4F595\u5206\u949F\u4FBF\u8981\u7ED3\u675F\u3002"
   engText: The ceremony will end  in 5 minutes.
   chineseFontSize: 35

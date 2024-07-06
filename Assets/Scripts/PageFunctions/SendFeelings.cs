@@ -96,13 +96,6 @@ public class SendFeelings : MonoBehaviour
         this.MoveTag(true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     public void MoveTag(bool up)
     {
         if(this.feedbackTag != null) this.feedbackTag.transform.localPosition = new Vector2(-732.39f, up ? 220f : 0f);

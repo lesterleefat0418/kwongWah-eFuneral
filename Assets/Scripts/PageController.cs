@@ -1,7 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using System.Collections;
 
 public class PageController : MonoBehaviour
 {
@@ -9,11 +9,12 @@ public class PageController : MonoBehaviour
     public Page pageController;
     public Language language;
     public LanguageUI[] languageUI;
-    public CanvasGroup captureBg;
+    public CanvasGroup captureBg, beginningBox;
     public CountDownTimer countDownTimer;
     public Timer idlingTimer;
     public CanvasGroup[] HuabaoStage;
     public CanvasGroup leavePopup;
+    private float showBeginFeelingBoxDuration = 1.0f;
 
     private void Awake()
     {
@@ -31,6 +32,12 @@ public class PageController : MonoBehaviour
         this.showHuabaoStage(LoaderConfig.Instance.skipToHuabaoStage);
     }
 
+    IEnumerator showBeginFeelingBox(float _delay = 2f)
+    {
+        SetUI.Run(this.beginningBox, true, 0.5f);
+        yield return new WaitForSeconds(_delay);
+        SetUI.Run(this.beginningBox, false, 0.5f);
+    }
     public void showHuabaoStage(bool skip)
     {
         if(skip) { 
@@ -134,7 +141,11 @@ public class PageController : MonoBehaviour
         switch (toPageId)
         {
             case 3:
-                if (this.countDownTimer != null) { 
+                if (this.countDownTimer != null) {
+                    if (!this.countDownTimer.triggerToStart)
+                    {
+                        StartCoroutine(this.showBeginFeelingBox(this.showBeginFeelingBoxDuration));
+                    }
                     this.countDownTimer.showTimer();
                     this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
                 }
@@ -144,15 +155,57 @@ public class PageController : MonoBehaviour
                 if (Huabao.Instance != null) Huabao.Instance.setHuaBao(true);
                 break;
             case 5:
-                if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(692f, 0f);
                 if (Huabao.Instance != null) Huabao.Instance.setHuaBao(false);
+
+                if (this.countDownTimer != null)
+                {
+                    this.countDownTimer.transform.DOLocalMoveX(692f, 0f);
+
+
+                    if(this.countDownTimer.currentTime <= 180f)
+                    {
+                        if (this.countDownTimer.currentTime < 150f)
+                        {
+                            this.countDownTimer.triggeredRemindFinalMinutes = true;
+                            this.countDownTimer.triggerToStart = false;
+                            this.countDownTimer.totalTime = LoaderConfig.Instance.configData.goodByePageDuration;
+                            this.countDownTimer.init();
+                            this.countDownTimer.showTimer();
+
+                            /*if (this.idlingTimer != null)
+                            {
+                                //this.idlingTimer.totalTime = LoaderConfig.Instance.configData.goodByePageDuration;
+                                this.idlingTimer.totalTime = 15;
+                                this.idlingTimer.showTimer();
+                            }*/
+                        }
+                        /*else
+                        {
+                            if (this.idlingTimer != null)
+                            {
+                                this.idlingTimer.totalTime = this.countDownTimer.currentTime;
+                                this.idlingTimer.showTimer();
+                            }
+                        }*/
+                    }
+                    else
+                    {
+                        this.countDownTimer.triggeredRemindFinalMinutes = true;
+                        this.countDownTimer.triggerToStart = false;
+                        this.countDownTimer.totalTime = LoaderConfig.Instance.configData.goodByePageDuration;
+                        this.countDownTimer.init();
+                        this.countDownTimer.showTimer();
+                    }
+
+
+                }              
                 break;
         }
     }
 
     public void BackToSelectReligion()
-    {
-        LoaderConfig.Instance.selectReligionSceneLastPageId = 1;
+    { 
+        if(LoaderConfig.Instance != null) LoaderConfig.Instance.selectReligionSceneLastPageId = 1;
         SceneManager.LoadScene(1);
     }
     
@@ -194,8 +247,14 @@ public class PageController : MonoBehaviour
         }
         else
         {
-            this.ChangePage(5);
-            if (this.idlingTimer != null) this.idlingTimer.showTimer();
+            if(this.pageController.currentId == 5)
+            {
+                this.confirmBackToHome();
+            }
+            else
+            {
+                this.ChangePage(5);
+            }
         }
     }
 }

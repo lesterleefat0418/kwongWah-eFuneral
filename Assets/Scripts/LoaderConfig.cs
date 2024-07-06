@@ -99,6 +99,7 @@ public class ConfigData
     public bool isLogined = false;
     public float fullGameTime = 1200f;
     public float onlyHuabaoTime = 600f;
+    public float goodByePageDuration = 150f;
     public float latestUploadPhotoWithinTime = 5f;
     public bool topMostEnable = false;
 }
