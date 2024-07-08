@@ -21,10 +21,7 @@ public class Page
         {
             if (this.pageIdling[i] != null)
             {
-                if (this.pageIdling.Length == _pageTotalTime.Length)
-                    this.pageIdling[i].init(_pageTotalTime[i]);
-                else
-                    this.pageIdling[i].init();
+                this.pageIdling[i].init();
             }
         }
     }
@@ -39,10 +36,7 @@ public class Page
         {
             if(this.pageIdling[i] != null)
             {
-                if(this.pageIdling.Length == _pageTotalTime.Length)
-                    this.pageIdling[i].init(_pageTotalTime[i]);
-                else
-                    this.pageIdling[i].init();
+                this.pageIdling[i].init();
             }
         }
     }
@@ -82,7 +76,8 @@ public class Page
                     else
                     {
                         this.pages[i].showAnimation(false, 0f);
-                        if(this.pageIdling.Length > 0) if(this.pageIdling[i] != null)this.pageIdling[i].triggered = false;
+                        if (this.pageIdling.Length > 0) 
+                            if (this.pageIdling[i].countDown != null) this.pageIdling[i].countDown.init();
                     }
                 }
             }
@@ -132,48 +127,8 @@ public class Page
     void reset(int id)
     {
         this.isAnimated = false;
-        this.pageIdling[id].triggered = true;
         this.pageIdling[id].init();
     }
-
-
-    public void CheckIdling()
-    {
-        for (int i = 0; i < this.pageIdling.Length; i++)
-        {
-            if (this.pageIdling[i].triggered && this.pageIdling[i].countDown != null)
-            {
-                if (this.pageIdling[i].countStart > 0f)
-                {
-                    this.pageIdling[i].countStart -= Time.deltaTime;
-                }
-                else
-                {
-                    if (this.pageIdling[i].count > 0f)
-                    {
-                        this.pageIdling[i].count -= Time.deltaTime;
-                        // Debug.Log(this.pageIdling[i].count);
-
-                        if (this.pageIdling[i].timerController != null)
-                            this.pageIdling[i].timerController.UpdateUI(Mathf.CeilToInt(this.pageIdling[i].count));
-                    }
-                    else
-                    {
-                        this.pageIdling[i].count = this.pageIdling[i].totalTime;
-                        this.pageIdling[i].triggered = false;
-                        //Debug.Log("Idling timeup to reset");
-
-                        if (this.pageIdling[i].callbackEvent != null)
-                        {
-                            this.pageIdling[i].callbackEvent.Invoke();
-                        }
-                    }
-
-                }
-            }
-        }
-    }
-
 
     public void resetIdling()
     {
@@ -188,37 +143,12 @@ public class Page
 public class Idling
 {
     public string pageName;
-    public Text countDown;
-    public float delayStart;
-    public float totalTime;
-    [HideInInspector]
-    public float count;
-    [HideInInspector]
-    public float countStart;
-    public bool triggered = false;
-    public TimerController timerController;
-    public UnityEvent callbackEvent;
+    public CountDownTimer countDown;
 
-    public void init(float _totalTime = 0f)
+    public void init()
     {
-        if(_totalTime > 0f) { 
-            this.totalTime = _totalTime;
-            this.count = this.totalTime;
-        }
-        else
-        {
-            this.count = this.totalTime;
-        }
-        this.countStart = this.delayStart;
-        //this.updateCountDown();
-
-        if(this.timerController != null) {
-            this.timerController.UpdateUI(Mathf.CeilToInt(this.count));
-        }
-    }
-    public void updateCountDown()
-    {
-        if (this.countDown != null) this.countDown.text = this.count.ToString("0");
+        this.countDown?.init();
+        this.countDown?.showTimer();
     }
 }
 

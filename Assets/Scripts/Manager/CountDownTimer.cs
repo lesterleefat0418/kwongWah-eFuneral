@@ -120,6 +120,7 @@ public class CountDownTimer : MonoBehaviour
         this.currentTime = this.totalTime;
         this.sb = new StringBuilder();
         SetUI.Set(this.GetComponent<CanvasGroup>(), false, 0f);
+        this.triggerToStart = false;
     }
 
     private void Update()

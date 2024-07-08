@@ -1682,6 +1682,7 @@ MonoBehaviour:
   - {fileID: 1174140837}
   - {fileID: 1469608103}
   idling: {fileID: 1395973785}
+  showTimer: 1
 --- !u!1 &572317512
 GameObject:
   m_ObjectHideFlags: 0
