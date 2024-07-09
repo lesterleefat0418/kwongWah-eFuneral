@@ -23413,6 +23413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05d739fb7b53d6649a7c64639a58fff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicTypeId: -1
   processAudio_ch:
   - {fileID: 8300000, guid: 2e1f1ae20fffd054fa2365ed3af85fc6, type: 3}
   - {fileID: 8300000, guid: beed8fbb6fe85c645b668063be451c22, type: 3}
@@ -23438,6 +23439,7 @@ MonoBehaviour:
   - {fileID: 823629762}
   - {fileID: 73567739}
   - {fileID: 291746514}
+  bgmAudio: {fileID: 1446223423}
 --- !u!1 &895279088
 GameObject:
   m_ObjectHideFlags: 0

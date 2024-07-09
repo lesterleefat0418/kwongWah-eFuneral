@@ -45,6 +45,38 @@ public class AudioControl : MonoBehaviour
         }
     }
 
+    public void PlayOnce(int _clipId)
+    {
+        SetUI.Set(this.playBtn, false, 0f);
+        SetUI.Set(this.pauseBtn, true, 1f);
+        if (this.audioSource != null && this.clips.Length > 0)
+        {
+            this.loop = false;
+            this.selectedClipId = _clipId;
+            this.audioSource.clip = this.clips[this.selectedClipId];
+            this.audioSource.loop = this.loop;
+            this.audioSource.Play();
+
+        }
+        this.isPlaying = true;
+
+        if (this.musicBtns == null) return;
+        for (int i = 0; i < this.musicBtns.Length; i++)
+        {
+            if (this.musicBtns[i] != null)
+            {
+                if (i == this.selectedClipId)
+                {
+                    this.musicBtns[this.selectedClipId].image.DOColor(Color.gray, 0f);
+                }
+                else
+                {
+                    this.musicBtns[i].image.DOColor(Color.white, 0f);
+                }
+            }
+        }
+    }
+
     public void Play()
     {
         SetUI.Set(this.playBtn, false, 0f);
@@ -124,7 +156,7 @@ public class AudioControl : MonoBehaviour
 
     public void loopPlay(int _clipId=0)
     {
-        this.loop = !this.loop;
+        this.loop = true;
         if (this.audioSource !=null) this.audioSource.loop = this.loop;
         this.selectedClipId = _clipId;
         this.Play();

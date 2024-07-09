@@ -7,10 +7,12 @@ using DG.Tweening;
 [RequireComponent(typeof(AudioSource))]
 public class Processes : MonoBehaviour
 {
+    public int musicTypeId = 2;
     public AudioClip[] processAudio_ch, processAudio_cn, processAudio_eng;
     public AudioClip[] audioMusics;
     public Button[] musicBtns;
     AudioSource audioPlayer;
+    public AudioControl bgmAudio;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,11 +25,10 @@ public class Processes : MonoBehaviour
         }
     }
 
-    
     public void playType(int id)
     {
         if(LoaderConfig.Instance == null) return;
-
+        if (this.bgmAudio != null && !this.bgmAudio.isPlaying && id != this.musicTypeId) this.bgmAudio.Play();
         switch (LoaderConfig.Instance.SelectedLanguageId)
         {
             case 0:
@@ -55,6 +56,7 @@ public class Processes : MonoBehaviour
 
     public void playMusics(int id)
     {
+        if (this.bgmAudio != null && this.bgmAudio.isPlaying) this.bgmAudio.Stop();
         for (int i = 0; i < this.musicBtns.Length; i++)
         {
             if (this.musicBtns[i] != null)
@@ -78,7 +80,7 @@ public class Processes : MonoBehaviour
     public void close()
     {
         this.audioPlayer.Stop();
-
+        if (this.bgmAudio != null && !this.bgmAudio.isPlaying) this.bgmAudio.Play();
         if (this.musicBtns == null) return;
         for (int i = 0; i < this.musicBtns.Length; i++)
         {

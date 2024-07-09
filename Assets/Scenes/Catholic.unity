@@ -23227,6 +23227,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a85b599e91b47a740b2588670edee647, type: 3}
   - {fileID: 8300000, guid: 1afa036faf618d848942440582b6b9b0, type: 3}
   - {fileID: 8300000, guid: 57d56615f6ed6384fba0884ea4c21ad3, type: 3}
+  audioMusics: []
+  musicBtns: []
+  bgmAudio: {fileID: 1311992797}
 --- !u!82 &886637026
 AudioSource:
   m_ObjectHideFlags: 0
@@ -49111,6 +49114,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1311992797}
+        m_TargetAssemblyTypeName: AudioControl, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

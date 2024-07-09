@@ -23217,6 +23217,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8439106914487186354}
+        m_TargetAssemblyTypeName: AudioControl, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &959869771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27118,6 +27130,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: AudioControl, Assembly-CSharp
         m_MethodName: Stop
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 8439106914487186354}
+        m_TargetAssemblyTypeName: AudioControl, Assembly-CSharp
+        m_MethodName: loopPlay
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -47085,6 +47109,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8439106914487186354}
+        m_TargetAssemblyTypeName: AudioControl, Assembly-CSharp
+        m_MethodName: loopPlay
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1872909504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50986,8 +51022,20 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 563987766}
         m_TargetAssemblyTypeName: AudioControl, Assembly-CSharp
-        m_MethodName: Play
+        m_MethodName: PlayOnce
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8439106914487186354}
+        m_TargetAssemblyTypeName: AudioControl, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -56516,6 +56564,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 492959619}
     m_Modifications:
+    - target: {fileID: 611062897975789913, guid: 2b1c1dc3a3631fd478ca8a975af47cf8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 611062897975789913, guid: 2b1c1dc3a3631fd478ca8a975af47cf8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 611062897975789913, guid: 2b1c1dc3a3631fd478ca8a975af47cf8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 563987767}
+    - target: {fileID: 611062897975789913, guid: 2b1c1dc3a3631fd478ca8a975af47cf8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 611062897975789913, guid: 2b1c1dc3a3631fd478ca8a975af47cf8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Stop
+      objectReference: {fileID: 0}
+    - target: {fileID: 611062897975789913, guid: 2b1c1dc3a3631fd478ca8a975af47cf8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 611062897975789913, guid: 2b1c1dc3a3631fd478ca8a975af47cf8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1516154389562733223, guid: 2b1c1dc3a3631fd478ca8a975af47cf8,
         type: 3}
       propertyPath: m_Pivot.x
