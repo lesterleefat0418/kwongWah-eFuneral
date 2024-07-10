@@ -85,12 +85,15 @@ public class PeoplePhotoLoader : MonoBehaviour
                 if (www.result != UnityWebRequest.Result.Success)
                 {
                     Debug.Log("Failed to get image URL: " + www.error);
-                    /*if(LoaderConfig.Instance!= null && !this.showOncePopup) { 
+                    if(LoaderConfig.Instance!= null && 
+                       LoaderConfig.Instance.configData.showServerInitErrorBox && 
+                       !this.showOncePopup) 
+                    { 
                         LoaderConfig.Instance.setServerPopup(true, www.error);
                         this.showOncePopup = true;
 
                         yield return new WaitForSeconds(5f);
-                    }*/
+                    }
                 }
                 else
                 {

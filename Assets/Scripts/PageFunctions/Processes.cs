@@ -25,6 +25,16 @@ public class Processes : MonoBehaviour
         }
     }
 
+    public void stopType(int id)
+    {
+        if(id == this.musicTypeId || id == -1) this.audioPlayer.Stop();
+        if (this.musicBtns == null) return;
+        for (int i = 0; i < this.musicBtns.Length; i++)
+        {
+            if (this.musicBtns[i] != null) this.musicBtns[i].image.DOColor(Color.white, 0f);
+        }
+    }
+
     public void playType(int id)
     {
         if(LoaderConfig.Instance == null) return;

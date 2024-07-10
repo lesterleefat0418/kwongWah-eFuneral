@@ -17,7 +17,7 @@ public class SelectReligion : MonoBehaviour
     private bool clickedLogout = false;
     public LanguageUI[] languageUI;
     public CountDownTimer idling;
-    public bool showTimer = false;
+    public bool selectedReglion = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,14 +69,17 @@ public class SelectReligion : MonoBehaviour
 
         if(LoaderConfig.Instance != null)
         {
-            if(LoaderConfig.Instance.selectReligionSceneLastPageId == 1 && !this.showTimer)
-            {
-                for (int i = 0; i < this.languageUI.Length; i++)
+            if(!this.selectedReglion) { 
+                if (LoaderConfig.Instance.selectReligionSceneLastPageId == 1)
                 {
-                    if (this.languageUI[i] != null) this.languageUI[i].setLang();
+                    for (int i = 0; i < this.languageUI.Length; i++)
+                    {
+                        if (this.languageUI[i] != null) this.languageUI[i].setLang();
+                    }
+                   // if (this.idling != null) this.idling.showTimer();
                 }
-                if (this.idling != null) this.idling.showTimer();
-                this.showTimer = true;
+                Debug.Log("FK");
+                this.selectedReglion = true;
             }
         }
     }
@@ -101,6 +104,10 @@ public class SelectReligion : MonoBehaviour
         }
         Debug.Log("current lang: " + lang);
         LoaderConfig.Instance.selectReligionSceneLastPageId = 1;
+        for (int i = 0; i < this.languageUI.Length; i++)
+        {
+            if (this.languageUI[i] != null) this.languageUI[i].setLang();
+        }
     }
 
 

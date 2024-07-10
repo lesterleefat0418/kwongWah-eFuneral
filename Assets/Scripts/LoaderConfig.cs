@@ -102,4 +102,5 @@ public class ConfigData
     public float goodByePageDuration = 150f;
     public float latestUploadPhotoWithinTime = 5f;
     public bool topMostEnable = false;
+    public bool showServerInitErrorBox = true;
 }

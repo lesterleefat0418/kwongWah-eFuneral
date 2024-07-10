@@ -153,10 +153,11 @@ public class PageController : MonoBehaviour
             case 4:
                 if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(-532f, 0f);
                 if (Huabao.Instance != null) Huabao.Instance.setHuaBao(true);
+                if (VirtualKeyboard.Instance != null) VirtualKeyboard.Instance.HideTouchKeyboard();
                 break;
             case 5:
                 if (Huabao.Instance != null) Huabao.Instance.setHuaBao(false);
-
+                if (VirtualKeyboard.Instance != null) VirtualKeyboard.Instance.HideTouchKeyboard();
                 if (this.countDownTimer != null)
                 {
                     this.countDownTimer.transform.DOLocalMoveX(692f, 0f);

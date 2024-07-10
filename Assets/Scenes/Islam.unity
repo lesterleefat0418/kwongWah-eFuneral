@@ -1667,7 +1667,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3a54476abf5f289489b1fb5d49aeab78, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 73a3be1eccd075e43a7904fb1e4500cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5342,9 +5342,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267374322}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &267374325
 MonoBehaviour:
@@ -5376,6 +5376,8 @@ MonoBehaviour:
       isAnimated: 0
       pageIdling: []
   nextBtn: {fileID: 1694454949}
+  hallPeoplePhoto: {fileID: 0}
+  hallTypePositions: []
 --- !u!1 &270122114
 GameObject:
   m_ObjectHideFlags: 0
@@ -12591,7 +12593,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c8503b22b98504a4da349ea411811a9d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18345caa66e2ecc4c87a3f03c0ffa9b0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -35839,7 +35841,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e765faa2399cc5846bfef0ed3b3aa9c6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d9f45406b2d98754d9dfba86408fe7fb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -52119,9 +52121,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012739029}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &2012739032
 MonoBehaviour:

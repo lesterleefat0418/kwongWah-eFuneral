@@ -81,7 +81,7 @@ public class AudioControl : MonoBehaviour
     {
         SetUI.Set(this.playBtn, false, 0f);
         SetUI.Set(this.pauseBtn, true, 1f);
-        if (this.audioSource != null && this.clips.Length > 0)
+        if (this.audioSource != null && this.clips.Length > 0 && !this.audioSource.isPlaying)
         {
             this.audioSource.clip = this.clips[this.selectedClipId];
             this.audioSource.loop = this.loop;
