@@ -63,7 +63,7 @@ public class LoaderConfig : MonoBehaviour
             this.SaveRecords();
         }
 
-        ScreenController.Instance.isTopMostEnabled = this.configData.topMostEnable;
+        ScreenController.Instance.isOn = this.configData.topMostEnable;
         ScreenController.Instance.EnableScreenFoucs();
 
         this.changeScene(1);

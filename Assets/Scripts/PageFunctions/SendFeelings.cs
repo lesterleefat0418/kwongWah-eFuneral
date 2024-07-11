@@ -107,6 +107,12 @@ public class SendFeelings : MonoBehaviour
         showFeedBackFrame();
     }
 
+    public void closeFeedbackBoxTag()
+    {
+        this.showFeedbackBox = false;
+        showFeedBackFrame();
+    }
+
     void showFeedBackFrame()
     {
         SetUI.Run(this.feedbackTag, this.showFeedbackBox);
@@ -121,6 +127,12 @@ public class SendFeelings : MonoBehaviour
         if (this.feelingTag != null) this.feelingTag.transform.DOLocalMove(new Vector3(0f, this.showFeelingBox ? -475f : this.originalY, 0f), 0.5f).SetEase(Ease.OutBack);
     }
 
+    public void closeFeelingTag()
+    {
+        this.showFeelingBox = false;
+        if (this.feelingTag != null) this.feelingTag.transform.DOLocalMove(new Vector3(0f, this.showFeelingBox ? -475f : this.originalY, 0f), 0.5f).SetEase(Ease.OutBack);
+    }
+
     public void showInputType(int type)
     {
         if (!this.showFeedbackBox && type != -1)
@@ -132,8 +144,8 @@ public class SendFeelings : MonoBehaviour
         {
             case -1:
                 Debug.Log("Default settings");
-                SetUI.Run(this.inputField, true);
-                SetUI.Run(this.drawingPanel, false);
+                SetUI.Run(this.inputField, false);
+                SetUI.Run(this.drawingPanel, true);
                 SetUI.Run(this.audioPanel, false);
                 break;
             case 0:

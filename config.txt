@@ -6,5 +6,6 @@
     "onlyHuabaoTime": 600.0,
     "goodByePageDuration": 150.0,
     "latestUploadPhotoWithinTime": 5.0,
-    "topMostEnable": false
+    "topMostEnable": false,
+    "showServerInitErrorBox": true
 }

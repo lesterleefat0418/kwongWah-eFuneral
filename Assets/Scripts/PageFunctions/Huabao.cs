@@ -11,6 +11,7 @@ public class Huabao : MonoBehaviour
     public Drag[] burnItemsSkip, burnItems;
     public int burnId = 0;
     public CanvasGroup[] loopDropUI, manualDropUI, hints;
+    public GameObject fireParticles;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class Huabao : MonoBehaviour
     void Start()
     {
         this.resetAutoBurnTime();
+        this.setHuaBao(false);
     }
 
     // Update is called once per frame
@@ -57,6 +59,7 @@ public class Huabao : MonoBehaviour
     public void setHuaBao(bool status)
     {
         this.allowAutoBurn = status;
+        if (this.fireParticles != null) this.fireParticles.SetActive(status);
 
         if (status)
         {

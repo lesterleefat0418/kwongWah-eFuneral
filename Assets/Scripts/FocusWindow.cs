@@ -52,17 +52,17 @@ public class FocusWindow : Singleton<FocusWindow>
     public const uint SWP_NOSIZE = 0x1;
     private static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
     private static readonly IntPtr HWND_NOTTOPMOST = new IntPtr(-2);
-    public bool isTopMostEnabled = true;
+    /*public bool isTopMostEnabled = true;
 
     private void SetTopMost()
     {
         if(isTopMostEnabled)
-            SetWindowPos(unityWindow, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
-    }
+           SetWindowPos(unityWindow, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
+    }*/
 
     private IEnumerator RefocusWindow(float waitSeconds)
     {
-        while(m_isOn && isTopMostEnabled) { 
+        while(m_isOn /*&& isTopMostEnabled*/) { 
             // wait for new window to appear
             yield return new WaitWhile(() => unityWindow == GetActiveWindow());
 
@@ -88,7 +88,7 @@ public class FocusWindow : Singleton<FocusWindow>
     {
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
         unityWindow = GetActiveWindow();
-        SetTopMost();
+        //SetTopMost();
         StartCoroutine(RefocusWindow(this.reFocusTime));
 #endif
     }
@@ -97,13 +97,13 @@ public class FocusWindow : Singleton<FocusWindow>
     {
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
         unityWindow = GetActiveWindow();
-        SetTopMost();
+        //SetTopMost();
         StartCoroutine(RefocusWindow(this.reFocusTime));
 #endif
     }
 
-    private void OnApplicationQuit()
+   /* private void OnApplicationQuit()
     {
         this.isTopMostEnabled = false;
-    }
+    }*/
 }

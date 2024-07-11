@@ -149,6 +149,7 @@ public class PageController : MonoBehaviour
                     this.countDownTimer.showTimer();
                     this.countDownTimer.transform.DOLocalMoveX(532f, 0f);
                 }
+                if (Huabao.Instance != null) Huabao.Instance.setHuaBao(false);
                 break;
             case 4:
                 if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(-532f, 0f);

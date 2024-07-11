@@ -538,8 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf58990b0386da542b7f1e6f425e8e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reFocusTime: 0
-  isTopMostEnabled: 1
+  reFocusTime: 3
   resolution: {x: 1920, y: 1080}
   mouseStatus: 1
   enableFocusWindow: 1
