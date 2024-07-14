@@ -9,7 +9,7 @@ public class DrawViewController : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public UnityEvent triggerActions;
     //This is the data model used to store our draw settings
-    DrawSettings drawSettings;
+    public DrawSettings drawSettings = null;
 
     // The image we are going to edit at runtime
     Image drawImage;

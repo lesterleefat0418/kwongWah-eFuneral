@@ -252,6 +252,7 @@ namespace Recorder
             audioSource.clip = Microphone.Start(Microphone.devices[0], false, timeToRecord, 44100);
         }
 
+
         public void SaveRecording(string fileName = "Audio")
         {
             if (isRecording)
@@ -291,6 +292,9 @@ namespace Recorder
                 {
                     WriteWAVFile(audioClip, filePath);
                     ConsoleText.text = "Audio Saved at: " + filePath;
+
+                    if(SendFeelings.Instance != null) SendFeelings.Instance.hasNewRecording = true;
+
                     Debug.Log("File Saved Successfully at " + filePath);
                 }
                 catch (DirectoryNotFoundException)

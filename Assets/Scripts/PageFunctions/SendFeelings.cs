@@ -220,14 +220,34 @@ public class SendFeelings : MonoBehaviour
 
     }
 
+    public bool hasNewRecording = false;
+
+    public bool HasNewRecording()
+    {
+        if (hasNewRecording)
+        {
+            // Reset the flag after checking
+            hasNewRecording = false;
+            return true;
+        }
+        return false;
+    }
+
     public void sendAudioRecord()
     {
         if (this.recordResult == null)
             return;
 
-        var newAR = Instantiate(this.recordResult);
-        newAR.name = "audio";
-        this.feedbackView.AddComponent(newAR);
+        if(this.HasNewRecording())
+        {
+            var newAR = Instantiate(this.recordResult);
+            newAR.name = "audio";
+            this.feedbackView.AddComponent(newAR);
+        }
+        else
+        {
+            Debug.Log("no record audio");
+        }
     }
 }
 

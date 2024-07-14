@@ -255,7 +255,7 @@ MonoBehaviour:
   cnText: "\u7ED3\u675F\u4EEA\u5F0F"
   engText: End Funeral
   chineseFontSize: 25
-  englishFontSize: 22
+  englishFontSize: 18
 --- !u!114 &7355960368075379756
 MonoBehaviour:
   m_ObjectHideFlags: 0
