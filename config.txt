@@ -7,5 +7,5 @@
     "goodByePageDuration": 150.0,
     "latestUploadPhotoWithinTime": 5.0,
     "topMostEnable": false,
-    "showServerInitErrorBox": true
+    "showServerInitErrorBox": false
 }

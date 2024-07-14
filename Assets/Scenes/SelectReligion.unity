@@ -1682,7 +1682,7 @@ MonoBehaviour:
   - {fileID: 1174140837}
   - {fileID: 1469608103}
   idling: {fileID: 1395973785}
-  showTimer: 0
+  selectedReglion: 0
 --- !u!1 &572317512
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,7 +2354,7 @@ MonoBehaviour:
   text: {fileID: 1794564078}
   tcText: "\u7121\u5B97\u6559"
   cnText: "\u65E0\u5B97\u6559"
-  engText: Irreligion
+  engText: Non-religion
   chineseFontSize: 45
   englishFontSize: 30
 --- !u!1 &762724681
@@ -2967,7 +2967,7 @@ MonoBehaviour:
   text: {fileID: 1542984833}
   tcText: "\u53EA\u9808\u5316\u5BF6\u5100\u5F0F"
   cnText: "\u53EA\u987B\u5316\u5B9D\u4EEA\u5F0F"
-  engText: Only Burning Paper Offerings
+  engText: Burning Paper Offerings Only
   chineseFontSize: 45
   englishFontSize: 30
 --- !u!1 &939456061
@@ -3548,7 +3548,7 @@ MonoBehaviour:
   cnText: "\u4E3B\u9801"
   engText: Home
   chineseFontSize: 22
-  englishFontSize: 22
+  englishFontSize: 18
 --- !u!1 &1191629287
 GameObject:
   m_ObjectHideFlags: 0

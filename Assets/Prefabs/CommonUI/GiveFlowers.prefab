@@ -168,7 +168,7 @@ MonoBehaviour:
   cnText: "\u732E\u82B1"
   engText: Flower Offering
   chineseFontSize: 25
-  englishFontSize: 22
+  englishFontSize: 18
 --- !u!114 &2703232720417755639
 MonoBehaviour:
   m_ObjectHideFlags: 0

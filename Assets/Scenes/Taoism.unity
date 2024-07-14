@@ -11497,7 +11497,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: 277.11, y: 70}
+  m_SizeDelta: {x: 700, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &210494038
 MonoBehaviour:
@@ -12255,7 +12255,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: 277.11, y: 70}
+  m_SizeDelta: {x: 700, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &220605734
 MonoBehaviour:
@@ -19570,9 +19570,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282094442}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &282094445
 MonoBehaviour:
@@ -21156,9 +21156,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324727656}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &324843236
 GameObject:
@@ -26440,8 +26440,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 36, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 44.40001, y: 0}
+  m_SizeDelta: {x: -16.8, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &470318230
 MonoBehaviour:
@@ -26470,14 +26470,14 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '*Automatically put into paper products, relatives and friends can also
-    put them in by themselves'
+  m_Text: '*It is allowed to drop the paper offerings to the burner automatically
+    or manually.'
 --- !u!222 &470318231
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -26998,7 +26998,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: 277.11, y: 70}
+  m_SizeDelta: {x: 700, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &488912063
 MonoBehaviour:
@@ -27172,9 +27172,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492959618}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &492959621
 MonoBehaviour:
@@ -29898,9 +29898,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'You can call the deceased by name,
-
-    And shouted "Get Things"'
+  m_Text: "You can call the departed by \nname and shout \u201C Take it\u201D."
 --- !u!222 &558433807
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30247,6 +30245,9 @@ MonoBehaviour:
   - {fileID: 2060719717}
   - {fileID: 1295151443}
   - {fileID: 29013691}
+  - {fileID: 546701896}
+  - {fileID: 960179797}
+  - {fileID: 452634723}
   captureBg: {fileID: 62408786}
   beginningBox: {fileID: 510233509}
   countDownTimer: {fileID: 738279733}
@@ -30500,7 +30501,7 @@ MonoBehaviour:
   cnText: "\u70E7\u7EB8\u94B1"
   engText: Burn Joss Papers
   chineseFontSize: 25
-  englishFontSize: 22
+  englishFontSize: 18
 --- !u!114 &563987766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31109,9 +31110,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577387261}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &580629835
 GameObject:
@@ -31265,7 +31266,7 @@ MonoBehaviour:
   text: {fileID: 1849534405}
   tcText: "\u8868\u9054\u5FC3\u610F"
   cnText: "\u8868\u8FBE\u5FC3\u610F"
-  engText: Send Feelings
+  engText: Express Your Feelings
   chineseFontSize: 30
   englishFontSize: 28
 --- !u!1 &582944618
@@ -31754,7 +31755,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: 277.11, y: 70}
+  m_SizeDelta: {x: 700, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &590567152
 MonoBehaviour:
@@ -33751,7 +33752,7 @@ MonoBehaviour:
   text: {fileID: 1833954815}
   tcText: "\u9304\u88FD\u8A9E\u97F3"
   cnText: "\u5F55\u5236\u8BED\u97F3"
-  engText: Audio Recording
+  engText: Voice Recording
   chineseFontSize: 25
   englishFontSize: 16
 --- !u!1 &648150921
@@ -37481,7 +37482,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749914402}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -38374,7 +38375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &769861981
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40201,7 +40202,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u624B\u5BEB\u7E6A\u5716"
+  m_Text: "\u7E6A\u5BEB\u6587\u5B57"
 --- !u!222 &801054017
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -40636,7 +40637,7 @@ GameObject:
   - component: {fileID: 821634616}
   - component: {fileID: 821634613}
   m_Layer: 5
-  m_Name: HomeBtn
+  m_Name: EndFuneralBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40775,7 +40776,7 @@ MonoBehaviour:
   text: {fileID: 1802197416}
   tcText: "\u7D50\u675F\u5100\u5F0F"
   cnText: "\u7ED3\u675F\u4EEA\u5F0F"
-  engText: End of Funeral
+  engText: End Funeral
   chineseFontSize: 22
   englishFontSize: 18
 --- !u!1 &822530903
@@ -44064,7 +44065,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: 277.11, y: 70}
+  m_SizeDelta: {x: 700, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &917470579
 MonoBehaviour:
@@ -49481,9 +49482,9 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 856f7272941ca0f42acf83b0499b4278, type: 3}
   cn: {fileID: 12800000, guid: b172c17cc62c80047b52d1b00d619931, type: 3}
   text: {fileID: 801054016}
-  tcText: "\u624B\u5BEB\u7E6A\u5716"
-  cnText: "\u624B\u5199\u7ED8\u56FE"
-  engText: Handrawn
+  tcText: "\u7E6A\u5BEB\u6587\u5B57"
+  cnText: "\u7ED8\u5199\u6587\u5B57"
+  engText: Text Input
   chineseFontSize: 25
   englishFontSize: 16
 --- !u!1 &1034968987
@@ -49956,7 +49957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.6862745}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -50270,7 +50271,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "You can call out the name of the \ndear departed and say \u201C Take it\u201D."
+  m_Text: "You can call the departed by \nname and shout \u201C Take it\u201D."
 --- !u!222 &1072716704
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -58224,7 +58225,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 282094445}
         m_TargetAssemblyTypeName: Huabao, Assembly-CSharp
-        m_MethodName: setHuaBao
+        m_MethodName: autoRun
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -61463,8 +61464,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 25.199997, y: -9.900002}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 37.479996, y: -9.900002}
+  m_SizeDelta: {x: -24.56, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1392121524
 MonoBehaviour:
@@ -61493,14 +61494,14 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: '*Automatically put into paper products, relatives and friends can also
-    put them in by themselves'
+  m_Text: '*It is allowed to drop the paper offerings to the burner automatically
+    or manually.'
 --- !u!222 &1392121525
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -62601,7 +62602,7 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
   cn: {fileID: 12800000, guid: fad0ce03be3eb33479134d5fdcdf668c, type: 3}
   text: {fileID: 1798632014}
-  tcText: "\u975E\u9F4A\u54C1"
+  tcText: "\u975E\u9F4B\u54C1"
   cnText: "\u975E\u658B\u54C1"
   engText: Non-vegetarian Foods
   chineseFontSize: 30
@@ -65037,7 +65038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1471745529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -65054,10 +65055,10 @@ RectTransform:
   m_Father: {fileID: 1079431271}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 123, y: -129.205}
+  m_SizeDelta: {x: 152, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471745530
 MonoBehaviour:
@@ -69952,7 +69953,7 @@ MonoBehaviour:
   text: {fileID: 1216905759}
   tcText: "\u8FD4\u56DE\u4E3B\u9801"
   cnText: "\u8FD4\u56DE\u4E3B\u9875"
-  engText: Home
+  engText: Yes
   chineseFontSize: 25
   englishFontSize: 22
 --- !u!1 &1621429135
@@ -71042,7 +71043,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 282094445}
         m_TargetAssemblyTypeName: Huabao, Assembly-CSharp
-        m_MethodName: setHuaBao
+        m_MethodName: autoRun
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -72084,7 +72085,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 282094445}
         m_TargetAssemblyTypeName: Huabao, Assembly-CSharp
-        m_MethodName: setHuaBao
+        m_MethodName: autoRun
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -74904,7 +74905,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -163.48999, y: -70}
-  m_SizeDelta: {x: 173.01, y: 69.75}
+  m_SizeDelta: {x: 155, y: 61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1743843432
 MonoBehaviour:
@@ -77100,8 +77101,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 16.14, y: 0}
-  m_SizeDelta: {x: -32.26, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.000002861023, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1802197416
 MonoBehaviour:
@@ -77125,11 +77126,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 76409f875d20ae642b3ca7302b0b43e4, type: 3}
-    m_FontSize: 18
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 40
+    m_MaxSize: 224
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -78577,8 +78578,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.19000244, y: 0.39999962}
-  m_SizeDelta: {x: -8.46, y: -6.56}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -12, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833954815
 MonoBehaviour:
@@ -78612,7 +78613,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 0.7
+    m_LineSpacing: 0.6
   m_Text: "\u9304\u88FD\u8A9E\u97F3"
 --- !u!222 &1833954816
 CanvasRenderer:
@@ -79204,7 +79205,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: 277.11, y: 70}
+  m_SizeDelta: {x: 700, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1845164894
 MonoBehaviour:
@@ -80690,7 +80691,7 @@ MonoBehaviour:
   text: {fileID: 287955923}
   tcText: "\u78BA\u5B9A"
   cnText: "\u786E\u5B9A"
-  engText: Confirm
+  engText: Yes
   chineseFontSize: 25
   englishFontSize: 22
 --- !u!1 &1886761301
@@ -81743,9 +81744,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922927960}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!222 &1922927964
 CanvasRenderer:
@@ -85694,8 +85695,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.13, y: 30.65}
-  m_SizeDelta: {x: 403.91, y: 91.3}
+  m_AnchoredPosition: {x: 0, y: 30.65}
+  m_SizeDelta: {x: 543.76, y: 91.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2020136434
 MonoBehaviour:
@@ -85730,7 +85731,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Do you want to leave and \nback to homepage?"
+  m_Text: Are you going to return to the homepage?
 --- !u!222 &2020136435
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -86819,7 +86820,7 @@ MonoBehaviour:
   text: {fileID: 759672036}
   tcText: "\u78BA\u5B9A\u9032\u884C\u5316\u5BF6\u5100\u5F0F?"
   cnText: "\u786E\u5B9A\u8FDB\u884C\u5316\u5B9D\u4EEA\u5F0F?"
-  engText: Do you want to enter treasure-making ceremony?
+  engText: Are you going to start burning paper offerings?
   chineseFontSize: 35
   englishFontSize: 25
 --- !u!1 &2060719713
@@ -86926,7 +86927,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 282094445}
         m_TargetAssemblyTypeName: Huabao, Assembly-CSharp
-        m_MethodName: setHuaBao
+        m_MethodName: autoRun
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -87282,9 +87283,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2065820184}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &2065820189
 MonoBehaviour:
@@ -89153,9 +89154,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130373270}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &2130373272
 MonoBehaviour:
@@ -89170,7 +89171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.6862745}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -91446,6 +91447,30 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 563987766}
+        m_TargetAssemblyTypeName: BurnMoney, Assembly-CSharp
+        m_MethodName: set
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 563987761}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!199 &5024738338847756050
 ParticleSystemRenderer:
@@ -96550,7 +96575,7 @@ PrefabInstance:
     - target: {fileID: 8724868421562259797, guid: ba49bfd8097114346924656ec983da44,
         type: 3}
       propertyPath: heads.Array.data[2]
-      value: 'The ceremony will be end after: '
+      value: 'Funeral will end after:'
       objectReference: {fileID: 0}
     - target: {fileID: 8724868421562259797, guid: ba49bfd8097114346924656ec983da44,
         type: 3}
@@ -107119,7 +107144,7 @@ MonoBehaviour:
   text: {fileID: 7727959766605376773}
   tcText: "\u78BA\u5B9A\u7D50\u675F\u5100\u5F0F?"
   cnText: "\u786E\u5B9A\u7ED3\u675F\u4EEA\u5F0F?"
-  engText: Do you want to end ceremony?
+  engText: Are you going to finish the funeral?
   chineseFontSize: 35
   englishFontSize: 25
 --- !u!114 &7932497618820272443
@@ -108286,7 +108311,7 @@ MonoBehaviour:
   text: {fileID: 8940528860825712111}
   tcText: "\u78BA\u5B9A"
   cnText: "\u786E\u5B9A"
-  engText: Confirm
+  engText: Yes
   chineseFontSize: 25
   englishFontSize: 22
 --- !u!1 &9170606480236680685

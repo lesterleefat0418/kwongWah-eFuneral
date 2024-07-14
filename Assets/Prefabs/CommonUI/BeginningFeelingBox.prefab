@@ -95,7 +95,7 @@ MonoBehaviour:
   text: {fileID: 8026613385216791593}
   tcText: "\u5100\u5F0F\u6B63\u5F0F\u958B\u59CB"
   cnText: "\u4EEA\u5F0F\u6B63\u5F0F\u5F00\u59CB"
-  engText: The ceremony is started
+  engText: The funeral starts now.
   chineseFontSize: 35
   englishFontSize: 25
 --- !u!1 &1557705117391629346

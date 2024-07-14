@@ -1951,7 +1951,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -87.3}
-  m_SizeDelta: {x: 268, y: 63.99}
+  m_SizeDelta: {x: 500, y: 63.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &99082905
 MonoBehaviour:
@@ -3789,6 +3789,87 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1759897978411636132}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &194304194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 194304195}
+  - component: {fileID: 194304197}
+  - component: {fileID: 194304196}
+  m_Layer: 5
+  m_Name: Text-Eng-org
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &194304195
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194304194}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 971537878}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 22}
+  m_SizeDelta: {x: 290.03998, y: 387.95}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &194304196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194304194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 76409f875d20ae642b3ca7302b0b43e4, type: 3}
+    m_FontSize: 22
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "namo amit\u0101bh\u0101ya tath\u0101gat\u0101ya\r\ntadyath\u0101\r\nam\u1E5Btadbhave\r\nam\u1E5Btasa\u1E43bhave\r\nam\u1E5Btavikr\u0101nte\r\nam\u1E5Btavikr\u0101nta\r\ng\u0101mine
+    gagana k\u012Brtakare sv\u0101h\u0101\r"
+--- !u!222 &194304197
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194304194}
+  m_CullTransparentMesh: 1
 --- !u!1 &201318779
 GameObject:
   m_ObjectHideFlags: 0
@@ -5952,6 +6033,7 @@ MonoBehaviour:
   loopDropUI: []
   manualDropUI: []
   hints: []
+  fireParticles: {fileID: 0}
 --- !u!1 &282898359
 GameObject:
   m_ObjectHideFlags: 0
@@ -8607,7 +8689,7 @@ MonoBehaviour:
   text: {fileID: 99082905}
   tcText: "\u9F4B\u54C1"
   cnText: "\u658B\u54C1"
-  engText: Qipin
+  engText: "Non-vegetarian Foods (Zh\u0101i P\u01D0n)"
   chineseFontSize: 30
   englishFontSize: 25
 --- !u!1 &384225200
@@ -9754,8 +9836,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 22}
-  m_SizeDelta: {x: 290.03998, y: 387.95}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 319.97, y: 410.39}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &419490866
 MonoBehaviour:
@@ -9790,8 +9872,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "namo amit\u0101bh\u0101ya tath\u0101gat\u0101ya\r\ntadyath\u0101\r\nam\u1E5Btadbhave\r\nam\u1E5Btasa\u1E43bhave\r\nam\u1E5Btavikr\u0101nte\r\nam\u1E5Btavikr\u0101nta\r\ng\u0101mine
-    gagana k\u012Brtakare sv\u0101h\u0101\r"
+  m_Text: "\u5357\u7121\u963F\u5F4C\u591A\u5A46\u591C\u3002\u54C6\u4ED6\u4F3D\u591A\u591C\u3002\u54C6\u5730\u591C\u4ED6\u3002\u963F\u5F4C\u5229\u90FD\u5A46\u6BD7\u3002\u963F\u5F4C\u5229\u54C6\u3002\u6089\u803D\u5A46\u6BD7\u3002\u963F\u5F4C\u550E\u54C6\u3002\u6BD7\u8FE6\u862D\u5E1D\u3002\u963F\u5F4C\u550E\u54C6\u3002\u6BD7\u8FE6\u862D\u591A\u3002\u4F3D\u5F4C\u81A9\u3002\u4F3D\u4F3D\u90A3\u3002\u67B3\u591A\u8FE6\u5229\u3002\u68AD\u54C8\u3002"
 --- !u!222 &419490867
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11782,9 +11863,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492959618}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &492959621
 MonoBehaviour:
@@ -13962,9 +14043,9 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 5f7c632a749b86c4385847dbd714f1f3, type: 3}
   cn: {fileID: 12800000, guid: fad0ce03be3eb33479134d5fdcdf668c, type: 3}
   text: {fileID: 681923724}
-  tcText: "\u8B1B\u5FF5\u300A\u5F80\u751F\u5492\u300B"
-  cnText: "\u8BB2\u5FF5\u300A\u5F80\u751F\u5492\u300B"
-  engText: "Chant \"Amitabha Pure Land Rebirth Dharani\u201D"
+  tcText: "\u8AA6\u5FF5"
+  cnText: "\u8BF5\u5FF5"
+  engText: Chanting
   chineseFontSize: 25
   englishFontSize: 18
 --- !u!114 &563987766
@@ -14585,7 +14666,7 @@ MonoBehaviour:
   text: {fileID: 1849534405}
   tcText: "\u8868\u9054\u5FC3\u610F"
   cnText: "\u8868\u8FBE\u5FC3\u610F"
-  engText: Send Feelings
+  engText: Express Your Feelings
   chineseFontSize: 30
   englishFontSize: 28
 --- !u!1 &583281930
@@ -16222,7 +16303,7 @@ MonoBehaviour:
   text: {fileID: 1833954815}
   tcText: "\u9304\u88FD\u8A9E\u97F3"
   cnText: "\u5F55\u5236\u8BED\u97F3"
-  engText: Record Voice
+  engText: Voice Recording
   chineseFontSize: 25
   englishFontSize: 16
 --- !u!1 &648150921
@@ -17269,7 +17350,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u8B1B\u5FF5\u300A\u5F80\u751F\u5492\u300B"
+  m_Text: "\u8AA6\u5FF5"
 --- !u!222 &681923725
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19919,7 +20000,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u624B\u5BEB\u7E6A\u5716"
+  m_Text: "\u7E6A\u5BEB\u6587\u5B57"
 --- !u!222 &801054017
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -22600,7 +22681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &923919086
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24310,6 +24391,7 @@ RectTransform:
   - {fileID: 260601190}
   - {fileID: 560075585}
   - {fileID: 419490865}
+  - {fileID: 194304195}
   - {fileID: 2029210450}
   - {fileID: 1872909502}
   - {fileID: 959869769}
@@ -26170,9 +26252,9 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 856f7272941ca0f42acf83b0499b4278, type: 3}
   cn: {fileID: 12800000, guid: b172c17cc62c80047b52d1b00d619931, type: 3}
   text: {fileID: 801054016}
-  tcText: "\u624B\u5BEB\u7E6A\u5716"
-  cnText: "\u624B\u5199\u7ED8\u56FE"
-  engText: Handrawn
+  tcText: "\u7E6A\u5BEB\u6587\u5B57"
+  cnText: "\u7ED8\u5199\u6587\u5B57"
+  engText: Text Input
   chineseFontSize: 25
   englishFontSize: 16
 --- !u!1 &1034968987
@@ -26430,7 +26512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.6862745}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -36604,7 +36686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1471745529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36621,10 +36703,10 @@ RectTransform:
   m_Father: {fileID: 1079431271}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 123, y: -129.205}
+  m_SizeDelta: {x: 152, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471745530
 MonoBehaviour:
@@ -40543,7 +40625,7 @@ MonoBehaviour:
   text: {fileID: 1216905759}
   tcText: "\u8FD4\u56DE\u4E3B\u9801"
   cnText: "\u8FD4\u56DE\u4E3B\u9875"
-  engText: Home
+  engText: Yes
   chineseFontSize: 25
   englishFontSize: 22
 --- !u!1 &1621429135
@@ -47101,7 +47183,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -9.999998, y: -10}
+  m_SizeDelta: {x: -12, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833954815
 MonoBehaviour:
@@ -47135,7 +47217,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
+    m_LineSpacing: 0.6
   m_Text: "\u9304\u88FD\u8A9E\u97F3"
 --- !u!222 &1833954816
 CanvasRenderer:
@@ -51581,9 +51663,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012739029}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &2012739032
 MonoBehaviour:
@@ -52138,7 +52220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2020136433
 RectTransform:
   m_ObjectHideFlags: 0
@@ -52156,8 +52238,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.13, y: 30.65}
-  m_SizeDelta: {x: 403.91, y: 91.3}
+  m_AnchoredPosition: {x: 0, y: 30.65}
+  m_SizeDelta: {x: 543.76, y: 91.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2020136434
 MonoBehaviour:
@@ -52192,7 +52274,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Do you want to leave and \nback to homepage?"
+  m_Text: Are you going to return to the homepage?
 --- !u!222 &2020136435
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -55200,7 +55282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.6862745}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -55725,6 +55807,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 492959619}
     m_Modifications:
+    - target: {fileID: 2049784270265161784, guid: 24b7dc4c8bc8d824fa36c77bd05c5962,
+        type: 3}
+      propertyPath: engText
+      value: End Funeral
+      objectReference: {fileID: 0}
     - target: {fileID: 5184493534454611644, guid: 24b7dc4c8bc8d824fa36c77bd05c5962,
         type: 3}
       propertyPath: m_Pivot.x
@@ -56132,10 +56219,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -92.02002
       objectReference: {fileID: 0}
+    - target: {fileID: 3655926873154738186, guid: 028c98e3bfdaac044a325f98018b0779,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393693962964555517, guid: 028c98e3bfdaac044a325f98018b0779,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5938125156043958740, guid: 028c98e3bfdaac044a325f98018b0779,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 140.14001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089335361117826126, guid: 028c98e3bfdaac044a325f98018b0779,
+        type: 3}
+      propertyPath: m_Text
+      value: 'If you have the departed''s photo stored in an USB, you can select
+        and upload it directly from the computer. '
       objectReference: {fileID: 0}
     - target: {fileID: 7284375866363216653, guid: 028c98e3bfdaac044a325f98018b0779,
         type: 3}
@@ -57415,6 +57518,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6792692412941930439, guid: 066e6fa00d7fb384f9895cc6c2317cf3,
+        type: 3}
+      propertyPath: englishFontSize
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 7899339267998357138, guid: 066e6fa00d7fb384f9895cc6c2317cf3,
         type: 3}
       propertyPath: m_Name
@@ -58235,7 +58343,7 @@ MonoBehaviour:
   text: {fileID: 7727959766605376773}
   tcText: "\u78BA\u5B9A\u7D50\u675F\u5100\u5F0F?"
   cnText: "\u786E\u5B9A\u7ED3\u675F\u4EEA\u5F0F?"
-  engText: Do you want to end ceremony?
+  engText: Are you going to finish the funeral?
   chineseFontSize: 35
   englishFontSize: 25
 --- !u!114 &7932497618820272443
@@ -58707,6 +58815,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioButton
       objectReference: {fileID: 0}
+    - target: {fileID: 7903871765631373922, guid: 2b1c1dc3a3631fd478ca8a975af47cf8,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -58978,7 +59091,7 @@ MonoBehaviour:
   text: {fileID: 8940528860825712111}
   tcText: "\u78BA\u5B9A"
   cnText: "\u786E\u5B9A"
-  engText: Confirm
+  engText: Yes
   chineseFontSize: 25
   englishFontSize: 22
 --- !u!1 &9170606480236680685

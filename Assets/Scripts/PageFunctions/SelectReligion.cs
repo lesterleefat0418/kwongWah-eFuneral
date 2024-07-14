@@ -78,7 +78,6 @@ public class SelectReligion : MonoBehaviour
                     }
                    // if (this.idling != null) this.idling.showTimer();
                 }
-                Debug.Log("FK");
                 this.selectedReglion = true;
             }
         }

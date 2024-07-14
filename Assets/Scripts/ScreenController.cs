@@ -5,7 +5,6 @@ public class ScreenController : FocusWindow
 {
     public Vector2Int resolution;
     public bool mouseStatus = true;
-    public bool enableFocusWindow = true;
     // Start is called before the first frame update
 
     private void Awake()
@@ -32,8 +31,8 @@ public class ScreenController : FocusWindow
         }
         else if (Input.GetKeyDown(KeyCode.F2) && (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)))
         {
-            this.enableFocusWindow = !this.enableFocusWindow;
-            this.isOn = this.enableFocusWindow;
+            LoaderConfig.Instance.configData.topMostEnable = !LoaderConfig.Instance.configData.topMostEnable;
+            this.isOn = LoaderConfig.Instance.configData.topMostEnable;
         }
         else if (Input.GetKeyDown(KeyCode.R) && (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)))
         {
@@ -48,7 +47,5 @@ public class ScreenController : FocusWindow
                 Debug.Log("Key pressed: " + keyCode);
             }
         }*/
-
-        this.isOn = this.enableFocusWindow;
     }
 }

@@ -56,6 +56,22 @@ public class Huabao : MonoBehaviour
         }
     }
 
+    public void autoRun(bool status)
+    {
+        this.allowAutoBurn = status;
+        if (status)
+        {
+            this.burnId = 0;
+        }
+
+        for (int i = 0; i < this.loopDropUI.Length; i++)
+        {
+            SetUI.Set(this.loopDropUI[i], true, status ? 1f : 0.5f);
+            SetUI.Set(this.manualDropUI[i], true, status ? 0.5f : 1f);
+            SetUI.Set(this.hints[i], status, status ? 1f : 0f);
+        }
+    }
+
     public void setHuaBao(bool status)
     {
         this.allowAutoBurn = status;
@@ -68,8 +84,8 @@ public class Huabao : MonoBehaviour
 
         for (int i=0; i<this.loopDropUI.Length; i++)
         {
-            SetUI.Set(this.loopDropUI[i], !status, status? 0.5f: 1f);
-            SetUI.Set(this.manualDropUI[i], status, status ? 1f : 0.5f);
+            SetUI.Set(this.loopDropUI[i], true, status ? 1f : 0.5f);
+            SetUI.Set(this.manualDropUI[i], true, status ? 0.5f : 1f);
             SetUI.Set(this.hints[i], status, status? 1f: 0f);
         }
     }

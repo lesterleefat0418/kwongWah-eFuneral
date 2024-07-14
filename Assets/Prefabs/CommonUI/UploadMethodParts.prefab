@@ -517,8 +517,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: If you have a USB with photos on it, you can select and upload them directly
-    from the computer.
+  m_Text: 'If you have the departed''s photo stored in an USB, you can select and
+    upload it directly from the computer. '
 --- !u!1 &4393693962964555517
 GameObject:
   m_ObjectHideFlags: 0

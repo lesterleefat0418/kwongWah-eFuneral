@@ -39,7 +39,7 @@ public class Drag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDrag
 
         if (this.targetObject != null && eventData.pointerCurrentRaycast.gameObject == targetObject)
         {
-            if (Huabao.Instance != null) Huabao.Instance.setHuaBao(false);
+            if (Huabao.Instance != null) Huabao.Instance.autoRun(false);
             this.fireBurn();
         }
     }

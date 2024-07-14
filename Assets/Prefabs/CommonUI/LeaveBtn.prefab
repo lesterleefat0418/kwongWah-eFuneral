@@ -96,7 +96,7 @@ MonoBehaviour:
   text: {fileID: 8219193356229082749}
   tcText: "\u79AE\u6210"
   cnText: "\u793C\u6210"
-  engText: End of Funeral
+  engText: End Funeral
   chineseFontSize: 30
   englishFontSize: 22
 --- !u!114 &3242787937270299567

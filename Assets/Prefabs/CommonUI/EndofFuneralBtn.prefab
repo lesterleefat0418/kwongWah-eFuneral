@@ -253,7 +253,7 @@ MonoBehaviour:
   text: {fileID: 645652625740876938}
   tcText: "\u7D50\u675F\u5100\u5F0F"
   cnText: "\u7ED3\u675F\u4EEA\u5F0F"
-  engText: End of Funeral
+  engText: End Funeral
   chineseFontSize: 25
   englishFontSize: 22
 --- !u!114 &7355960368075379756

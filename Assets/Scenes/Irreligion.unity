@@ -9467,9 +9467,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267374322}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &267374325
 MonoBehaviour:
@@ -10338,6 +10338,7 @@ MonoBehaviour:
   loopDropUI: []
   manualDropUI: []
   hints: []
+  fireParticles: {fileID: 0}
 --- !u!1 &283899004
 GameObject:
   m_ObjectHideFlags: 0
@@ -16815,7 +16816,7 @@ MonoBehaviour:
   text: {fileID: 650602413}
   tcText: "\u4E0A\u4E00\u9801"
   cnText: "\u4E0A\u4E00\u9875"
-  engText: Previous
+  engText: Back
   chineseFontSize: 22
   englishFontSize: 18
 --- !u!1 &461555972
@@ -18027,9 +18028,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492959618}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &492959621
 MonoBehaviour:
@@ -19789,7 +19790,7 @@ MonoBehaviour:
   text: {fileID: 1901760513}
   tcText: "\u4E0A\u4E00\u9801"
   cnText: "\u4E0A\u4E00\u9875"
-  engText: Previous
+  engText: Back
   chineseFontSize: 22
   englishFontSize: 18
 --- !u!1 &534747361
@@ -22082,7 +22083,7 @@ MonoBehaviour:
   text: {fileID: 1849534405}
   tcText: "\u8868\u9054\u5FC3\u610F"
   cnText: "\u8868\u8FBE\u5FC3\u610F"
-  engText: Send Feelings
+  engText: Express Your Feelings
   chineseFontSize: 30
   englishFontSize: 28
 --- !u!1 &583281930
@@ -25527,7 +25528,7 @@ MonoBehaviour:
   text: {fileID: 1833954815}
   tcText: "\u9304\u88FD\u8A9E\u97F3"
   cnText: "\u5F55\u5236\u8BED\u97F3"
-  engText: Audio Recording
+  engText: Voice Recording
   chineseFontSize: 25
   englishFontSize: 16
 --- !u!1 &647594146
@@ -30819,7 +30820,7 @@ MonoBehaviour:
   text: {fileID: 316525332}
   tcText: "\u4E0A\u4E00\u9801"
   cnText: "\u4E0A\u4E00\u9875"
-  engText: 'Previous '
+  engText: Back
   chineseFontSize: 22
   englishFontSize: 18
 --- !u!1 &782074995
@@ -32075,7 +32076,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: "\u624B\u5BEB\u7E6A\u756B"
+  m_Text: "\u7E6A\u5BEB\u6587\u5B57"
 --- !u!222 &801054017
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -42148,9 +42149,9 @@ MonoBehaviour:
   tc: {fileID: 12800000, guid: 856f7272941ca0f42acf83b0499b4278, type: 3}
   cn: {fileID: 12800000, guid: b172c17cc62c80047b52d1b00d619931, type: 3}
   text: {fileID: 801054016}
-  tcText: "\u624B\u5BEB\u7E6A\u5716"
-  cnText: "\u624B\u5199\u7ED8\u56FE"
-  engText: Handrawn
+  tcText: "\u7E6A\u5BEB\u6587\u5B57"
+  cnText: "\u7ED8\u5199\u6587\u5B57"
+  engText: Text Input
   chineseFontSize: 25
   englishFontSize: 16
 --- !u!1 &1034968987
@@ -58682,7 +58683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1471745529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -58699,10 +58700,10 @@ RectTransform:
   m_Father: {fileID: 1079431271}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 123, y: -129.205}
+  m_SizeDelta: {x: 152, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471745530
 MonoBehaviour:
@@ -65479,7 +65480,7 @@ MonoBehaviour:
   text: {fileID: 1216905759}
   tcText: "\u8FD4\u56DE\u4E3B\u9801"
   cnText: "\u8FD4\u56DE\u4E3B\u9875"
-  engText: Home
+  engText: Yes
   chineseFontSize: 25
   englishFontSize: 22
 --- !u!1 &1621429135
@@ -74464,7 +74465,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -10, y: -10}
+  m_SizeDelta: {x: -12, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833954815
 MonoBehaviour:
@@ -74498,7 +74499,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 0.8
+    m_LineSpacing: 0.6
   m_Text: "\u9304\u88FD\u8A9E\u97F3"
 --- !u!222 &1833954816
 CanvasRenderer:
@@ -82064,8 +82065,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.13, y: 30.65}
-  m_SizeDelta: {x: 403.91, y: 91.3}
+  m_AnchoredPosition: {x: 0, y: 30.65}
+  m_SizeDelta: {x: 543.76, y: 91.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2020136434
 MonoBehaviour:
@@ -82100,7 +82101,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Do you want to leave and \nback to homepage?"
+  m_Text: Are you going to return to the homepage?
 --- !u!222 &2020136435
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -89238,7 +89239,7 @@ MonoBehaviour:
   text: {fileID: 7727959766605376773}
   tcText: "\u78BA\u5B9A\u7D50\u675F\u5100\u5F0F?"
   cnText: "\u786E\u5B9A\u7ED3\u675F\u4EEA\u5F0F?"
-  engText: Do you want to end ceremony?
+  engText: Are you going to finish the funeral?
   chineseFontSize: 35
   englishFontSize: 25
 --- !u!114 &7932497618820272443
@@ -89671,7 +89672,7 @@ MonoBehaviour:
   text: {fileID: 8940528860825712111}
   tcText: "\u78BA\u5B9A"
   cnText: "\u786E\u5B9A"
-  engText: Confirm
+  engText: Yes
   chineseFontSize: 25
   englishFontSize: 22
 --- !u!1 &9170606480236680685
