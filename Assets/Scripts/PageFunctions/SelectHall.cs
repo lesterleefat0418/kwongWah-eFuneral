@@ -2,10 +2,19 @@ using UnityEngine;
 
 public class SelectHall : MonoBehaviour
 {
+    public static SelectHall Instance = null;
     public HallSelection selectHall;
     public CanvasGroup nextBtn;
     public Transform hallPeoplePhoto;
     public Vector2[] hallTypePositions;
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {

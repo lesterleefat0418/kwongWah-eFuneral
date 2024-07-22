@@ -9,6 +9,7 @@ public class Page
 {
     public Group[] pages;
     public int currentId;
+    public Group currentPage;
     public bool isAnimated = false;
     public Idling[] pageIdling;
 
@@ -71,6 +72,7 @@ public class Page
                 {
                     if (i == toPageId)
                     {
+                        this.currentPage = this.pages[toPageId];
                         this.pages[toPageId].showAnimation(true, 0.5f, () => reset(toPageId));
                     }
                     else

@@ -6441,6 +6441,9 @@ MonoBehaviour:
       - name: Hall-3
         group: {fileID: 1401034187}
       currentId: 1
+      currentPage:
+        name: 
+        group: {fileID: 0}
       isAnimated: 0
       pageIdling: []
   nextBtn: {fileID: 1694454949}
@@ -12906,6 +12909,7 @@ MonoBehaviour:
   - {fileID: 620847280}
   - {fileID: 1248727731}
   - {fileID: 1861887794}
+  hasNewRecording: 0
 --- !u!1 &500580344
 GameObject:
   m_ObjectHideFlags: 0
@@ -14419,6 +14423,9 @@ MonoBehaviour:
     - name: GoodBye
       group: {fileID: 786419758}
     currentId: 0
+    currentPage:
+      name: 
+      group: {fileID: 0}
     isAnimated: 0
     pageIdling:
     - pageName: UploadPhotoPage
@@ -15232,6 +15239,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 660652471}
   - {fileID: 18574163}
   - {fileID: 1419913517}
   - {fileID: 1039130855}
@@ -15263,13 +15271,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a77d47e28a14b0646889277f29cbe9c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7a9a7e173cc227c4fbffd93f0c0438ca, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15295,9 +15303,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577387261}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1 &580629835
 GameObject:
@@ -18093,6 +18101,140 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658247632}
   m_CullTransparentMesh: 1
+--- !u!1001 &660652470
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 577387262}
+    m_Modifications:
+    - target: {fileID: 3823285089051813169, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_Name
+      value: Hall_titleBannerFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 448
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 118
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 192.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6660353856729263182, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9, type: 3}
+--- !u!224 &660652471 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5058198527874919557, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+    type: 3}
+  m_PrefabInstance: {fileID: 660652470}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &661953702
 GameObject:
   m_ObjectHideFlags: 0
@@ -56507,6 +56649,9 @@ MonoBehaviour:
     - name: SelectSpeakingText
       group: {fileID: 2112162657}
     currentId: 0
+    currentPage:
+      name: 
+      group: {fileID: 0}
     isAnimated: 0
     pageIdling: []
   stepColor: {r: 0.9254902, g: 0.83137256, b: 0.6862745, a: 1}
@@ -56557,6 +56702,9 @@ MonoBehaviour:
     page:
       pages: []
       currentId: 0
+      currentPage:
+        name: 
+        group: {fileID: 0}
       isAnimated: 0
       pageIdling: []
   - stepName: SelectFlower
@@ -56591,6 +56739,9 @@ MonoBehaviour:
     page:
       pages: []
       currentId: 0
+      currentPage:
+        name: 
+        group: {fileID: 0}
       isAnimated: 0
       pageIdling: []
   - stepName: SelectFlowerStand
@@ -56625,6 +56776,9 @@ MonoBehaviour:
     page:
       pages: []
       currentId: 0
+      currentPage:
+        name: 
+        group: {fileID: 0}
       isAnimated: 0
       pageIdling: []
   - stepName: SelectFlowerBasket
@@ -56659,6 +56813,9 @@ MonoBehaviour:
     page:
       pages: []
       currentId: 0
+      currentPage:
+        name: 
+        group: {fileID: 0}
       isAnimated: 0
       pageIdling: []
   - stepName: SelectSpeakText
@@ -56681,6 +56838,9 @@ MonoBehaviour:
       - name: TextPage2
         group: {fileID: 1128061084}
       currentId: 0
+      currentPage:
+        name: 
+        group: {fileID: 0}
       isAnimated: 0
       pageIdling: []
   food:

@@ -137,10 +137,21 @@ public class PageController : MonoBehaviour
     void changePageFunction(int toPageId)
     {
         SetUI.Run(this.captureBg, toPageId >= 2 ? true : false, 0f);
-
         switch (toPageId)
         {
             case 3:
+                if (SelectHall.Instance != null)
+                {
+                    CanvasGroup hall = SelectHall.Instance.selectHall.page.currentPage.group;
+                    hall.transform.localScale = new Vector3(1.7f, 1.7f, 1.7f);
+                    if(SelectHall.Instance.hallPeoplePhoto != null)
+                    {
+                        var peoplePhoto = SelectHall.Instance.hallPeoplePhoto;
+                        peoplePhoto.transform.localScale = new Vector3(1.7f, 1.7f, 1.7f);
+                        var currentPosY = peoplePhoto.transform.localPosition.y;
+                        peoplePhoto.transform.localPosition = new Vector2(peoplePhoto.transform.localPosition.x, currentPosY * 1.7f);
+                    }
+                }
                 if (this.countDownTimer != null) {
                     if (!this.countDownTimer.triggerToStart)
                     {
@@ -152,6 +163,18 @@ public class PageController : MonoBehaviour
                 if (Huabao.Instance != null) Huabao.Instance.setHuaBao(false);
                 break;
             case 4:
+                if (SelectHall.Instance != null)
+                {
+                    CanvasGroup hall = SelectHall.Instance.selectHall.page.currentPage.group;
+                    hall.transform.localScale = Vector3.one;
+                    if(SelectHall.Instance.hallPeoplePhoto != null)
+                    {
+                        var peoplePhoto = SelectHall.Instance.hallPeoplePhoto;
+                        peoplePhoto.transform.localScale = Vector3.one;
+                        var orginalPos = SelectHall.Instance.hallTypePositions[SelectHall.Instance.selectHall.selected];
+                        peoplePhoto.transform.localPosition = orginalPos;
+                    }
+                }
                 if (this.countDownTimer != null) this.countDownTimer.transform.DOLocalMoveX(-532f, 0f);
                 if (Huabao.Instance != null) Huabao.Instance.setHuaBao(true);
                 if (VirtualKeyboard.Instance != null) VirtualKeyboard.Instance.HideTouchKeyboard();
@@ -162,8 +185,6 @@ public class PageController : MonoBehaviour
                 if (this.countDownTimer != null)
                 {
                     this.countDownTimer.transform.DOLocalMoveX(692f, 0f);
-
-
                     if(this.countDownTimer.currentTime <= 180f)
                     {
                         if (this.countDownTimer.currentTime < 150f)
