@@ -45596,17 +45596,17 @@ PrefabInstance:
     - target: {fileID: 6963125606163900117, guid: e301d2a7c7a7c264997b4670984a877e,
         type: 3}
       propertyPath: m_Alpha
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6963125606163900117, guid: e301d2a7c7a7c264997b4670984a877e,
         type: 3}
       propertyPath: m_Interactable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6963125606163900117, guid: e301d2a7c7a7c264997b4670984a877e,
         type: 3}
       propertyPath: m_BlocksRaycasts
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -59413,7 +59413,7 @@ PrefabInstance:
     - target: {fileID: 7903871765631373922, guid: 2b1c1dc3a3631fd478ca8a975af47cf8,
         type: 3}
       propertyPath: m_Volume
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

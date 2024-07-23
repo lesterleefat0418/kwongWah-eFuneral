@@ -14784,9 +14784,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577387261}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &580629835
 GameObject:
@@ -23506,12 +23506,12 @@ MonoBehaviour:
   processAudio_cn:
   - {fileID: 8300000, guid: 8522a77a1c982d746bea2e4e8ba61ce9, type: 3}
   - {fileID: 8300000, guid: eb02f40f0d352db418b679819a9382c8, type: 3}
-  - {fileID: 8300000, guid: 1afa036faf618d848942440582b6b9b0, type: 3}
+  - {fileID: 8300000, guid: 77dbbdf5d830a6646813d0f511a6a9f7, type: 3}
   - {fileID: 8300000, guid: 10967b56c5ea3f34bba82330b43d7eac, type: 3}
   processAudio_eng:
   - {fileID: 8300000, guid: a484b005ef87f3249b83c2e5f95f7f7a, type: 3}
   - {fileID: 8300000, guid: a85b599e91b47a740b2588670edee647, type: 3}
-  - {fileID: 8300000, guid: 1afa036faf618d848942440582b6b9b0, type: 3}
+  - {fileID: 8300000, guid: a1a945898b0e7d540bfb856f9583d52a, type: 3}
   - {fileID: 8300000, guid: 57d56615f6ed6384fba0884ea4c21ad3, type: 3}
   audioMusics: []
   musicBtns: []

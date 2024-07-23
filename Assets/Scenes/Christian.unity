@@ -1306,8 +1306,8 @@ MonoBehaviour:
   cn: {fileID: 12800000, guid: 17271bd4699f501428ee4c68329fd733, type: 3}
   text: {fileID: 1235483838}
   tcText: "\u66AB\u5225\u7247\u523B"
-  cnText: "\u6682\u522B\u7247\u523B"
-  engText: Bye For Now
+  cnText: "\u76F8\u7EA6\u5728\u4E3B\u91CC"
+  engText: Closer To You
   chineseFontSize: 18
   englishFontSize: 18
 --- !u!114 &73567741
@@ -7343,7 +7343,7 @@ MonoBehaviour:
   text: {fileID: 1929992071}
   tcText: "\u5F69\u8679\u4E0B\u7684\u7D04\u5B9A"
   cnText: "\u5F69\u8679\u4E0B\u7684\u7EA6\u5B9A"
-  engText: The Covenant Under the Rainbow
+  engText: Don't Cry For Me
   chineseFontSize: 18
   englishFontSize: 18
 --- !u!114 &291746516
@@ -15303,9 +15303,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577387261}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &580629835
 GameObject:
@@ -22563,7 +22563,7 @@ MonoBehaviour:
   text: {fileID: 1030637457}
   tcText: "\u5929\u4E0A\u7684\u5BB6"
   cnText: "\u5929\u4E0A\u7684\u5BB6"
-  engText: My Heavenly Home
+  engText: Nearer My God To Thee
   chineseFontSize: 18
   englishFontSize: 18
 --- !u!114 &823629764
@@ -23908,11 +23908,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 009d15fd1ba9bfa41add1fef4c1e3089, type: 3}
   - {fileID: 0}
   - {fileID: 8300000, guid: bfcc794ee8e60e045ba157c02743d8a3, type: 3}
-  audioMusics:
-  - {fileID: 8300000, guid: eca2b2304f5bc6c43a76eade5bd2e75b, type: 3}
-  - {fileID: 8300000, guid: 0c31f524522194b42942d5972215b0ae, type: 3}
-  - {fileID: 8300000, guid: 2e8da60085166624680d186efe018d12, type: 3}
-  - {fileID: 8300000, guid: 1dc4d66ed2aee514087c7bc47e3a3016, type: 3}
+  audioMusics_ch:
+  - {fileID: 8300000, guid: 44bcbe6fbf6520a4092fb546fa6d658c, type: 3}
+  - {fileID: 8300000, guid: 9493a1f5ac786c14fab4c6008284466f, type: 3}
+  - {fileID: 8300000, guid: 1034ffe70ba2b9b4588fa2fe45407829, type: 3}
+  - {fileID: 8300000, guid: d85e14f7db011024e93c0ac8b74dbaeb, type: 3}
+  audioMusics_cn:
+  - {fileID: 8300000, guid: 1baf038f8325bdf41b74454583083f9d, type: 3}
+  - {fileID: 8300000, guid: 5cd147d3f28c566419abcff528e41337, type: 3}
+  - {fileID: 8300000, guid: 91a16298b30300040ac554878d1444ed, type: 3}
+  - {fileID: 8300000, guid: d0caa068586e4f545aa8317931159e53, type: 3}
+  audioMusics_eng:
+  - {fileID: 8300000, guid: 81d35ef9c61d01e4fb83cdf43cbc435d, type: 3}
+  - {fileID: 8300000, guid: 8770e4e8b6aaca6498e6ce9b8d176fb0, type: 3}
+  - {fileID: 8300000, guid: 3123141ebb9def54587bff39b114c0b0, type: 3}
+  - {fileID: 8300000, guid: 637306d92d01d9f43b3f0551de640a4e, type: 3}
   musicBtns:
   - {fileID: 1952595694}
   - {fileID: 823629762}
@@ -54510,8 +54520,8 @@ MonoBehaviour:
   cn: {fileID: 12800000, guid: 17271bd4699f501428ee4c68329fd733, type: 3}
   text: {fileID: 947034841}
   tcText: "\u5929\u570B\u518D\u76F8\u898B"
-  cnText: "\u5929\u56FD\u518D\u76F8\u89C1"
-  engText: Meet You in Heaven
+  cnText: "\u7231\u662F\u4E0D\u4FDD\u7559"
+  engText: Unreserved Love
   chineseFontSize: 18
   englishFontSize: 18
 --- !u!114 &1952595696

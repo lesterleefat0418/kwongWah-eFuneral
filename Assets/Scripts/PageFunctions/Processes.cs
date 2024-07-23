@@ -9,7 +9,7 @@ public class Processes : MonoBehaviour
 {
     public int musicTypeId = 2;
     public AudioClip[] processAudio_ch, processAudio_cn, processAudio_eng;
-    public AudioClip[] audioMusics;
+    public AudioClip[] audioMusics_ch, audioMusics_cn, audioMusics_eng;
     public Button[] musicBtns;
     AudioSource audioPlayer;
     public AudioControl bgmAudio;
@@ -80,11 +80,33 @@ public class Processes : MonoBehaviour
             }
         }
 
-        if (this.audioMusics[id] != null)
+
+        int langId = LoaderConfig.Instance.SelectedLanguageId;
+
+        switch (langId)
         {
-            this.audioPlayer.clip = this.audioMusics[id];
-            this.audioPlayer.Play();
+            case 0:
+                if (this.audioMusics_ch[id] != null)
+                {
+                    this.audioPlayer.clip = this.audioMusics_ch[id];
+                }
+                break;
+            case 1:
+                if (this.audioMusics_cn[id] != null)
+                {
+                    this.audioPlayer.clip = this.audioMusics_cn[id];
+                }
+                break;
+            case 2:
+                if (this.audioMusics_eng[id] != null)
+                {
+                    this.audioPlayer.clip = this.audioMusics_eng[id];
+                }
+                break;
         }
+
+        this.audioPlayer.Play();
+
     }
 
     public void close()
