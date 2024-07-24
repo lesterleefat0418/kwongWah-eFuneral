@@ -112,7 +112,7 @@ public class Processes : MonoBehaviour
     public void close()
     {
         this.audioPlayer.Stop();
-        if (this.bgmAudio != null && !this.bgmAudio.isPlaying) this.bgmAudio.Play();
+        if (this.bgmAudio != null && !this.bgmAudio.isPlaying && PageController.Instance.pageController.currentId < 5) this.bgmAudio.Play();
         if (this.musicBtns == null) return;
         for (int i = 0; i < this.musicBtns.Length; i++)
         {

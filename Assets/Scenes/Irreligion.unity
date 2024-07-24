@@ -16128,7 +16128,7 @@ MonoBehaviour:
   text: {fileID: 714764410}
   tcText: "\u97F3\u6A02\u4E8C"
   cnText: "\u97F3\u4E50\u4E8C"
-  engText: Music Two
+  engText: Music 2
   chineseFontSize: 25
   englishFontSize: 20
 --- !u!114 &433779811
@@ -18563,9 +18563,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492959618}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!114 &492959621
 MonoBehaviour:
@@ -36687,7 +36687,7 @@ MonoBehaviour:
   cnText: "\u8F6C\u6362\u97F3\u4E50"
   engText: Change Music
   chineseFontSize: 25
-  englishFontSize: 20
+  englishFontSize: 18
 --- !u!114 &901764988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83358,9 +83358,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012739029}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &2012739032
 MonoBehaviour:

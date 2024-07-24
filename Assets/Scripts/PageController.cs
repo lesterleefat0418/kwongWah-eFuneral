@@ -85,18 +85,16 @@ public class PageController : MonoBehaviour
         {
             case 0:
                 lang = "TC";
-                this.language.setTC();
                 break;
             case 1:
                 lang = "CN";
-                this.language.setCN();
                 break;
             case 2:
                 lang = "Eng";
-                this.language.setENG();
                 break;
 
         }
+        this.language.setLang(LoaderConfig.Instance.SelectedLanguageId);
         Debug.Log("current lang: " + lang);
         for (int i = 0; i < this.languageUI.Length; i++)
         {
@@ -163,7 +161,7 @@ public class PageController : MonoBehaviour
                 if (Huabao.Instance != null) Huabao.Instance.setHuaBao(false);
                 break;
             case 4:
-                if (SelectHall.Instance != null)
+                if (SelectHall.Instance != null && !LoaderConfig.Instance.skipToHuabaoStage)
                 {
                     CanvasGroup hall = SelectHall.Instance.selectHall.page.currentPage.group;
                     hall.transform.localScale = Vector3.one;

@@ -9,6 +9,32 @@ public class Language
     public GameObject[] CN;
     public GameObject[] ENG;
 
+    public void setLang(int lang)
+    {
+        for (int i = 0; i < this.TC.Length; i++)
+        {
+            if (this.TC[i] != null)
+            {
+                this.TC[i].SetActive(lang == 0 ? true : false);
+            }
+        }
+
+        for (int i = 0; i < this.CN.Length; i++)
+        {
+            if (this.CN[i] != null)
+            {
+                this.CN[i].SetActive(lang == 1 ? true : false);
+            }
+        }
+
+        for (int i = 0; i < this.ENG.Length; i++)
+        {
+            if (this.ENG[i] != null)
+            {
+                this.ENG[i].SetActive(lang == 2 ? true : false);
+            }
+        }
+    }
 
     public void setTC()
     {
@@ -17,7 +43,21 @@ public class Language
             if(this.TC[i] != null)
             {
                 this.TC[i].SetActive(true);
+            }
+        }
+
+        for (int i = 0; i < this.CN.Length; i++)
+        {
+            if (this.CN[i] != null)
+            {
                 this.CN[i].SetActive(false);
+            }
+        }
+
+        for (int i = 0; i < this.ENG.Length; i++)
+        {
+            if (this.ENG[i] != null)
+            {
                 this.ENG[i].SetActive(false);
             }
         }

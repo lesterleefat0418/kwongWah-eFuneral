@@ -52,13 +52,17 @@ public class PeoplePhotoLoader : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(CheckUploadPhoto());
+        if(!LoaderConfig.Instance.skipToHuabaoStage) { 
+            StartCoroutine(CheckUploadPhoto());
+        }
         this.showOncePopup = false;
     }
 
     private void OnDisable()
     {
-        this.StopCheckUploadPhoto();
+        if (!LoaderConfig.Instance.skipToHuabaoStage) { 
+            this.StopCheckUploadPhoto();
+        }
     }
 
     public void StopCheckUploadPhoto()
