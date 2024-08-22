@@ -142,12 +142,13 @@ public class PageController : MonoBehaviour
                 {
                     CanvasGroup hall = SelectHall.Instance.selectHall.page.currentPage.group;
                     hall.transform.localScale = new Vector3(1.7f, 1.7f, 1.7f);
+                    hall.transform.localPosition = new Vector2(0f, -80f);
                     if(SelectHall.Instance.hallPeoplePhoto != null)
                     {
                         var peoplePhoto = SelectHall.Instance.hallPeoplePhoto;
                         peoplePhoto.transform.localScale = new Vector3(1.7f, 1.7f, 1.7f);
                         var currentPosY = peoplePhoto.transform.localPosition.y;
-                        peoplePhoto.transform.localPosition = new Vector2(peoplePhoto.transform.localPosition.x, currentPosY * 1.7f);
+                        peoplePhoto.transform.localPosition = new Vector2(peoplePhoto.transform.localPosition.x, (currentPosY * 1.7f) - 80f);
                     }
                 }
                 if (this.countDownTimer != null) {
@@ -165,7 +166,8 @@ public class PageController : MonoBehaviour
                 {
                     CanvasGroup hall = SelectHall.Instance.selectHall.page.currentPage.group;
                     hall.transform.localScale = Vector3.one;
-                    if(SelectHall.Instance.hallPeoplePhoto != null)
+                    hall.transform.localPosition = Vector3.one;
+                    if (SelectHall.Instance.hallPeoplePhoto != null)
                     {
                         var peoplePhoto = SelectHall.Instance.hallPeoplePhoto;
                         peoplePhoto.transform.localScale = Vector3.one;
