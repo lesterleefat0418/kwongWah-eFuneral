@@ -17637,6 +17637,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3063454023133568720, guid: 734427d6e1ceaa24b8c3117e26ed335f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3636123333120393417, guid: 734427d6e1ceaa24b8c3117e26ed335f,
         type: 3}
       propertyPath: m_Pivot.x
@@ -17771,8 +17776,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7d96a2b3103ac7541b47c18706905792,
+      objectReference: {fileID: 21300000, guid: 00f7186c245123448b6b8ffa530a74c8,
         type: 3}
+    - target: {fileID: 4461818143914309588, guid: 734427d6e1ceaa24b8c3117e26ed335f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5637384391402561634, guid: 734427d6e1ceaa24b8c3117e26ed335f,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -20333,7 +20343,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803065777}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -25963,6 +25973,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hall_titleBannerFrame
       objectReference: {fileID: 0}
+    - target: {fileID: 3823285089051813169, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4937260559418425669, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
         type: 3}
       propertyPath: m_Enabled
@@ -30393,6 +30408,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hall_titleBannerFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3823285089051813169, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4937260559418425669, guid: 41cc7dbd478528e4ca475f5fd6a1dbe9,
         type: 3}
@@ -52424,9 +52444,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012739029}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &2012739032
 MonoBehaviour:
