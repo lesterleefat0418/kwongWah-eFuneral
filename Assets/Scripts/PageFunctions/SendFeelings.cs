@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
-using System.Text.RegularExpressions;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
 using System;
@@ -29,10 +28,13 @@ public class SendFeelings : MonoBehaviour
 
     public void setGameMode(bool isPublic)
     {
-        SetUI.Run(this.feelingTag, isPublic ? false : true);
-        SetUI.Run(this.feedbackBtn, isPublic ? false : true);
+        // SetUI.Run(this.feelingTag, isPublic ? false : true);
+        // SetUI.Run(this.feedbackBtn, isPublic ? false : true);
 
-        if(LoaderConfig.Instance.religionId < 4) { 
+         SetUI.Run(this.feelingTag, true);
+         SetUI.Run(this.feedbackBtn, true);
+
+        if (LoaderConfig.Instance.religionId < 4) { 
             SetUI.Run(this.giveFlowerBtn, isPublic ? false : true);
         }
         else

@@ -1,7 +1,7 @@
 {
     "getImageFolderName": "KwongwahServer",
     "adminPassword": "000000",
-    "isLogined": true,
+    "isLogined": false,
     "fullGameTime": 1200.0,
     "onlyHuabaoTime": 600.0,
     "goodByePageDuration": 150.0,
