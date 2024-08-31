@@ -230,8 +230,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 140.14, y: 0.000015258789}
-  m_SizeDelta: {x: -348.28, y: 0}
+  m_AnchoredPosition: {x: 136.17859, y: 0.000015258789}
+  m_SizeDelta: {x: -356.2029, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8475312805101531602
 CanvasRenderer:
@@ -274,10 +274,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.1
-  m_Text: "1. Connect wifi \u201CeFuneral-wifi\u201D\r\n2. Scan the QR code shown
-    on the screen\r\n3. The screen will be directed to the browser for uploading
-    a photo.\r\n4. Click \"Select Photo from Album\" on the page.\r\n\r5. After selection,
-    click \"Upload\". The picture will be uploaded and displayed on the TV.\r"
+  m_Text: "1. Turn off mobile network first\n2. Connect wifi \u201CeFuneral-wifi\u201D\r\n3.
+    Scan the QR code shown on the screen\r\n4. The screen will be directed to the
+    browser for uploading a photo.\r\n5. Click \"Select Photo from Album\" on the
+    page.\r\n\r6. After selection, click \"Upload\". The picture will be uploaded
+    and displayed on the TV.\r"
 --- !u!1 &2034247025926213698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,8 +1087,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 120.630005, y: -0.00024414062}
-  m_SizeDelta: {x: -387.3, y: -96}
+  m_AnchoredPosition: {x: 120.630005, y: -9.2435}
+  m_SizeDelta: {x: -387.3, y: -18.4869}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3831047219327854016
 CanvasRenderer:
@@ -1130,9 +1131,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.1
-  m_Text: "1.\u4E8E\u624B\u673A\u7F51\u8DEF\u4E2D\u8FDE\u63A5 eFuneral-wifi\n2.\u7528\u624B\u673A\u626B\u63CF
-    QR code\n3.\u753B\u9762\u4F1A\u8DF3\u81F3\u6D4F\u89C8\u5668\u53CA\u4E0A\u8F7D\u76F8\u7247\u9875\u9762\n4.\u5728\u9875\u9762\u4E0A\u6309\u201C\u4ECE\u76F8\u518A\u4E2D\u62E3\u9009\u7167\u7247\u201D
-    \n5.\u62E3\u9009\u540E\u6309\u201C\u4E0A\u8F7D\u201D \u56FE\u7247\u4FBF\u4F1A\u4E0A\u8F7D\u5230\u7535\u89C6\u4E2D"
+  m_Text: "1.\u5148\u5173\u95ED\u624B\u673A\u6D41\u52A8\u7F51\u7EDC\n2.\u4E8E\u624B\u673A\u7F51\u8DEF\u4E2D\u8FDE\u63A5
+    eFuneral-wifi\n3.\u7528\u624B\u673A\u626B\u63CF QR code\n4.\u753B\u9762\u4F1A\u8DF3\u81F3\u6D4F\u89C8\u5668\u53CA\u4E0A\u8F7D\u76F8\u7247\u9875\u9762\n5.\u5728\u9875\u9762\u4E0A\u6309\u201C\u4ECE\u76F8\u518A\u4E2D\u62E3\u9009\u7167\u7247\u201D
+    \n6.\u62E3\u9009\u540E\u6309\u201C\u4E0A\u8F7D\u201D \u56FE\u7247\u4FBF\u4F1A\u4E0A\u8F7D\u5230\u7535\u89C6\u4E2D"
 --- !u!1 &7162685704460187899
 GameObject:
   m_ObjectHideFlags: 0
@@ -1410,8 +1411,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 120.630005, y: -0.00024414062}
-  m_SizeDelta: {x: -387.3, y: -96}
+  m_AnchoredPosition: {x: 120.630005, y: -6.6024933}
+  m_SizeDelta: {x: -387.3, y: -13.205}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5220372031186038663
 CanvasRenderer:
@@ -1454,9 +1455,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.1
-  m_Text: "1.\u65BC\u624B\u6A5F\u7DB2\u8DEF\u4E2D\u9023\u63A5 eFuneral-wifi\n2.\u7528\u624B\u6A5F\u6383\u63CF
-    QR code\n3.\u756B\u9762\u6703\u8DF3\u81F3\u700F\u89BD\u5668\u53CA\u4E0A\u8F09\u76F8\u7247\u9801\u9762\n4.\u5728\u9801\u9762\u4E0A\u6309\u201C\u5F9E\u76F8\u7C3F\u4E2D\u63C0\u9078\u7167\u7247\u201D
-    \n5.\u63C0\u9078\u5F8C\u6309\u201C\u4E0A\u8F09\u201D \u5716\u7247\u4FBF\u6703\u4E0A\u8F09\u5230\u96FB\u8996\u4E2D "
+  m_Text: "1.\u5148\u95DC\u9589\u624B\u6A5F\u6D41\u52D5\u7DB2\u7D61\n2.\u65BC\u624B\u6A5F\u7DB2\u8DEF\u4E2D\u9023\u63A5
+    eFuneral-wifi\n3.\u7528\u624B\u6A5F\u6383\u63CF QR code\n4.\u756B\u9762\u6703\u8DF3\u81F3\u700F\u89BD\u5668\u53CA\u4E0A\u8F09\u76F8\u7247\u9801\u9762\n5.\u5728\u9801\u9762\u4E0A\u6309\u201C\u5F9E\u76F8\u7C3F\u4E2D\u63C0\u9078\u7167\u7247\u201D
+    \n6.\u63C0\u9078\u5F8C\u6309\u201C\u4E0A\u8F09\u201D \u5716\u7247\u4FBF\u6703\u4E0A\u8F09\u5230\u96FB\u8996\u4E2D "
 --- !u!1 &8057982806775594535
 GameObject:
   m_ObjectHideFlags: 0
