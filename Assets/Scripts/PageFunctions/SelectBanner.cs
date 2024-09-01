@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class SelectBanner : MonoBehaviour
 {
+    public GameObject[] disableBannerBtnsForEnglish;
     public Select bannerBtns;
     public List<Banner> scenesBanner, goodByeBanner;
 
@@ -17,6 +18,22 @@ public class SelectBanner : MonoBehaviour
             this.setBanner(-1);
         else
             this.setBanner(0);
+
+        this.seperatedForEngBanner();
+    }
+
+    void seperatedForEngBanner()
+    {
+        if(LoaderConfig.Instance.SelectedLanguageId == 2)
+        {
+            for(int i=0; i< this.disableBannerBtnsForEnglish.Length; i++)
+            {
+                if (this.disableBannerBtnsForEnglish[i] != null)
+                {
+                    this.disableBannerBtnsForEnglish[i].SetActive(false);
+                }
+            }
+        }
     }
 
     public void Selected(int id)

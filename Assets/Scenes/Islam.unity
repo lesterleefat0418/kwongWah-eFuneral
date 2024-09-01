@@ -21341,7 +21341,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: cc4b7f600bc0d8245aea2bdd29ea5c89, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -52711,6 +52711,11 @@ MonoBehaviour:
     - name: Hall-3
       words: []
       finalPageTitle: {fileID: 1426289799}
+    hallSelectPannels: []
+    hallBannerGrids: []
+    hallEngImg: []
+    engBannerSprites: []
+    goodByeEngSprites: []
   skipToFeelingPage: 1
 --- !u!1 &2014080397
 GameObject:

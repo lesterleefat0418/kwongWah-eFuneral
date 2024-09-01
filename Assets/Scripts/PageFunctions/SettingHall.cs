@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using System;
+using TouchScript.Utils.Geom;
 
 [System.Serializable]
 public class ProcessSteps
@@ -275,13 +276,21 @@ public class SettingHall : MonoBehaviour
                 Debug.Log(wordsArray);
                 this.hallSpeakText.setSC(wordsArray, this.selectedHallId);
             }
-            else if (LoaderConfig.Instance.languageId == 2)
+            /*else if (LoaderConfig.Instance.languageId == 2)
             {
                 char[] wordsArray = wordtext.text.ToCharArray();
                 Debug.Log(wordsArray);
                 this.hallSpeakText.setEng(wordsArray, this.selectedHallId);
-            }
+            }*/
         }    
+    }
+
+    public void SelectEngBannerImage(int id)
+    {
+        if (LoaderConfig.Instance.languageId == 2)
+        {
+            this.hallSpeakText.setEngBannerImage(this.selectedHallId, id);
+        }
     }
 
     public void SelectSpeakTextSwitchPage(bool right)
@@ -379,25 +388,36 @@ public class Decoration
     }
 }
 
-[System.Serializable]
+[Serializable]
 public class HallSpeakText
 {
     public char[] defaultTCWords = new char[4] { '永', '遠', '懷', '念' };
     public char[] defaultCNWords = new char[4] { '永', '远', '怀', '念' };
     public HallTitle[] halltc, hallsc, halleng;
+    public CanvasGroup[] hallSelectPannels;
+    public Image[] hallBannerGrids;
+    public HallTitleImage[] hallEngImg;
+    public Sprite[] engBannerSprites, goodByeEngSprites;
+
 
     public void setDefaultPublic(int hallId)
     {
         switch (LoaderConfig.Instance.languageId)
         {
             case 0:
+                if(this.hallSelectPannels != null && this.hallSelectPannels.Length > 0) SetUI.Set(this.hallSelectPannels[0], true);
+                if(this.hallBannerGrids.Length > 0) this.hallBannerGrids[hallId].enabled = true;
                 this.setTC(this.defaultTCWords, hallId);
                 break;
             case 1:
+                if (this.hallSelectPannels != null && this.hallSelectPannels.Length > 0) SetUI.Set(this.hallSelectPannels[0], true);
+                if (this.hallBannerGrids.Length > 0) this.hallBannerGrids[hallId].enabled = true;
                 this.setSC(this.defaultCNWords, hallId);
                 break;
             case 2:
-                this.setTC(this.defaultTCWords, hallId);
+                if (this.hallSelectPannels != null && this.hallSelectPannels.Length > 0) SetUI.Set(this.hallSelectPannels[1], true);
+                if (this.hallBannerGrids.Length > 0) this.hallBannerGrids[hallId].enabled = false;
+                this.setEngBannerImage(hallId, 0);
                 break;
         }
     }
@@ -421,18 +441,61 @@ public class HallSpeakText
             this.halleng[hallId].setWords(_words);
     }
 
+    public void setEngBannerImage(int hallId, int bannerId)
+    {
+        if(this.hallEngImg.Length > 0) this.hallEngImg[hallId].setTitle(this.engBannerSprites[bannerId], this.goodByeEngSprites[bannerId]);
+    }
+
     public void reset(int hallId)
     {
+        if(LoaderConfig.Instance.SelectedLanguageId == 2) { 
+
+           // Debug.Log("ENGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
+            if (this.hallSelectPannels != null && this.hallSelectPannels.Length > 0)
+            {
+                //SetUI.Set(this.hallSelectPannels[0], false);
+                SetUI.Set(this.hallSelectPannels[1], true);
+            }
+
+            if (this.hallBannerGrids != null && this.hallBannerGrids.Length > 0)
+            {
+                if (this.hallBannerGrids[hallId] != null)
+                    this.hallBannerGrids[hallId].enabled = false;
+            }
+
+        }
+        else
+        {
+           // Debug.Log("CHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+            if (this.hallSelectPannels != null && this.hallSelectPannels.Length > 0)
+            {
+                SetUI.Set(this.hallSelectPannels[0], true);
+                //SetUI.Set(this.hallSelectPannels[1], false);
+            }
+
+            if (this.hallBannerGrids != null && this.hallBannerGrids.Length > 0)
+            {
+                if (this.hallBannerGrids[hallId] != null)
+                    this.hallBannerGrids[hallId].enabled = true;
+            }
+
+        }
+
         if (this.halltc.Length > hallId)
             this.halltc[hallId].resetWords();
         if (this.hallsc.Length > hallId)
             this.hallsc[hallId].resetWords();
         if (this.halleng.Length > hallId)
             this.halleng[hallId].resetWords();
+
+        if(this.hallEngImg != null && this.hallEngImg.Length > 0) { 
+            this.hallEngImg[hallId].resetWords();
+        }
+
     }
 }
 
-[System.Serializable]
+[Serializable]
 public class HallTitle
 {
     public string name;
@@ -467,5 +530,31 @@ public class HallTitle
         }
 
         if(this.finalPageTitle != null) this.finalPageTitle.text = "";
+    }
+}
+
+[Serializable]
+public class HallTitleImage
+{
+    public string name;
+    public Image word;
+    public Image finalPageTitleImage;
+    public Sprite transparent;
+
+    public void setTitle(Sprite _word, Sprite _goodByeWord)
+    {
+        if (this.word != null) this.word.sprite = _word;
+        if (this.finalPageTitleImage != null) { 
+            var ap = _goodByeWord.rect.width / _goodByeWord.rect.height;
+            var aspectRatioFitter = this.finalPageTitleImage.GetComponent<AspectRatioFitter>();
+            aspectRatioFitter.aspectRatio = ap;
+            this.finalPageTitleImage.sprite = _goodByeWord;
+        }
+    }
+
+    public void resetWords()
+    {
+        if (this.word != null) this.word.sprite = this.transparent;
+        if (this.finalPageTitleImage != null) this.finalPageTitleImage.sprite = this.transparent;
     }
 }
