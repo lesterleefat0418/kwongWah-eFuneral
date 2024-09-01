@@ -23,3 +23,7 @@ Installation steps:
 5. config xampp for auto startup in settings;
 6. extract the unity exe from Kwongwah.zip folder and copy desktop shortcut to window startup;
 7. config the config.txt to enable topMostEnable before daily usage;
+
+Update new unity.exe steps:
+1. extract the unity Kwongwah folder and copy to C:\Users\XXX\Documents\, replace the same folder;
+2. check the startup shortcut is not affected: window> type "run" > type shell:startup > click the name of app "kwongwah" for checking;
