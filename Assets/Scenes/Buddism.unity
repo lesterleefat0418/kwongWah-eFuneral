@@ -57724,6 +57724,9 @@ MonoBehaviour:
   SaveImage: {fileID: 3021039365396457477}
   timeToRecord: 600
   holdToRecord: 1
+  sceneAudioControls:
+  - {fileID: 8439106914487186354}
+  - {fileID: 563987766}
 --- !u!222 &1360188440912826809
 CanvasRenderer:
   m_ObjectHideFlags: 0

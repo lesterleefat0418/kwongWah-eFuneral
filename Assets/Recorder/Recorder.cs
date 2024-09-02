@@ -101,6 +101,8 @@ namespace Recorder
 
         #region MonoBehaviour Callbacks
 
+        //public AudioControl[] sceneAudioControls;
+
         void Start()
         {
             // Request iOS Microphone permission
@@ -239,10 +241,28 @@ namespace Recorder
 
         #endregion
 
+        /*void setCurrentSceneAudioSourcesStatus(bool status)
+        {
+            for (int i = 0; i < this.sceneAudioControls.Length; i++)
+            {
+                if (this.sceneAudioControls[i] != null) {
+                    this.sceneAudioControls[i].GetComponent<AudioSource>().enabled = status;
+
+                    if (status)
+                    {
+                        if (this.sceneAudioControls[i].isPlaying)
+                        {
+                            this.sceneAudioControls[i].Play();
+                        }
+                    }
+                }
+            }
+        }*/
         #region Recorder Functions
 
         public void StartRecording()
         {
+            //this.setCurrentSceneAudioSourcesStatus(false);
             recordingTime = 0f;
             isRecording = true;
 
@@ -257,6 +277,7 @@ namespace Recorder
         {
             if (isRecording)
             {
+               // this.setCurrentSceneAudioSourcesStatus(true);
                 StartCoroutine(ScaleOverTime(RecordButton.gameObject, this.recordBtnOriginalScale));
 
                 while (!(Microphone.GetPosition(null) > 0)) { }
