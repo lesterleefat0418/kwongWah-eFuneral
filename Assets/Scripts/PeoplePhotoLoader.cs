@@ -4,17 +4,19 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using SFB;
 using System;
+using System.IO;
 
 public class PeoplePhotoLoader : MonoBehaviour
 {
     public static PeoplePhotoLoader Instance = null;
-    public string getImageUrl = "";
+    public string getImageUrl = "", deletePhotoUrl = "";
     public Texture originalImage, originalHallPeopleImage, originalResultPeopleImage;
     public RawImage image, hallPeopleImage, resultPeopleImage;
-    private string currentImageUrl;
+    public string currentImageUrl;
     public CanvasGroup resetBtn;
     public float latestUploadPhotoWithinTime = 5;
     public bool showOncePopup = false;
+    public bool deletePhotoAfterUploaded = true;
 
     public string GetImageApi
     {
@@ -25,6 +27,18 @@ public class PeoplePhotoLoader : MonoBehaviour
         get
         {
             return this.getImageUrl;
+        }
+    }
+
+    public string DeletePhotoApi
+    {
+        set
+        {
+            this.deletePhotoUrl = value;
+        }
+        get
+        {
+            return this.deletePhotoUrl;
         }
     }
 
@@ -76,6 +90,7 @@ public class PeoplePhotoLoader : MonoBehaviour
         if(LoaderConfig.Instance != null)
         {
             this.GetImageApi = "http://localhost/" + LoaderConfig.Instance.configData.getImageFolderName + "/getPhoto.php";
+            this.DeletePhotoApi = "http://localhost/" + LoaderConfig.Instance.configData.getImageFolderName + "/deletePhoto.php?filename=";
             this.latestUploadPhotoWithinTime = LoaderConfig.Instance.configData.latestUploadPhotoWithinTime;
         }
 
@@ -120,8 +135,27 @@ public class PeoplePhotoLoader : MonoBehaviour
                         {
                             //Debug.Log(response);
                             Debug.Log("New image created within the last 10 seconds: " + latestImageFile);
-                            currentImageUrl = latestImageFile;
+                            this.currentImageUrl = latestImageFile;
                             yield return LoadImage(latestImageFile);
+
+                            if(this.deletePhotoAfterUploaded) { 
+                                string latestImageFileName = Path.GetFileName(latestImageFile);
+                                Debug.Log("Delete Image name: " + latestImageFileName);
+                                // Delete the image after loading
+                                using (UnityWebRequest deleteRequest = UnityWebRequest.Get(this.DeletePhotoApi + latestImageFileName))
+                                {
+                                    yield return deleteRequest.SendWebRequest();
+
+                                    if (deleteRequest.result != UnityWebRequest.Result.Success)
+                                    {
+                                        Debug.Log("Failed to delete image: " + deleteRequest.error);
+                                    }
+                                    else
+                                    {
+                                        Debug.Log("Image deleted: " + latestImageFile);
+                                    }
+                                }
+                            }
                         }
                         else
                         {

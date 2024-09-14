@@ -101,6 +101,7 @@ namespace Recorder
 
         #region MonoBehaviour Callbacks
 
+        public bool IsSaveAudio = false;
         //public AudioControl[] sceneAudioControls;
 
         void Start()
@@ -302,25 +303,31 @@ namespace Recorder
                 audioPlayer.audioClip = audioClip;
                 audioPlayer.UpdateClip();
 
-                string filePath = Path.Combine(Application.persistentDataPath, fileName + " " + DateTime.UtcNow.ToString("yyyy_MM_dd HH_mm_ss_ffff") + ".wav");
+                if(this.IsSaveAudio) { 
+                    string filePath = Path.Combine(Application.persistentDataPath, fileName + " " + DateTime.UtcNow.ToString("yyyy_MM_dd HH_mm_ss_ffff") + ".wav");
 
-                // Delete the file if it exists.
-                if (File.Exists(filePath))
-                {
-                    File.Delete(filePath);
+                    // Delete the file if it exists.
+                    if (File.Exists(filePath))
+                    {
+                        File.Delete(filePath);
+                    }
+                    try
+                    {
+                        WriteWAVFile(audioClip, filePath);
+                        ConsoleText.text = "Audio Saved at: " + filePath;
+
+                        if(SendFeelings.Instance != null) SendFeelings.Instance.hasNewRecording = true;
+
+                        Debug.Log("File Saved Successfully at " + filePath);
+                    }
+                    catch (DirectoryNotFoundException)
+                    {
+                        Debug.LogError("Persistent Data Path not found!");
+                    }
                 }
-                try
+                else
                 {
-                    WriteWAVFile(audioClip, filePath);
-                    ConsoleText.text = "Audio Saved at: " + filePath;
-
-                    if(SendFeelings.Instance != null) SendFeelings.Instance.hasNewRecording = true;
-
-                    Debug.Log("File Saved Successfully at " + filePath);
-                }
-                catch (DirectoryNotFoundException)
-                {
-                    Debug.LogError("Persistent Data Path not found!");
+                    if (SendFeelings.Instance != null) SendFeelings.Instance.hasNewRecording = true;
                 }
 
                 isRecording = false;
