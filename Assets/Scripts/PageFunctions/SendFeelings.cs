@@ -34,8 +34,9 @@ public class SendFeelings : MonoBehaviour
          SetUI.Run(this.feelingTag, true);
          SetUI.Run(this.feedbackBtn, true);
 
-        if (LoaderConfig.Instance.religionId < 4) { 
-            SetUI.Run(this.giveFlowerBtn, isPublic ? false : true);
+        if (LoaderConfig.Instance.religionId < 4) {
+            // SetUI.Run(this.giveFlowerBtn, isPublic ? false : true);
+            SetUI.Run(this.giveFlowerBtn, isPublic ? true : true);
         }
         else
         {
